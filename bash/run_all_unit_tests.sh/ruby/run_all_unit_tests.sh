@@ -1,12 +1,13 @@
 #!/bin/bash
 
 # ######################################################################## #
-# File:         test_unit.sh
+# File:         run_all_unit_tests.sh
 #
-# Purpose:      Executes the unit-tests regardless of calling directory
+# Purpose:      Executes the unit-tests of a Ruby project regardless of
+#               calling directory
 #
 # Created:      9th June 2011
-# Updated:      1st March 2019
+# Updated:      19th March 2019
 #
 # Author:       Matthew Wilson
 #
