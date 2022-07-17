@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 
 # ######################################################################## #
 # File:         run_all_unit_tests.sh
@@ -7,11 +7,11 @@
 #               calling directory
 #
 # Created:      9th June 2011
-# Updated:      19th March 2019
+# Updated:      17th July 2022
 #
 # Author:       Matthew Wilson
 #
-# Copyright (c) Matthew Wilson, 2011-2019
+# Copyright (c) Matthew Wilson, 2011-2022
 # All rights reserved
 #
 # Redistribution and use in source and binary forms, with or without
@@ -112,7 +112,7 @@ if [ ! -z "$RunRbEnvAllVersions" ]; then
 	exclusions=()
 	if [ -e "$Dir/.ruby-version-exclusions" ]; then
 
-		exclusion_lines=`cat $Dir/.ruby-version-exclusions`
+		exclusion_lines=`cat "$Dir/.ruby-version-exclusions"`
 		for line in $exclusion_lines; do
 
 			exclusions+=($line)
@@ -227,10 +227,10 @@ done
 
 if [ -z "$Separate" ]; then
 
-	ruby $DebugFlag $Dir/test/unit/ts_all.rb
+	ruby $DebugFlag "$Dir/test/unit/ts_all.rb"
 else
 
-	find $Dir -name 'tc_*.rb' -exec ruby $DebugFlag {} \;
+	find "$Dir" -name 'tc_*.rb' -exec ruby $DebugFlag {} \;
 fi
 
 # ############################## end of file ############################# #
