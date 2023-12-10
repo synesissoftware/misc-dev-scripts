@@ -10,6 +10,9 @@ This script provided for projects in the following languages/technologies:
 * [Python](./bash/run_all_unit_tests.sh/python/run_all_unit_tests.sh)
 * [Ruby](./bash/run_all_unit_tests.sh/ruby/run_all_unit_tests.sh)
 
+**NOTE**: use the flag `--help` in the **Ruby** variant to see the various execution options, which include the flag `--rbenv-versions` to run tests across all installed versions of the language.
+
+
 ## Related projects
 
 Resources from this project are used in the following projects:
