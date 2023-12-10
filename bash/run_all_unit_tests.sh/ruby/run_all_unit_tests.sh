@@ -1,17 +1,17 @@
 #! /bin/bash
 
 # ######################################################################## #
-# File:         run_all_unit_tests.sh
+# File:     run_all_unit_tests.sh
 #
-# Purpose:      Executes the unit-tests of a Ruby project regardless of
-#               calling directory
+# Purpose:  Executes the unit-tests of a Ruby project regardless of
+#           calling directory
 #
-# Created:      9th June 2011
-# Updated:      17th July 2022
+# Created:  9th June 2011
+# Updated:  10th December 2023
 #
-# Author:       Matthew Wilson
+# Author:   Matthew Wilson
 #
-# Copyright (c) Matthew Wilson, 2011-2022
+# Copyright (c) Matthew Wilson, 2011-2023
 # All rights reserved
 #
 # Redistribution and use in source and binary forms, with or without
@@ -50,11 +50,12 @@ Source="${BASH_SOURCE[0]}"
 
 while [ -h "$Source" ]; do
 
-  Dir="$(cd -P "$(dirname "$Source")" && pwd)"
-  Source="$(readlink "$Source")"
-  [[ $Source != /* ]] && Source="$Dir/$Source"
+	Dir="$(cd -P "$(dirname "$Source")" && pwd)"
+	Source="$(readlink "$Source")"
+	[[ $Source != /* ]] && Source="$Dir/$Source"
 done
 Dir="$(cd -P "$( dirname "$Source" )" && pwd)"
+
 
 # colours
 
@@ -234,5 +235,4 @@ else
 fi
 
 # ############################## end of file ############################# #
-
 

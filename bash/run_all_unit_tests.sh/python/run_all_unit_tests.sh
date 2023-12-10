@@ -1,23 +1,24 @@
 #! /bin/bash
 
-#############################################################################
-# File:         run_all_unit_tests.sh
+# ######################################################################## #
+# File:     run_all_unit_tests.sh
 #
-# Purpose:      Executes the unit-tests of a Python project regardless of
-#               calling directory
+# Purpose:  Executes the unit-tests of a Python project regardless of
+#           calling directory
 #
-# Created:      13th February 2019
-# Updated:      17th July 2022
+# Created:  13th February 2019
+# Updated:  10th December 2023
 #
-# Author:       Matthew Wilson
+# Author:   Matthew Wilson
 #
-#############################################################################
+# ######################################################################## #
+
 
 source="${BASH_SOURCE[0]}"
 while [ -h "$source" ]; do
-  dir="$(cd -P "$(dirname "$source")" && pwd)"
-  source="$(readlink "$source")"
-  [[ $source != /* ]] && source="$dir/$source"
+	dir="$(cd -P "$(dirname "$source")" && pwd)"
+	source="$(readlink "$source")"
+	[[ $source != /* ]] && source="$dir/$source"
 done
 dir="$( cd -P "$( dirname "$source" )" && pwd )"
 
@@ -26,4 +27,5 @@ dir="$( cd -P "$( dirname "$source" )" && pwd )"
 # contains an __init__.py file (which may be empty)
 python -m unittest discover "$dir/tests"
 
+# ############################## end of file ############################# #
 
