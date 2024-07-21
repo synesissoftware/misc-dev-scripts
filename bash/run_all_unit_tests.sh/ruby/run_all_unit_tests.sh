@@ -4,10 +4,11 @@
 # File:     run_all_unit_tests.sh
 #
 # Purpose:  Executes the unit-tests of a Ruby project regardless of
-#           calling directory
+#           calling directory, allowing use of debug mode, warnings, and
+#           executing each rbenv version
 #
 # Created:  9th June 2011
-# Updated:  2nd April 2024
+# Updated:  12th April 2024
 #
 # Copyright (c) Matthew Wilson, 2011-2024
 # All rights reserved
@@ -47,11 +48,11 @@
 Source="${BASH_SOURCE[0]}"
 while [ -h "$Source" ]; do
 
-  Dir="$(cd -P "$(dirname "$Source")" && pwd)"
+  ScriptDir="$(cd -P "$(dirname "$Source")" && pwd)"
   Source="$(readlink "$Source")"
-  [[ $Source != /* ]] && Source="$Dir/$Source"
+  [[ $Source != /* ]] && Source="$ScriptDir/$Source"
 done
-Dir="$(cd -P "$( dirname "$Source" )" && pwd)"
+ScriptDir="$(cd -P "$( dirname "$Source" )" && pwd)"
 
 
 # colours
@@ -69,6 +70,27 @@ else
   RbEnvClr_Bold=
   RbEnvClr_None=
 fi
+
+
+# special command-line handling ('--pwd')
+
+ProjectDir="$ScriptDir"
+
+for arg in "$@"
+do
+
+  case "$arg" in
+
+    --pwd)
+
+      ProjectDir=$(pwd)
+      ;;
+    *)
+
+      Arguments="$Arguments $arg"
+      ;;
+  esac
+done
 
 
 # special command-line handling ('--rbenv-versions')
@@ -102,7 +124,7 @@ if [ ! -z "$RunRbEnvAllVersions" ]; then
     exit 1
   fi
 
-  if [ ! -e "$Dir/.ruby-version" ];then
+  if [ ! -e "$ProjectDir/.ruby-version" ];then
 
     >&2 echo "$0: ${RbEnvClr_Red}${RbEnvClr_Bold}.ruby-version${RbEnvClr_None} file not detected"
 
@@ -110,9 +132,9 @@ if [ ! -z "$RunRbEnvAllVersions" ]; then
   fi
 
   exclusions=()
-  if [ -e "$Dir/.ruby-version-exclusions" ]; then
+  if [ -e "$ProjectDir/.ruby-version-exclusions" ]; then
 
-    exclusion_lines=`cat "$Dir/.ruby-version-exclusions"`
+    exclusion_lines=`cat "$ProjectDir/.ruby-version-exclusions"`
     for line in $exclusion_lines; do
 
       exclusions+=($line)
@@ -177,6 +199,7 @@ fi
 
 Separate=
 DebugFlag=
+WarningsFlag=-W0
 
 for v in "$@"
 do
@@ -187,7 +210,6 @@ do
 
       DebugFlag=--debug
       ;;
-
     --help)
 
       echo "USAGE: $Source { | --help | [ --debug ] [ --separate ] }"
@@ -200,21 +222,33 @@ do
       echo "  --debug"
       echo "    executes Ruby interpreter in debug mode"
       echo
+      echo "  --pwd"
+      echo "    executes from present working directory, rather than relative to the script directory"
+      echo
       echo "  --rbenv-versions"
       echo "    executes this script (with all other specified arguments) for each rbenv version (except those listed in the file .ruby-version-exclusions, if present)"
       echo
       echo "  --separate"
       echo "    executes each unit-test in a separate program"
       echo
+      echo "  --warnings"
+      echo "    executes Ruby interpreter in warnings mode"
+      echo
 
       exit
       ;;
+    --pwd)
 
+      # already-processed as special case above
+      ;;
     --separate)
 
       Separate=true
       ;;
+    --warnings)
 
+      WarningsFlag=-W2 #-W:performance
+      ;;
     *)
 
       echo "unrecognised argument; use --help for usage"
@@ -224,14 +258,15 @@ do
   esac
 done
 
+
 # executing tests
 
 if [ -z "$Separate" ]; then
 
-  ruby $DebugFlag "$Dir/test/unit/ts_all.rb"
+  ruby $DebugFlag $WarningsFlag "$ProjectDir/test/unit/ts_all.rb"
 else
 
-  find "$Dir" -name 'tc_*.rb' -exec ruby $DebugFlag {} \;
+  find "$ProjectDir" -name 'tc_*.rb' -exec ruby $DebugFlag $WarningsFlag {} \;
 fi
 
 # ############################## end of file ############################# #
