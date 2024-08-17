@@ -8,7 +8,7 @@
 #           executing each rbenv version
 #
 # Created:  9th June 2011
-# Updated:  12th April 2024
+# Updated:  17th August 2024
 #
 # Copyright (c) Matthew Wilson, 2011-2024
 # All rights reserved
@@ -204,58 +204,58 @@ WarningsFlag=-W0
 for v in "$@"
 do
 
-  case "$v" in
+    case "$v" in
 
-    --debug)
+        --debug)
 
-      DebugFlag=--debug
-      ;;
-    --help)
+            DebugFlag=--debug
+            ;;
+        --help)
 
-      echo "USAGE: $Source { | --help | [ --debug ] [ --separate ] }"
-      echo
-      echo "flags:"
-      echo
-      echo "  --help"
-      echo "    shows this help and terminates"
-      echo
-      echo "  --debug"
-      echo "    executes Ruby interpreter in debug mode"
-      echo
-      echo "  --pwd"
-      echo "    executes from present working directory, rather than relative to the script directory"
-      echo
-      echo "  --rbenv-versions"
-      echo "    executes this script (with all other specified arguments) for each rbenv version (except those listed in the file .ruby-version-exclusions, if present)"
-      echo
-      echo "  --separate"
-      echo "    executes each unit-test in a separate program"
-      echo
-      echo "  --warnings"
-      echo "    executes Ruby interpreter in warnings mode"
-      echo
+            echo "USAGE: $Source { | --help | [ --debug ] [ --separate ] }"
+            echo
+            echo "flags:"
+            echo
+            echo "  --help"
+            echo "    shows this help and terminates"
+            echo
+            echo "  --debug"
+            echo "    executes Ruby interpreter in debug mode"
+            echo
+            echo "  --pwd"
+            echo "    executes from present working directory, rather than relative to the script directory"
+            echo
+            echo "  --rbenv-versions"
+            echo "    executes this script (with all other specified arguments) for each rbenv version (except those listed in the file .ruby-version-exclusions, if present)"
+            echo
+            echo "  --separate"
+            echo "    executes each unit-test in a separate program"
+            echo
+            echo "  --warnings"
+            echo "    executes Ruby interpreter in warnings mode"
+            echo
 
-      exit
-      ;;
-    --pwd)
+            exit
+            ;;
+               --pwd)
 
-      # already-processed as special case above
-      ;;
-    --separate)
+            # already-processed as special case above
+            ;;
+        --separate)
 
-      Separate=true
-      ;;
-    --warnings)
+            Separate=true
+            ;;
+        --warnings)
 
-      WarningsFlag=-W2 #-W:performance
-      ;;
-    *)
+            WarningsFlag=-W2 #-W:performance
+            ;;
+        *)
 
-      echo "unrecognised argument; use --help for usage"
+            >&2 echo "unrecognised argument; use --help for usage"
 
-      exit 1
-      ;;
-  esac
+            exit 1
+            ;;
+    esac
 done
 
 
@@ -268,6 +268,7 @@ else
 
   find "$ProjectDir" -name 'tc_*.rb' -exec ruby $DebugFlag $WarningsFlag {} \;
 fi
+
 
 # ############################## end of file ############################# #
 
