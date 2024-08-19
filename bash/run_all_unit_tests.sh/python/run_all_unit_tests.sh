@@ -7,7 +7,7 @@
 #           calling directory
 #
 # Created:  13th February 2019
-# Updated:  2nd April 2024
+# Updated:  17th August 2024
 #
 # Copyright (c) Matthew Wilson, 2019-2024
 # All rights reserved
@@ -53,10 +53,126 @@ while [ -h "$Source" ]; do
 done
 Dir="$(cd -P "$( dirname "$Source" )" && pwd)"
 
+PossiblePythonCommands=(python3 python python2)
+
+
+PythonCommandPath=
+
+
+
+# regular command-line handling
+
+
+while [[ $# -gt 0 ]]
+do
+
+    #echo "\$1=$1"
+
+    case "$1" in
+
+        --python-cmd-path|-p)
+
+            shift
+
+            PythonCommandPath=$1
+            ;;
+        --help)
+
+            echo "USAGE: $Source { | --help | [ --python <python-cmd-path> ] }"
+            echo
+            echo "flags/options:"
+            echo
+            echo "  --help"
+            echo "    shows this help and terminates"
+            echo
+            echo "  -p <python-cmd-path>"
+            echo "  --python-cmd-path <python-cmd-path>"
+            echo "    specifies explicitly the path of the Python command to be executed (rather than discover it)"
+            echo
+
+            exit
+            ;;
+        *)
+
+            >&2 echo "unrecognised argument; use --help for usage"
+
+            exit 1
+            ;;
+    esac
+
+    shift
+done
+
+
+# validate / discover python executable path
+
+if [ "x_$PythonCommandPath" != "x_" ]; then
+
+    # check the given command
+
+    if ! which "$PythonCommandPath" > /dev/null ; then
+
+        >&2 echo "given python-cmd-path '$PythonCommandPath' is not executable"
+
+        exit
+    fi
+else
+
+    # try and find a suitable command
+
+    if [ "x_$PythonCommandPath" = "x_" ]; then
+
+        if [ "y_$PYTHON_COMMAND_PATH" != "y_" ]; then
+
+            if which "$PYTHON_COMMAND_PATH" > /dev/null ; then
+
+                PythonCommandPath=$PYTHON_COMMAND_PATH
+            fi
+        fi
+    fi
+
+    if [ "x_$PythonCommandPath" = "x_" ]; then
+
+        if [ "y_$PYTHON_CMD_PATH" != "y_" ]; then
+
+            if which "$PYTHON_CMD_PATH" > /dev/null ; then
+
+                PythonCommandPath=$PYTHON_CMD_PATH
+            fi
+        fi
+    fi
+
+    if [ "x_$PythonCommandPath" = "x_" ]; then
+
+        for p in "${PossiblePythonCommands[@]}"
+        do
+
+            if which "$p" > /dev/null ; then
+
+                PythonCommandPath=$p
+
+                echo "found validation python command '$p'"
+
+                break
+            fi
+        done
+    fi
+
+    if [ "x_$PythonCommandPath" = "x_" ]; then
+
+        >&2 echo "no valid python command path discovered"
+
+        exit
+    fi
+fi
+
+
+# executing tests
+
 
 # This will operate recursively as long as each subdirectory of $Dir/tests
 # contains an __init__.py file (which may be empty)
-python -m unittest discover "$Dir/tests"
+"$PythonCommandPath" -m unittest discover "$Dir/tests"
 
 
 # ############################## end of file ############################# #
