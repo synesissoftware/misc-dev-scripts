@@ -97,6 +97,7 @@ done
 # rbenv handling
 
 Arguments=
+FoundHelp=
 RunRbEnvAllVersions=
 
 for arg in "$@"
@@ -104,6 +105,11 @@ do
 
   case "$arg" in
 
+    --help)
+
+      FoundHelp=1
+      Arguments="$Arguments $arg"
+      ;;
     --rbenv-versions)
 
       RunRbEnvAllVersions=1
@@ -114,6 +120,11 @@ do
       ;;
   esac
 done
+
+if [ ! -z "$FoundHelp" ]; then
+
+  RunRbEnvAllVersions=
+fi
 
 if [ ! -z "$RunRbEnvAllVersions" ]; then
 
