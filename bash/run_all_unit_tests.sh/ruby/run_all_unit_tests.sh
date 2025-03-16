@@ -10,7 +10,7 @@
 # Created:  9th June 2011
 # Updated:  16th March 2025
 #
-# Copyright (c) Matthew Wilson, 2011-2024
+# Copyright (c) Matthew Wilson, 2011-2025
 # All rights reserved
 #
 # Redistribution and use in source and binary forms, with or without
@@ -251,7 +251,7 @@ do
             ;;
         *)
 
-            >&2 echo "unrecognised argument; use --help for usage"
+            >&2 echo "unrecognised argument '$v'; use --help for usage"
 
             exit 1
             ;;
