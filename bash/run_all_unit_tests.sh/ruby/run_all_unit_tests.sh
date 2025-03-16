@@ -8,7 +8,7 @@
 #           executing each rbenv version
 #
 # Created:  9th June 2011
-# Updated:  17th August 2024
+# Updated:  16th March 2025
 #
 # Copyright (c) Matthew Wilson, 2011-2024
 # All rights reserved
@@ -96,8 +96,8 @@ done
 # special command-line handling ('--rbenv-versions')
 # rbenv handling
 
-RunRbEnvAllVersions=
 Arguments=
+RunRbEnvAllVersions=
 
 for arg in "$@"
 do
@@ -212,7 +212,7 @@ do
             ;;
         --help)
 
-            echo "USAGE: $Source { | --help | [ --debug ] [ --separate ] }"
+            echo "USAGE: $Source { | --help | [ --debug ] [ --pwd ] [ --rbenv-versions ] [ --separate ] [ --warnings ]}"
             echo
             echo "flags:"
             echo
@@ -245,7 +245,7 @@ do
 
             Separate=true
             ;;
-        --warnings)
+        --warnings|--warn)
 
             WarningsFlag=-W2 #-W:performance
             ;;
