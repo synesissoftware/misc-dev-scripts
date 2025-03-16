@@ -10,7 +10,7 @@
 # Created:  9th June 2011
 # Updated:  16th March 2025
 #
-# Copyright (c) Matthew Wilson, 2011-2024
+# Copyright (c) Matthew Wilson, 2011-2025
 # All rights reserved
 #
 # Redistribution and use in source and binary forms, with or without
@@ -97,6 +97,7 @@ done
 # rbenv handling
 
 Arguments=
+FoundHelp=
 RunRbEnvAllVersions=
 
 for arg in "$@"
@@ -104,6 +105,11 @@ do
 
   case "$arg" in
 
+    --help)
+
+      FoundHelp=1
+      Arguments="$Arguments $arg"
+      ;;
     --rbenv-versions)
 
       RunRbEnvAllVersions=1
@@ -114,6 +120,11 @@ do
       ;;
   esac
 done
+
+if [ ! -z "$FoundHelp" ]; then
+
+  RunRbEnvAllVersions=
+fi
 
 if [ ! -z "$RunRbEnvAllVersions" ]; then
 
@@ -251,7 +262,7 @@ do
             ;;
         *)
 
-            >&2 echo "unrecognised argument; use --help for usage"
+            >&2 echo "unrecognised argument '$v'; use --help for usage"
 
             exit 1
             ;;
