@@ -7,9 +7,9 @@
 #           calling directory
 #
 # Created:  13th February 2019
-# Updated:  17th August 2024
+# Updated:  28th August 2025
 #
-# Copyright (c) Matthew Wilson, 2019-2024
+# Copyright (c) Matthew Wilson, 2019-2025
 # All rights reserved
 #
 # Redistribution and use in Source and binary forms, with or without
@@ -66,41 +66,39 @@ PythonCommandPath=
 while [[ $# -gt 0 ]]
 do
 
-    #echo "\$1=$1"
+  case "$1" in
 
-    case "$1" in
+    --python-cmd-path|-p)
 
-        --python-cmd-path|-p)
+      shift
 
-            shift
+      PythonCommandPath=$1
+      ;;
+    --help)
 
-            PythonCommandPath=$1
-            ;;
-        --help)
+      echo "USAGE: $Source { | --help | [ --python <python-cmd-path> ] }"
+      echo
+      echo "flags/options:"
+      echo
+      echo "  --help"
+      echo "  shows this help and terminates"
+      echo
+      echo "  -p <python-cmd-path>"
+      echo "  --python-cmd-path <python-cmd-path>"
+      echo "  specifies explicitly the path of the Python command to be executed (rather than discover it)"
+      echo
 
-            echo "USAGE: $Source { | --help | [ --python <python-cmd-path> ] }"
-            echo
-            echo "flags/options:"
-            echo
-            echo "  --help"
-            echo "    shows this help and terminates"
-            echo
-            echo "  -p <python-cmd-path>"
-            echo "  --python-cmd-path <python-cmd-path>"
-            echo "    specifies explicitly the path of the Python command to be executed (rather than discover it)"
-            echo
+      exit
+      ;;
+    *)
 
-            exit
-            ;;
-        *)
+      >&2 echo "unrecognised argument; use --help for usage"
 
-            >&2 echo "unrecognised argument; use --help for usage"
+      exit 1
+      ;;
+  esac
 
-            exit 1
-            ;;
-    esac
-
-    shift
+  shift
 done
 
 
@@ -108,62 +106,62 @@ done
 
 if [ "x_$PythonCommandPath" != "x_" ]; then
 
-    # check the given command
+  # check the given command
 
-    if ! which "$PythonCommandPath" > /dev/null ; then
+  if ! which "$PythonCommandPath" > /dev/null ; then
 
-        >&2 echo "given python-cmd-path '$PythonCommandPath' is not executable"
+    >&2 echo "given python-cmd-path '$PythonCommandPath' is not executable"
 
-        exit
-    fi
+    exit
+  fi
 else
 
-    # try and find a suitable command
+  # try and find a suitable command
 
-    if [ "x_$PythonCommandPath" = "x_" ]; then
+  if [ "x_$PythonCommandPath" = "x_" ]; then
 
-        if [ "y_$PYTHON_COMMAND_PATH" != "y_" ]; then
+    if [ "y_$PYTHON_COMMAND_PATH" != "y_" ]; then
 
-            if which "$PYTHON_COMMAND_PATH" > /dev/null ; then
+      if which "$PYTHON_COMMAND_PATH" > /dev/null ; then
 
-                PythonCommandPath=$PYTHON_COMMAND_PATH
-            fi
-        fi
+        PythonCommandPath=$PYTHON_COMMAND_PATH
+      fi
     fi
+  fi
 
-    if [ "x_$PythonCommandPath" = "x_" ]; then
+  if [ "x_$PythonCommandPath" = "x_" ]; then
 
-        if [ "y_$PYTHON_CMD_PATH" != "y_" ]; then
+    if [ "y_$PYTHON_CMD_PATH" != "y_" ]; then
 
-            if which "$PYTHON_CMD_PATH" > /dev/null ; then
+      if which "$PYTHON_CMD_PATH" > /dev/null ; then
 
-                PythonCommandPath=$PYTHON_CMD_PATH
-            fi
-        fi
+        PythonCommandPath=$PYTHON_CMD_PATH
+      fi
     fi
+  fi
 
-    if [ "x_$PythonCommandPath" = "x_" ]; then
+  if [ "x_$PythonCommandPath" = "x_" ]; then
 
-        for p in "${PossiblePythonCommands[@]}"
-        do
+    for p in "${PossiblePythonCommands[@]}"
+    do
 
-            if which "$p" > /dev/null ; then
+      if which "$p" > /dev/null ; then
 
-                PythonCommandPath=$p
+        PythonCommandPath=$p
 
-                echo "found validation python command '$p'"
+        echo "found validation python command '$p'"
 
-                break
-            fi
-        done
-    fi
+        break
+      fi
+    done
+  fi
 
-    if [ "x_$PythonCommandPath" = "x_" ]; then
+  if [ "x_$PythonCommandPath" = "x_" ]; then
 
-        >&2 echo "no valid python command path discovered"
+    >&2 echo "no valid python command path discovered"
 
-        exit
-    fi
+    exit
+  fi
 fi
 
 
