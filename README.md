@@ -40,7 +40,7 @@ Resources from this project are used in the following projects:
 * the [**libpath.Ruby**](https://github.com/synesissoftware/libpath.Ruby) library;
 * the [**py2be**](https://github.com/synesissoftware/py2be) (**Python**) library;
 * the [**recls.Ruby**](https://github.com/synesissoftware/recls.Ruby) library;
-* the [**to-be.Ruby**](https://github.com/synesissoftware/to-be.Ruby) library;
+* the [**to_be.Ruby**](https://github.com/synesissoftware/to_be.Ruby) library;
 * the [**xqsr3**](https://github.com/synesissoftware/xqsr3) (**Ruby**) library;
 
 
