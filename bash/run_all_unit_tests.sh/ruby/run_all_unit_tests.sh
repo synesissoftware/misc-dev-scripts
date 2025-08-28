@@ -221,28 +221,30 @@ do
       ;;
     --help)
 
-      echo "USAGE: $Source { | --help | [ --debug ] [ --pwd ] [ --rbenv-versions ] [ --separate ] [ --warnings ]}"
-      echo
-      echo "flags:"
-      echo
-      echo "  --help"
-      echo "  shows this help and terminates"
-      echo
-      echo "  --debug"
-      echo "  executes Ruby interpreter in debug mode"
-      echo
-      echo "  --pwd"
-      echo "  executes from present working directory, rather than relative to the script directory"
-      echo
-      echo "  --rbenv-versions"
-      echo "  executes this script (with all other specified arguments) for each rbenv version (except those listed in the file .ruby-version-exclusions, if present)"
-      echo
-      echo "  --separate"
-      echo "  executes each unit-test in a separate program"
-      echo
-      echo "  --warnings"
-      echo "  executes Ruby interpreter in warnings mode"
-      echo
+      cat << EOF
+USAGE: $Source { | --help | [ --debug ] [ --pwd ] [ --rbenv-versions ] [ --separate ] [ --warnings ]}
+
+flags:
+
+  --help
+  shows this help and terminates
+
+  --debug
+  executes Ruby interpreter in debug mode
+
+  --pwd
+  executes from present working directory, rather than relative to the script directory
+
+  --rbenv-versions
+  executes this script (with all other specified arguments) for each rbenv version (except those listed in the file .ruby-version-exclusions, if present)
+
+  --separate
+  executes each unit-test in a separate program
+
+  --warnings
+  executes Ruby interpreter in warnings mode
+EOF
+
 
       exit 0
       ;;
