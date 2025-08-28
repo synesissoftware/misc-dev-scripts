@@ -53,6 +53,7 @@ while [ -h "$Source" ]; do
   [[ $Source != /* ]] && Source="$ScriptDir/$Source"
 done
 ScriptDir="$(cd -P "$( dirname "$Source" )" && pwd)"
+Basename="$(basename $Source)"
 
 
 # colours
@@ -222,7 +223,7 @@ do
     --help)
 
       cat << EOF
-USAGE: $Source { | --help | [ --debug ] [ --pwd ] [ --rbenv-versions ] [ --separate ] [ --warnings ]}
+USAGE: $Basename { | --help | [ --debug ] [ --pwd ] [ --rbenv-versions ] [ --separate ] [ --warnings ]}
 
 flags:
 
@@ -244,7 +245,6 @@ flags:
   --warnings
   executes Ruby interpreter in warnings mode
 EOF
-
 
       exit 0
       ;;

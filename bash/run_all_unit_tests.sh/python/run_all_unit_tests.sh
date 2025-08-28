@@ -52,6 +52,7 @@ while [ -h "$Source" ]; do
   [[ $Source != /* ]] && Source="$Dir/$Source"
 done
 Dir="$(cd -P "$( dirname "$Source" )" && pwd)"
+Basename="$(basename $Source)"
 
 PossiblePythonCommands=(python3 python python2)
 
@@ -77,7 +78,7 @@ do
     --help)
 
       cat << EOF
-USAGE: $Source { | --help | [ --python <python-cmd-path> ] }
+USAGE: $Basename { | --help | [ --python <python-cmd-path> ] }
 
 flags/options:
 
