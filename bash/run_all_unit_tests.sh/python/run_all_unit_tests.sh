@@ -88,7 +88,7 @@ do
       echo "  specifies explicitly the path of the Python command to be executed (rather than discover it)"
       echo
 
-      exit
+      exit 0
       ;;
     *)
 
@@ -112,7 +112,7 @@ if [ "x_$PythonCommandPath" != "x_" ]; then
 
     >&2 echo "given python-cmd-path '$PythonCommandPath' is not executable"
 
-    exit
+    exit 1
   fi
 else
 
@@ -160,7 +160,7 @@ else
 
     >&2 echo "no valid python command path discovered"
 
-    exit
+    exit 1
   fi
 fi
 
