@@ -244,7 +244,7 @@ do
       echo "  executes Ruby interpreter in warnings mode"
       echo
 
-      exit
+      exit 0
       ;;
     --pwd)
 
