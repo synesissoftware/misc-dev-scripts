@@ -77,17 +77,18 @@ do
       ;;
     --help)
 
-      echo "USAGE: $Basename { | --help | [ --python <python-cmd-path> ] }"
-      echo
-      echo "flags/options:"
-      echo
-      echo "  --help"
-      echo "  shows this help and terminates"
-      echo
-      echo "  -p <python-cmd-path>"
-      echo "  --python-cmd-path <python-cmd-path>"
-      echo "  specifies explicitly the path of the Python command to be executed (rather than discover it)"
-      echo
+      cat << EOF
+USAGE: $Basename { | --help | [ --python <python-cmd-path> ] }
+
+flags/options:
+
+  --help
+  shows this help and terminates
+
+  -p <python-cmd-path>
+  --python-cmd-path <python-cmd-path>
+  specifies explicitly the path of the Python command to be executed (rather than discover it)
+EOF
 
       exit 0
       ;;
