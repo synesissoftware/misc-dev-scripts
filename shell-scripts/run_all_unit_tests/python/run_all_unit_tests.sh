@@ -78,7 +78,7 @@ do
     --help)
 
       cat << EOF
-USAGE: $Basename { | --help | [ --python <python-cmd-path> ] }
+USAGE: $Basename { | --help | [ --python-cmd-path <python-cmd-path> | -p <python-cmd-path> ] }
 
 flags/options:
 

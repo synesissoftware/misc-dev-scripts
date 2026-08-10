@@ -20,7 +20,7 @@
 
 ### **Python** **run_all_unit_tests.sh**:
 
-* [ ] align `--help` with implemented flags (documents `--python`, implements `--python-cmd-path` / `-p`);
+* [x] align `--help` with implemented flags (documents `--python-cmd-path` / `-p`);
 * [ ] fix diagnostic typo (“found validation python command” → “valid”);
 * [ ] invoke discovery as `python -m unittest discover -s <tests-dir> …`;
 * [ ] Prefer `command -v` over `which`; quote `basename` expansions in both scripts;

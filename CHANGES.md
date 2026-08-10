@@ -29,6 +29,8 @@
   * rebuilt forwarded argv as an array for `--rbenv-versions` recursion (quoted `"$0" "${ForwardArgs[@]}"`);
   * ignore `--rbenv-versions` in the regular flag pass when combined with `--help`;
   * `--separate` aggregates per-file `ruby` failures into a non-zero script exit (no longer relies on `find -exec` status);
+* **shell-scripts/run_all_unit_tests/python/run_all_unit_tests.sh**:
+  * aligned `--help` USAGE with implemented `--python-cmd-path` / `-p` flags;
 
 
 <!-- ########################### end of file ########################### -->
