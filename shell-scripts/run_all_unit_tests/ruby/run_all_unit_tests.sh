@@ -61,7 +61,7 @@ Basename="$(basename $Source)"
 if command -v tput > /dev/null; then
 
   SisClr_Blue=${FG_BLUE:-$(tput setaf 4)}
-  SisClr_Red=${FG_BLUE:-$(tput setaf 1)}
+  SisClr_Red=${FG_RED:-$(tput setaf 1)}
   SisClr_Bold=${FD_BOLD:-$(tput bold)}
   SisClr_None=${FD_NONE:-$(tput sgr0)}
 else
