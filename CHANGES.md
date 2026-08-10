@@ -23,6 +23,8 @@
 * Established baseline documentation for the existing shell helpers:
   * **shell-scripts/run_all_unit_tests/python/run_all_unit_tests.sh**;
   * **shell-scripts/run_all_unit_tests/ruby/run_all_unit_tests.sh**;
+* **shell-scripts/run_all_unit_tests/ruby/run_all_unit_tests.sh**:
+  * `--rbenv-versions` selects each interpreter via `RBENV_VERSION` (no longer writes `rbenv local` / `.ruby-version`);
 
 
 <!-- ########################### end of file ########################### -->

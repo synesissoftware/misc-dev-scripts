@@ -189,17 +189,14 @@ if [ ! -z "$RunRbEnvAllVersions" ]; then
 
     echo "processing Ruby version ${SisClr_Blue}${SisClr_Bold}$version${SisClr_None}:"
 
-    echo -e "\texecuting command line '$0 $Arguments' with Ruby version $version ..."
-    rbenv local $version
+    echo -e "\texecuting command line 'RBENV_VERSION=$version $0 $Arguments' with Ruby version $version ..."
 
-    if ! $0 $Arguments; then
+    if ! RBENV_VERSION="$version" "$0" $Arguments; then
 
     result=1
     fi
   fi
   done
-
-  rbenv local $current
 
   exit $result
 fi
