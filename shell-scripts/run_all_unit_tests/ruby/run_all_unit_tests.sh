@@ -136,13 +136,6 @@ if [ ! -z "$RunRbEnvAllVersions" ]; then
   exit 1
   fi
 
-  if [ ! -e "$ProjectDir/.ruby-version" ];then
-
-  >&2 echo "$0: ${SisClr_Red}${SisClr_Bold}.ruby-version${SisClr_None} file not detected"
-
-  exit 1
-  fi
-
   exclusions=()
   if [ -e "$ProjectDir/.ruby-version-exclusions" ]; then
 
@@ -155,7 +148,11 @@ if [ ! -z "$RunRbEnvAllVersions" ]; then
 
   echo "executing command line '${SisClr_Blue}${SisClr_Bold}$0 $Arguments${SisClr_None}' with all Ruby versions ..."
 
-  current=$(rbenv local)
+  current=
+  if [ -f "$ProjectDir/.ruby-version" ]; then
+
+    current=$(tr -d '[:space:]' < "$ProjectDir/.ruby-version")
+  fi
 
   versions=()
   while IFS= read -r line; do
@@ -163,7 +160,7 @@ if [ ! -z "$RunRbEnvAllVersions" ]; then
   versions+=("$line")
   done < <(rbenv versions --bare)
 
-  echo "versions: ${SisClr_Blue}${SisClr_Bold}${versions[*]}${SisClr_None}; skipped versions: ${SisClr_Blue}${SisClr_Bold}${exclusions[*]}${SisClr_None}; current version: ${SisClr_Blue}${SisClr_Bold}${current}${SisClr_None}"
+  echo "versions: ${SisClr_Blue}${SisClr_Bold}${versions[*]}${SisClr_None}; skipped versions: ${SisClr_Blue}${SisClr_Bold}${exclusions[*]}${SisClr_None}; current version: ${SisClr_Blue}${SisClr_Bold}${current:-(none)}${SisClr_None}"
 
   result=0
 
