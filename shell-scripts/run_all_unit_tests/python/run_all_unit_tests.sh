@@ -151,7 +151,7 @@ else
 
         PythonCommandPath=$p
 
-        echo "found validation python command '$p'"
+        echo "found valid python command '$p'"
 
         break
       fi

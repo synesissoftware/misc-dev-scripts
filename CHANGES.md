@@ -31,6 +31,7 @@
   * `--separate` aggregates per-file `ruby` failures into a non-zero script exit (no longer relies on `find -exec` status);
 * **shell-scripts/run_all_unit_tests/python/run_all_unit_tests.sh**:
   * aligned `--help` USAGE with implemented `--python-cmd-path` / `-p` flags;
+  * fixed diagnostic typo (“found valid python command”);
 
 
 <!-- ########################### end of file ########################### -->
