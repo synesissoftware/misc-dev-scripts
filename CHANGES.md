@@ -9,6 +9,7 @@
 ## 0.1.1 - 11th August 2026
 
 * Added **CHANGES.md**, **NEWS.md**, **TODO.md**, and **VERSION**;
+* Replaced root **.gitattributes** (dropped orphan `*.commonrc` rule; shell / docs / Linguist baseline aligned with **misc-config-scripts**);
 * Improved **README.md**:
   * badges (Language, License, Last Commit, CI);
   * short introduction and adoption note;
