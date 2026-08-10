@@ -32,6 +32,7 @@
 * **shell-scripts/run_all_unit_tests/python/run_all_unit_tests.sh**:
   * aligned `--help` USAGE with implemented `--python-cmd-path` / `-p` flags;
   * fixed diagnostic typo (“found valid python command”);
+  * prefer `command -v` over `which`; quote `basename`; validate explicit paths with `[ -x ]` or `command -v`;
 
 
 <!-- ########################### end of file ########################### -->

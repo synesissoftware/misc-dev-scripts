@@ -52,7 +52,7 @@ while [ -h "$Source" ]; do
   [[ $Source != /* ]] && Source="$Dir/$Source"
 done
 Dir="$(cd -P "$( dirname "$Source" )" && pwd)"
-Basename="$(basename $Source)"
+Basename="$(basename "$Source")"
 
 PossiblePythonCommands=(python3 python python2)
 
@@ -110,7 +110,7 @@ if [ "x_$PythonCommandPath" != "x_" ]; then
 
   # check the given command
 
-  if ! which "$PythonCommandPath" > /dev/null ; then
+  if ! { [ -x "$PythonCommandPath" ] || command -v "$PythonCommandPath" > /dev/null; }; then
 
     >&2 echo "given python-cmd-path '$PythonCommandPath' is not executable"
 
@@ -124,7 +124,7 @@ else
 
     if [ "y_$PYTHON_COMMAND_PATH" != "y_" ]; then
 
-      if which "$PYTHON_COMMAND_PATH" > /dev/null ; then
+      if command -v "$PYTHON_COMMAND_PATH" > /dev/null; then
 
         PythonCommandPath=$PYTHON_COMMAND_PATH
       fi
@@ -135,7 +135,7 @@ else
 
     if [ "y_$PYTHON_CMD_PATH" != "y_" ]; then
 
-      if which "$PYTHON_CMD_PATH" > /dev/null ; then
+      if command -v "$PYTHON_CMD_PATH" > /dev/null; then
 
         PythonCommandPath=$PYTHON_CMD_PATH
       fi
@@ -147,7 +147,7 @@ else
     for p in "${PossiblePythonCommands[@]}"
     do
 
-      if which "$p" > /dev/null ; then
+      if command -v "$p" > /dev/null; then
 
         PythonCommandPath=$p
 
