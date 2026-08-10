@@ -31,27 +31,14 @@ Sibling project: [**misc-config-scripts**](https://github.com/synesissoftware/mi
 
 ### run_all_unit_tests.sh
 
+See [**shell-scripts/run_all_unit_tests/README.md**](./shell-scripts/run_all_unit_tests/README.md) for copy commands, the full flag matrix, layout contracts, and environment variables.
+
 Language variants:
 
 * [**Python**](./shell-scripts/run_all_unit_tests/python/run_all_unit_tests.sh) — `unittest` discovery under **tests/**;
 * [**Ruby**](./shell-scripts/run_all_unit_tests/ruby/run_all_unit_tests.sh) — Test::Unit suite **test/unit/ts_all.rb** (or per-file `tc_*.rb` with `--separate`);
 
 Use `--help` on either variant for the authoritative flag list.
-
-| Flag / behaviour | Python | Ruby |
-| --- | --- | --- |
-| `--help` | ✅ | ✅ |
-| Explicit interpreter | `--python-cmd-path` / `-p` (also `PYTHON_CMD_PATH` / `PYTHON_COMMAND_PATH`) | uses `ruby` / **rbenv** |
-| `--pwd` (run relative to CWD) | ❌ | ✅ |
-| `--debug` | ❌ | ✅ |
-| `--warnings` / `--warn` | ❌ | ✅ |
-| `--separate` (one process per test file/module) | ❌ | ✅ |
-| Multi-version matrix | ❌ | `--rbenv-versions` (+ optional **.ruby-version-exclusions**) |
-
-#### Layout contracts
-
-* **Python**: script directory is the project root; tests live under **tests/** and are discovered with `python -m unittest discover` (subdirectories participate when they contain `__init__.py`);
-* **Ruby**: default suite is **test/unit/ts_all.rb**; with `--separate`, every **tc_*.rb** under the project tree is executed individually; `--rbenv-versions` requires **.ruby-version** and an available **rbenv**;
 
 
 ## Related projects

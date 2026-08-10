@@ -13,10 +13,11 @@
 * Moved canonical helpers from **bash/run_all_unit_tests.sh/** to **shell-scripts/run_all_unit_tests/**;
 * Replaced root **.gitattributes** (dropped orphan `*.commonrc` rule; shell / docs / Linguist baseline aligned with **misc-config-scripts**);
 * Replaced **.vscode/settings.json** with **misc-config-scripts** `settings.json/generic/settings.json` (multi-language union template; matches sibling guidance for mixed trees);
+* Added **shell-scripts/run_all_unit_tests/README.md** (copy commands, language layout, flag matrix, contracts, environment variables);
 * Improved **README.md**:
   * badges (Language, License, Last Commit, CI);
   * short introduction and adoption note;
-  * Python / Ruby flag matrix and layout contracts for **run_all_unit_tests.sh**;
+  * link to nested **run_all_unit_tests** README for flag matrix and layout contracts;
   * lexicographic related-projects list;
   * link to sibling project **misc-config-scripts**;
 * Established baseline documentation for the existing shell helpers:
