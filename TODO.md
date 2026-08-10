@@ -68,7 +68,7 @@
 * [x] Fix root **.gitattributes** (drop orphan `*.commonrc` rule; align with **misc-config-scripts** shell / generic patterns);
 * [x] Replace **.vscode/settings.json** with **misc-config-scripts** `settings.json/generic/settings.json` (multi-language union; not a hand-slimmed subset);
 * [x] Align **LICENSE** year range with current year;
-* [ ] Add nested **bash/run_all_unit_tests.sh/README.md** (copy command, per-lang paths, layout contracts, flag table);
+* [ ] Add nested **shell-scripts/run_all_unit_tests/README.md** (copy command, per-lang paths, layout contracts, flag table);
 * [ ] Optional: sample bootstrap notes for copy-vs-sync adoption;
 * [ ] Distribution / drift control: `SCRIPT_VERSION` header matching **VERSION**; document consumer CHANGES citation convention; optional sync helper; optional `testdata/` CI fixtures;
 

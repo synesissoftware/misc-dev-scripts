@@ -11,7 +11,7 @@ Miscellaneous Development Scripts
 ## Table of Contents <!-- omit in toc -->
 
 - [Introduction](#introduction)
-- [Bash Scripts](#bash-scripts)
+- [Shell Scripts](#shell-scripts)
   - [run\_all\_unit\_tests.sh](#run_all_unit_testssh)
 - [Related projects](#related-projects)
 - [Project Information](#project-information)
@@ -19,22 +19,22 @@ Miscellaneous Development Scripts
 
 ## Introduction
 
-**misc-dev-scripts** is a small catalog of Bash helpers intended to be **copied** into Synesis (and related) language libraries — principally **run_all_unit_tests.sh** variants for **Python** and **Ruby** today, with further languages planned.
+**misc-dev-scripts** is a small catalog of shell helpers intended to be **copied** into Synesis (and related) language libraries — principally **run_all_unit_tests.sh** variants for **Python** and **Ruby** today, with further languages planned.
 
-Canonical copies live under **bash/**; consuming projects keep a root-level **run_all_unit_tests.sh**. When updating a consumer, cite this repository’s **VERSION** in that project’s **CHANGES.md**.
+Canonical copies live under **shell-scripts/**; consuming projects keep a root-level **run_all_unit_tests.sh**. When updating a consumer, cite this repository’s **VERSION** in that project’s **CHANGES.md**.
 
 Sibling project: [**misc-config-scripts**](https://github.com/synesissoftware/misc-config-scripts) (shell rc, Git, and editor/attribute templates).
 
 
-## Bash Scripts
+## Shell Scripts
 
 
 ### run_all_unit_tests.sh
 
 Language variants:
 
-* [**Python**](./bash/run_all_unit_tests.sh/python/run_all_unit_tests.sh) — `unittest` discovery under **tests/**;
-* [**Ruby**](./bash/run_all_unit_tests.sh/ruby/run_all_unit_tests.sh) — Test::Unit suite **test/unit/ts_all.rb** (or per-file `tc_*.rb` with `--separate`);
+* [**Python**](./shell-scripts/run_all_unit_tests/python/run_all_unit_tests.sh) — `unittest` discovery under **tests/**;
+* [**Ruby**](./shell-scripts/run_all_unit_tests/ruby/run_all_unit_tests.sh) — Test::Unit suite **test/unit/ts_all.rb** (or per-file `tc_*.rb` with `--separate`);
 
 Use `--help` on either variant for the authoritative flag list.
 

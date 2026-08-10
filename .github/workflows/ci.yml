@@ -46,7 +46,7 @@ jobs:
         fi
 
     - name: Help smoke (Python)
-      run: bash/run_all_unit_tests.sh/python/run_all_unit_tests.sh --help
+      run: shell-scripts/run_all_unit_tests/python/run_all_unit_tests.sh --help
 
     - name: Help smoke (Ruby)
-      run: bash/run_all_unit_tests.sh/ruby/run_all_unit_tests.sh --help
+      run: shell-scripts/run_all_unit_tests/ruby/run_all_unit_tests.sh --help
