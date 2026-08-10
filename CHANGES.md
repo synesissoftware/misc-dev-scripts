@@ -8,6 +8,7 @@
 
 ## 0.1.1 - 11th August 2026
 
+* Added **.github/workflows/ci.yml** (`bash -n` on all `*.sh`; `--help` smoke for Python and Ruby variants);
 * Added **CHANGES.md**, **NEWS.md**, **TODO.md**, and **VERSION**;
 * Replaced root **.gitattributes** (dropped orphan `*.commonrc` rule; shell / docs / Linguist baseline aligned with **misc-config-scripts**);
 * Replaced **.vscode/settings.json** with **misc-config-scripts** `settings.json/generic/settings.json` (multi-language union template; matches sibling guidance for mixed trees);

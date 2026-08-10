@@ -64,7 +64,7 @@
 * [x] Add **CHANGES.md**;
 * [x] Add **TODO.md**;
 * [x] Upgrade **README.md** (badges, flag matrix, layout contracts, related projects, sibling link);
-* [ ] Fill **.github/workflows/ci.yml**: `bash -n` on all `*.sh`; `--help` smoke for each language variant;
+* [x] Fill **.github/workflows/ci.yml**: `bash -n` on all `*.sh`; `--help` smoke for each language variant;
 * [x] Fix root **.gitattributes** (drop orphan `*.commonrc` rule; align with **misc-config-scripts** shell / generic patterns);
 * [x] Replace **.vscode/settings.json** with **misc-config-scripts** `settings.json/generic/settings.json` (multi-language union; not a hand-slimmed subset);
 * [x] Align **LICENSE** year range with current year;
