@@ -53,7 +53,7 @@ while [ -h "$Source" ]; do
   [[ $Source != /* ]] && Source="$ScriptDir/$Source"
 done
 ScriptDir="$(cd -P "$( dirname "$Source" )" && pwd)"
-Basename="$(basename $Source)"
+Basename="$(basename "$Source")"
 
 
 # colours
@@ -73,31 +73,10 @@ else
 fi
 
 
-# special command-line handling ('--pwd')
+# special command-line handling ('--pwd', '--rbenv-versions')
 
 ProjectDir="$ScriptDir"
-
-for arg in "$@"
-do
-
-  case "$arg" in
-
-  --pwd)
-
-    ProjectDir=$(pwd)
-    ;;
-  *)
-
-    Arguments="$Arguments $arg"
-    ;;
-  esac
-done
-
-
-# special command-line handling ('--rbenv-versions')
-# rbenv handling
-
-Arguments=
+ForwardArgs=()
 FoundHelp=
 RunRbEnvAllVersions=
 
@@ -109,7 +88,12 @@ do
   --help)
 
     FoundHelp=1
-    Arguments="$Arguments $arg"
+    ForwardArgs+=("$arg")
+    ;;
+  --pwd)
+
+    ProjectDir=$(pwd)
+    ForwardArgs+=("$arg")
     ;;
   --rbenv-versions)
 
@@ -117,7 +101,7 @@ do
     ;;
   *)
 
-    Arguments="$Arguments $arg"
+    ForwardArgs+=("$arg")
     ;;
   esac
 done
@@ -142,11 +126,11 @@ if [ ! -z "$RunRbEnvAllVersions" ]; then
   exclusion_lines=`cat "$ProjectDir/.ruby-version-exclusions"`
   for line in $exclusion_lines; do
 
-    exclusions+=($line)
+    exclusions+=("$line")
   done
   fi
 
-  echo "executing command line '${SisClr_Blue}${SisClr_Bold}$0 $Arguments${SisClr_None}' with all Ruby versions ..."
+  echo "executing command line '${SisClr_Blue}${SisClr_Bold}$0 ${ForwardArgs[*]}${SisClr_None}' with all Ruby versions ..."
 
   current=
   if [ -f "$ProjectDir/.ruby-version" ]; then
@@ -164,7 +148,7 @@ if [ ! -z "$RunRbEnvAllVersions" ]; then
 
   result=0
 
-  for version in ${versions[@]}
+  for version in "${versions[@]}"
   do
 
   echo
@@ -186,9 +170,9 @@ if [ ! -z "$RunRbEnvAllVersions" ]; then
 
     echo "processing Ruby version ${SisClr_Blue}${SisClr_Bold}$version${SisClr_None}:"
 
-    echo -e "\texecuting command line 'RBENV_VERSION=$version $0 $Arguments' with Ruby version $version ..."
+    echo -e "\texecuting command line 'RBENV_VERSION=$version $0 ${ForwardArgs[*]}' with Ruby version $version ..."
 
-    if ! RBENV_VERSION="$version" "$0" $Arguments; then
+    if ! RBENV_VERSION="$version" "$0" "${ForwardArgs[@]}"; then
 
     result=1
     fi
@@ -243,6 +227,10 @@ EOF
       exit 0
       ;;
     --pwd)
+
+      # already-processed as special case above
+      ;;
+    --rbenv-versions)
 
       # already-processed as special case above
       ;;

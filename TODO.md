@@ -30,7 +30,7 @@
 ### **Ruby** **run_all_unit_tests.sh**:
 
 * [x] fix red colour initialisation (was `FG_BLUE` / wrong colour; now `SisClr_*` + `FG_RED`);
-* [ ] rebuild argv with an array under `--rbenv-versions` (string concatenation breaks spaced arguments);
+* [x] rebuild argv with an array under `--rbenv-versions` (string concatenation breaks spaced arguments);
 * [x] avoid mutating `rbenv local` for the version matrix (use `RBENV_VERSION=…` for each child invocation);
 * [ ] `--separate` must aggregate non-zero exits from per-file runs;
 

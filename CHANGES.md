@@ -26,6 +26,8 @@
 * **shell-scripts/run_all_unit_tests/ruby/run_all_unit_tests.sh**:
   * `--rbenv-versions` selects each interpreter via `RBENV_VERSION` (no longer writes `rbenv local` / `.ruby-version`);
   * `--rbenv-versions` no longer requires a **.ruby-version** file (still optional for status display; **.ruby-version-exclusions** remains optional);
+  * rebuilt forwarded argv as an array for `--rbenv-versions` recursion (quoted `"$0" "${ForwardArgs[@]}"`);
+  * ignore `--rbenv-versions` in the regular flag pass when combined with `--help`;
 
 
 <!-- ########################### end of file ########################### -->
