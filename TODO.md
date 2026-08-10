@@ -4,25 +4,35 @@
 ## Table of Contents <!-- omit in toc -->
 
 - [Correctness / defects](#correctness--defects)
+  - [**Python** **run\_all\_unit\_tests.sh**:](#python-run_all_unit_testssh)
+  - [**Ruby** **run\_all\_unit\_tests.sh**:](#ruby-run_all_unit_testssh)
 - [Functional improvements](#functional-improvements)
   - [Python / Ruby parity](#python--ruby-parity)
   - [Modern Python / Ruby runners](#modern-python--ruby-runners)
   - [Language expansion](#language-expansion)
+  - [Windows counterparts](#windows-counterparts)
 - [Performance improvements](#performance-improvements)
 - [Packaging / CI / docs](#packaging--ci--docs)
 
 
 ## Correctness / defects
 
-* [ ] **Ruby** **run_all_unit_tests.sh**: fix `RbEnvClr_Red` initialisation (currently uses `FG_BLUE` / wrong colour);
-* [ ] **Ruby** **run_all_unit_tests.sh**: rebuild argv with an array under `--rbenv-versions` (string concatenation breaks spaced arguments);
-* [ ] **Ruby** **run_all_unit_tests.sh**: avoid mutating `rbenv local` for the version matrix (prefer `RBENV_VERSION` / `rbenv exec`, restore on exit/INT);
-* [ ] **Ruby** **run_all_unit_tests.sh**: `--separate` must aggregate non-zero exits from per-file runs;
-* [ ] **Python** **run_all_unit_tests.sh**: align `--help` with implemented flags (documents `--python`, implements `--python-cmd-path` / `-p`);
-* [ ] **Python** **run_all_unit_tests.sh**: fix diagnostic typo (“found validation python command” → “valid”);
-* [ ] **Python** **run_all_unit_tests.sh**: invoke discovery as `python -m unittest discover -s <tests-dir> …`;
+
+### **Python** **run_all_unit_tests.sh**:
+
+* [ ] align `--help` with implemented flags (documents `--python`, implements `--python-cmd-path` / `-p`);
+* [ ] fix diagnostic typo (“found validation python command” → “valid”);
+* [ ] invoke discovery as `python -m unittest discover -s <tests-dir> …`;
 * [ ] Prefer `command -v` over `which`; quote `basename` expansions in both scripts;
 * [ ] Drop `python2` from default Python command discovery (or gate behind an explicit opt-in);
+
+
+### **Ruby** **run_all_unit_tests.sh**:
+
+* [ ] fix `RbEnvClr_Red` initialisation (currently uses `FG_BLUE` / wrong colour);
+* [ ] rebuild argv with an array under `--rbenv-versions` (string concatenation breaks spaced arguments);
+* [ ] avoid mutating `rbenv local` for the version matrix (prefer `RBENV_VERSION` / `rbenv exec`, restore on exit/INT);
+* [ ] `--separate` must aggregate non-zero exits from per-file runs;
 
 
 ## Functional improvements
@@ -51,6 +61,10 @@
 * [ ] Add **Rust** **run_all_unit_tests.sh** (`cargo test`, optional `--workspace` / `--all-features`);
 * [ ] Add **Zig** **run_all_unit_tests.sh** (`zig build test`);
 * [ ] Extract shared Bash preamble only once a third language lands;
+
+### Windows counterparts
+
+* [ ] Create **.cmd** counterparts of the **run_all_unit_tests** scripts (per language under **shell-scripts/run_all_unit_tests/**), matching the shell flags and layout contracts where feasible;
 
 
 ## Performance improvements
