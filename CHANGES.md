@@ -10,6 +10,7 @@
 
 * Added **CHANGES.md**, **NEWS.md**, **TODO.md**, and **VERSION**;
 * Replaced root **.gitattributes** (dropped orphan `*.commonrc` rule; shell / docs / Linguist baseline aligned with **misc-config-scripts**);
+* Replaced **.vscode/settings.json** with **misc-config-scripts** `settings.json/generic/settings.json` (multi-language union template; matches sibling guidance for mixed trees);
 * Improved **README.md**:
   * badges (Language, License, Last Commit, CI);
   * short introduction and adoption note;

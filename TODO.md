@@ -66,7 +66,7 @@
 * [x] Upgrade **README.md** (badges, flag matrix, layout contracts, related projects, sibling link);
 * [ ] Fill **.github/workflows/ci.yml**: `bash -n` on all `*.sh`; `--help` smoke for each language variant;
 * [x] Fix root **.gitattributes** (drop orphan `*.commonrc` rule; align with **misc-config-scripts** shell / generic patterns);
-* [ ] Slim / replace **.vscode/settings.json** with a shell + Markdown oriented template (not the C++ `files.associations` dump);
+* [x] Replace **.vscode/settings.json** with **misc-config-scripts** `settings.json/generic/settings.json` (multi-language union; not a hand-slimmed subset);
 * [x] Align **LICENSE** year range with current year;
 * [ ] Add nested **bash/run_all_unit_tests.sh/README.md** (copy command, per-lang paths, layout contracts, flag table);
 * [ ] Optional: sample bootstrap notes for copy-vs-sync adoption;
