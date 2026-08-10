@@ -28,6 +28,7 @@
   * `--rbenv-versions` no longer requires a **.ruby-version** file (still optional for status display; **.ruby-version-exclusions** remains optional);
   * rebuilt forwarded argv as an array for `--rbenv-versions` recursion (quoted `"$0" "${ForwardArgs[@]}"`);
   * ignore `--rbenv-versions` in the regular flag pass when combined with `--help`;
+  * `--separate` aggregates per-file `ruby` failures into a non-zero script exit (no longer relies on `find -exec` status);
 
 
 <!-- ########################### end of file ########################### -->

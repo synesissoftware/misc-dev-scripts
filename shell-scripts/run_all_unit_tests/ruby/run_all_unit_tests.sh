@@ -259,7 +259,17 @@ if [ -z "$Separate" ]; then
   ruby $DebugFlag $WarningsFlag "$ProjectDir/test/unit/ts_all.rb"
 else
 
-  find "$ProjectDir" -name 'tc_*.rb' -exec ruby $DebugFlag $WarningsFlag {} \;
+  result=0
+
+  while IFS= read -r -d '' testfile; do
+
+    if ! ruby $DebugFlag $WarningsFlag "$testfile"; then
+
+      result=1
+    fi
+  done < <(find "$ProjectDir" -name 'tc_*.rb' -print0)
+
+  exit $result
 fi
 
 
