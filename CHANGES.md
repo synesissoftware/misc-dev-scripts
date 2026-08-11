@@ -3,7 +3,7 @@
 
 ## Table of Contents <!-- omit in toc -->
 
-- [0.1.1](#011)
+- [0.1.1 - 11th August 2026](#011---11th-august-2026)
 
 
 ## 0.1.1 - 11th August 2026
