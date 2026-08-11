@@ -3,9 +3,22 @@
 
 ## Table of Contents <!-- omit in toc -->
 
+- [0.4.0 - 13th August 2026](#040---13th-august-2026)
 - [0.3.0 - 12th August 2026](#030---12th-august-2026)
 - [0.2.0 - 12th August 2026](#020---12th-august-2026)
 - [0.1.1 - 11th August 2026](#011---11th-august-2026)
+
+
+## 0.4.0 - 13th August 2026
+
+* **shell-scripts/run_all_unit_tests/python/run_all_unit_tests.sh**:
+  * aligned `--help` with implemented flags (`--python-cmd-path` / `-p`; dropped undocumented `--python`);
+  * added `--assume-python2` and `--include-python2-in-search`; default discovery is `python3` then `python` (no `python2`);
+  * if neither Python 2 flag is set and only `python2` is on `PATH`, exit with an error suggesting those flags;
+  * invoke discovery as `python -m unittest discover -s <tests-dir>`;
+  * prefer `command -v` over `which`; quoted `basename` expansion;
+  * corrected diagnostic (“found valid python command”);
+* Updated **shell-scripts/run_all_unit_tests/README.md** (Python 2 flags; `unittest discover -s`; interpreter discovery order);
 
 
 ## 0.3.0 - 12th August 2026
@@ -18,7 +31,7 @@
   * `--separate` aggregates per-file `ruby` failures into a non-zero script exit (no longer relies on `find -exec` status);
   * corrected red colour initialisation (`SisClr_*` + `FG_RED`; was `FG_BLUE`);
   * quoted `basename` expansion;
-* Updated **shell-scripts/run_all_unit_tests/README.md** (Ruby `--rbenv-versions` contract: **rbenv** required; **.ruby-version** optional **`RBENV_VERSION`** documented);
+* Updated **shell-scripts/run_all_unit_tests/README.md** (Ruby `--rbenv-versions` contract: **rbenv** required; **.ruby-version** optional; **`RBENV_VERSION`** documented);
 
 
 ## 0.2.0 - 12th August 2026
