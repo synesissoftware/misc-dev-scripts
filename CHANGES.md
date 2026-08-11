@@ -3,7 +3,13 @@
 
 ## Table of Contents <!-- omit in toc -->
 
+- [0.2.0 - 12th August 2026](#020---12th-august-2026)
 - [0.1.1 - 11th August 2026](#011---11th-august-2026)
+
+
+## 0.2.0 - 12th August 2026
+
+* Added `--lib` to **shell-scripts/run_all_unit_tests/ruby/run_all_unit_tests.sh** (prepends the project's **lib** directory into **RUBYLIB** before executing tests);
 
 
 ## 0.1.1 - 11th August 2026
