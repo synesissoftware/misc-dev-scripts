@@ -1,0 +1,52 @@
+#
+# Created: 11th August 2026
+# Updated: 11th August 2026
+#
+
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+      - dev
+      - boilerplate
+      - idiomatic
+      - rc1
+      - rc2
+      - rc3
+  pull_request:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checking out code
+      uses: actions/checkout@v4
+
+    - name: Shell syntax
+      run: |
+        set -euo pipefail
+        found=0
+        while IFS= read -r script; do
+          found=1
+          echo "checking ${script}"
+          bash -n "${script}"
+        done < <(find . -type f -name '*.sh' ! -path './.git/*' | sort)
+        if [[ "${found}" -eq 0 ]]; then
+          echo "no shell scripts found" >&2
+          exit 1
+        fi
+
+    - name: Help smoke (Python)
+      run: shell-scripts/run_all_unit_tests/python/run_all_unit_tests.sh --help
+
+    - name: Help smoke (Ruby)
+      run: shell-scripts/run_all_unit_tests/ruby/run_all_unit_tests.sh --help

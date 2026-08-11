@@ -1,2 +1,38 @@
-*.commonrc linguist-language=Shell
+# .gitattributes — misc-dev-scripts (Bash helper catalog)
+#
+# Aligned with misc-config-scripts shell / shared baseline patterns.
+# Prefer a language-specific template from that sibling when copying into
+# a primary-language library.
 
+# Default: detect text, normalize to LF in the repository
+* text=auto
+
+# --- Scripts ---
+*.bash text eol=lf linguist-language=Shell
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+*.sh text eol=lf linguist-language=Shell
+*.zsh text eol=lf linguist-language=Shell
+
+# --- Docs / meta ---
+*.markdown text diff=markdown
+*.md text diff=markdown
+*.txt text
+.gitattributes text
+.gitignore text
+CHANGES text
+LICENSE text
+NEWS text
+README text
+TODO text
+VERSION text
+
+# --- Config ---
+**/.gitattributes -linguist-vendored linguist-language=Git-Attributes linguist-detectable
+**/settings.json linguist-language=JSON-with-Comments linguist-detectable
+*.json text
+*.yaml text
+*.yml text
+.gitattributes -linguist-vendored linguist-language=Git-Attributes linguist-detectable
+settings.json linguist-language=JSON-with-Comments linguist-detectable
