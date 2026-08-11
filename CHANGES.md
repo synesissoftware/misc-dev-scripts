@@ -33,6 +33,7 @@
   * aligned `--help` USAGE with implemented `--python-cmd-path` / `-p` flags;
   * fixed diagnostic typo (“found valid python command”);
   * prefer `command -v` over `which`; quote `basename`; validate explicit paths with `[ -x ]` or `command -v`;
+  * invoke unit-tests via `python -m unittest discover -s <tests-dir>`;
 
 
 <!-- ########################### end of file ########################### -->

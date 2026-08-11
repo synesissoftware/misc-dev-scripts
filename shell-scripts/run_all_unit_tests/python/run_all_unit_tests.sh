@@ -172,7 +172,7 @@ fi
 
 # This will operate recursively as long as each subdirectory of $Dir/tests
 # contains an __init__.py file (which may be empty)
-"$PythonCommandPath" -m unittest discover "$Dir/tests"
+"$PythonCommandPath" -m unittest discover -s "$Dir/tests"
 
 
 # ############################## end of file ############################# #

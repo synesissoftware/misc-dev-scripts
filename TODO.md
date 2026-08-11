@@ -22,7 +22,7 @@
 
 * [x] align `--help` with implemented flags (documents `--python-cmd-path` / `-p`);
 * [x] fix diagnostic typo (“found validation python command” → “valid”);
-* [ ] invoke discovery as `python -m unittest discover -s <tests-dir> …`;
+* [x] invoke discovery as `python -m unittest discover -s <tests-dir> …`;
 * [x] Prefer `command -v` over `which`; quote `basename` expansions (Ruby already done; Python now aligned);
 * [ ] Drop `python2` from default Python command discovery (or gate behind an explicit opt-in);
 

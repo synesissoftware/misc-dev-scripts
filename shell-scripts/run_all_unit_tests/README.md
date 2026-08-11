@@ -60,7 +60,7 @@ Use `--help` on the installed script for the authoritative flag list.
 
 ## Layout contracts
 
-* **Python**: the script’s directory is treated as the project root; tests live under **tests/** and are discovered with `python -m unittest discover` (subdirectories participate when they contain `__init__.py`);
+* **Python**: the script’s directory is treated as the project root; tests live under **tests/** and are discovered with `python -m unittest discover -s <tests-dir>` (subdirectories participate when they contain `__init__.py`);
 * **Ruby**: default suite is **test/unit/ts_all.rb**; with `--separate`, every **tc_*.rb** under the project tree is executed individually; `--pwd` uses the present working directory as the project root instead of the script directory; `--rbenv-versions` requires an available **rbenv** (**.ruby-version** is optional; **.ruby-version-exclusions** remains optional);
 
 
