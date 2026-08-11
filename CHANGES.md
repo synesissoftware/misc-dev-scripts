@@ -3,7 +3,27 @@
 
 ## Table of Contents <!-- omit in toc -->
 
-- [0.1.1](#011)
+- [0.3.0 - 12th August 2026](#030---12th-august-2026)
+- [0.2.0 - 12th August 2026](#020---12th-august-2026)
+- [0.1.1 - 11th August 2026](#011---11th-august-2026)
+
+
+## 0.3.0 - 12th August 2026
+
+* **shell-scripts/run_all_unit_tests/ruby/run_all_unit_tests.sh**:
+  * `--rbenv-versions` selects each interpreter via `RBENV_VERSION` (no longer writes `rbenv local` / `.ruby-version`);
+  * `--rbenv-versions` no longer requires a **.ruby-version** file (still optional for status display; **.ruby-version-exclusions** remains optional);
+  * rebuilt forwarded argv as an array for `--rbenv-versions` recursion (quoted `"$0" "${ForwardArgs[@]}"`);
+  * ignore `--rbenv-versions` in the regular flag pass (so `--help --rbenv-versions` is not treated as an unrecognised argument);
+  * `--separate` aggregates per-file `ruby` failures into a non-zero script exit (no longer relies on `find -exec` status);
+  * corrected red colour initialisation (`SisClr_*` + `FG_RED`; was `FG_BLUE`);
+  * quoted `basename` expansion;
+* Updated **shell-scripts/run_all_unit_tests/README.md** (Ruby `--rbenv-versions` contract: **rbenv** required; **.ruby-version** optional **`RBENV_VERSION`** documented);
+
+
+## 0.2.0 - 12th August 2026
+
+* Added `--lib` to **shell-scripts/run_all_unit_tests/ruby/run_all_unit_tests.sh** (prepends the project's **lib** directory into **RUBYLIB** before executing tests);
 
 
 ## 0.1.1 - 11th August 2026
@@ -23,18 +43,6 @@
 * Established baseline documentation for the existing shell helpers:
   * **shell-scripts/run_all_unit_tests/python/run_all_unit_tests.sh**;
   * **shell-scripts/run_all_unit_tests/ruby/run_all_unit_tests.sh**;
-* **shell-scripts/run_all_unit_tests/ruby/run_all_unit_tests.sh**:
-  * `--rbenv-versions` selects each interpreter via `RBENV_VERSION` (no longer writes `rbenv local` / `.ruby-version`);
-  * `--rbenv-versions` no longer requires a **.ruby-version** file (still optional for status display; **.ruby-version-exclusions** remains optional);
-  * rebuilt forwarded argv as an array for `--rbenv-versions` recursion (quoted `"$0" "${ForwardArgs[@]}"`);
-  * ignore `--rbenv-versions` in the regular flag pass when combined with `--help`;
-  * `--separate` aggregates per-file `ruby` failures into a non-zero script exit (no longer relies on `find -exec` status);
-* **shell-scripts/run_all_unit_tests/python/run_all_unit_tests.sh**:
-  * aligned `--help` USAGE with implemented `--python-cmd-path` / `-p` flags;
-  * fixed diagnostic typo (“found valid python command”);
-  * prefer `command -v` over `which`; quote `basename`; validate explicit paths with `[ -x ]` or `command -v`;
-  * invoke unit-tests via `python -m unittest discover -s <tests-dir>`;
-  * default discovery probes `python3` then `python` only; add `--include-python2-in-search` / `--assume-python2`, and error if only `python2` is found without either flag;
 
 
 <!-- ########################### end of file ########################### -->
