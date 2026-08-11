@@ -7,9 +7,9 @@
 #           calling directory
 #
 # Created:  13th February 2019
-# Updated:  28th August 2025
+# Updated:  11th August 2026
 #
-# Copyright (c) Matthew Wilson, 2019-2025
+# Copyright (c) Matthew Wilson, 2019-2026
 # All rights reserved
 #
 # Redistribution and use in Source and binary forms, with or without
@@ -54,11 +54,10 @@ done
 Dir="$(cd -P "$( dirname "$Source" )" && pwd)"
 Basename="$(basename "$Source")"
 
-PossiblePythonCommands=(python3 python python2)
 
-
+AssumePython2=
+IncludePython2InSearch=
 PythonCommandPath=
-
 
 
 # regular command-line handling
@@ -69,6 +68,14 @@ do
 
   case "$1" in
 
+    --assume-python2)
+
+      AssumePython2=1
+      ;;
+    --include-python2-in-search)
+
+      IncludePython2InSearch=1
+      ;;
     --python-cmd-path|-p)
 
       shift
@@ -78,12 +85,18 @@ do
     --help)
 
       cat << EOF
-USAGE: $Basename { | --help | [ --python-cmd-path <python-cmd-path> | -p <python-cmd-path> ] }
+USAGE: $Basename { | --help | [ --assume-python2 ] [ --include-python2-in-search ] [ --python-cmd-path <python-cmd-path> | -p <python-cmd-path> ] }
 
 flags/options:
 
   --help
   shows this help and terminates
+
+  --assume-python2
+  uses the python2 command when no -p / --python-cmd-path is given
+
+  --include-python2-in-search
+  includes python2 in automatic interpreter discovery (after python3 and python)
 
   -p <python-cmd-path>
   --python-cmd-path <python-cmd-path>
@@ -105,6 +118,11 @@ done
 
 
 # validate / discover python executable path
+
+if [ "x_$PythonCommandPath" = "x_" ] && [ ! -z "$AssumePython2" ]; then
+
+  PythonCommandPath=python2
+fi
 
 if [ "x_$PythonCommandPath" != "x_" ]; then
 
@@ -144,6 +162,13 @@ else
 
   if [ "x_$PythonCommandPath" = "x_" ]; then
 
+    PossiblePythonCommands=(python3 python)
+
+    if [ ! -z "$IncludePython2InSearch" ]; then
+
+      PossiblePythonCommands+=(python2)
+    fi
+
     for p in "${PossiblePythonCommands[@]}"
     do
 
@@ -159,6 +184,13 @@ else
   fi
 
   if [ "x_$PythonCommandPath" = "x_" ]; then
+
+    if [ -z "$IncludePython2InSearch" ] && [ -z "$AssumePython2" ] && command -v python2 > /dev/null; then
+
+      >&2 echo "only python2 was found on PATH; pass --include-python2-in-search to allow it during discovery, or --assume-python2 to use python2 explicitly"
+
+      exit 1
+    fi
 
     >&2 echo "no valid python command path discovered"
 
@@ -176,4 +208,3 @@ fi
 
 
 # ############################## end of file ############################# #
-

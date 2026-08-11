@@ -34,6 +34,7 @@
   * fixed diagnostic typo (“found valid python command”);
   * prefer `command -v` over `which`; quote `basename`; validate explicit paths with `[ -x ]` or `command -v`;
   * invoke unit-tests via `python -m unittest discover -s <tests-dir>`;
+  * default discovery probes `python3` then `python` only; add `--include-python2-in-search` / `--assume-python2`, and error if only `python2` is found without either flag;
 
 
 <!-- ########################### end of file ########################### -->

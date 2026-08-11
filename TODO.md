@@ -24,7 +24,7 @@
 * [x] fix diagnostic typo (“found validation python command” → “valid”);
 * [x] invoke discovery as `python -m unittest discover -s <tests-dir> …`;
 * [x] Prefer `command -v` over `which`; quote `basename` expansions (Ruby already done; Python now aligned);
-* [ ] Drop `python2` from default Python command discovery (or gate behind an explicit opt-in);
+* [x] Drop `python2` from default discovery; require `--include-python2-in-search` or `--assume-python2` when only `python2` is available;
 
 
 ### **Ruby** **run_all_unit_tests.sh**:

@@ -51,6 +51,7 @@ Use `--help` on the installed script for the authoritative flag list.
 | --- | --- | --- |
 | `--help` | ✅ | ✅ |
 | Explicit interpreter | `--python-cmd-path` / `-p` | uses `ruby` / **rbenv** |
+| Python 2 discovery | `--assume-python2`; `--include-python2-in-search` (otherwise only-`python2` is an error) | — |
 | `--pwd` (run relative to CWD) | ❌ | ✅ |
 | `--debug` | ❌ | ✅ |
 | `--warnings` / `--warn` | ❌ | ✅ |
@@ -68,9 +69,11 @@ Use `--help` on the installed script for the authoritative flag list.
 
 **Python** (used when `--python-cmd-path` / `-p` is not given), in order:
 
-1. **`PYTHON_COMMAND_PATH`** — if set and executable, used as the interpreter;
-2. **`PYTHON_CMD_PATH`** — same, if the previous is unset or not executable;
-3. otherwise probe `python3`, `python`, then `python2` on `PATH`;
+1. **`--assume-python2`** — if set, use `python2` (must be on `PATH` / executable);
+2. **`PYTHON_COMMAND_PATH`** — if set and executable, used as the interpreter;
+3. **`PYTHON_CMD_PATH`** — same, if the previous is unset or not executable;
+4. otherwise probe `python3`, then `python` on `PATH`; with **`--include-python2-in-search`**, also probe `python2`;
+5. if neither Python 2 flag is set and only `python2` is present on `PATH`, the script exits with an error suggesting **`--include-python2-in-search`** or **`--assume-python2`**;
 
 **Ruby**: `--rbenv-versions` drives each child with **`RBENV_VERSION`** across `rbenv versions --bare`; optional **.ruby-version-exclusions** skips listed versions; optional **.ruby-version** is reported as “current” in the status line only (not required);
 
