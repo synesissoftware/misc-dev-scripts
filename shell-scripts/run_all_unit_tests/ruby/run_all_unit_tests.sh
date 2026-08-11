@@ -8,7 +8,7 @@
 #           executing each rbenv version
 #
 # Created:  9th June 2011
-# Updated:  28th August 2025
+# Updated:  29th August 2025
 #
 # Copyright (c) Matthew Wilson, 2011-2025
 # All rights reserved
@@ -209,6 +209,7 @@ fi
 
 Separate=
 DebugFlag=
+PrependLib=
 WarningsFlag=-W0
 
 for v in "$@"
@@ -223,7 +224,7 @@ do
     --help)
 
       cat << EOF
-USAGE: $Basename { | --help | [ --debug ] [ --pwd ] [ --rbenv-versions ] [ --separate ] [ --warnings ]}
+USAGE: $Basename { | --help | [ --debug ] [ --lib ] [ --pwd ] [ --rbenv-versions ] [ --separate ] [ --warnings ]}
 
 flags:
 
@@ -232,6 +233,9 @@ flags:
 
   --debug
   executes Ruby interpreter in debug mode
+
+  --lib
+  prepends the lib directory under the script's directory into RUBYLIB before executing
 
   --pwd
   executes from present working directory, rather than relative to the script directory
@@ -247,6 +251,10 @@ flags:
 EOF
 
       exit 0
+      ;;
+    --lib)
+
+      PrependLib=1
       ;;
     --pwd)
 
@@ -271,6 +279,12 @@ done
 
 
 # executing tests
+
+if [ ! -z "$PrependLib" ]; then
+
+  export RUBYLIB=$ProjectDir/lib:$RUBYLIB
+fi
+
 
 if [ -z "$Separate" ]; then
 
