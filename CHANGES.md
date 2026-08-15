@@ -9,7 +9,7 @@
 - [0.1.1 - 11th August 2026](#011---11th-august-2026)
 
 
-## 0.4.0 - 13th August 2026
+## 0.4.0 - 16th August 2026
 
 * **shell-scripts/run_all_unit_tests/python/run_all_unit_tests.sh**:
   * aligned `--help` with implemented flags (`--python-cmd-path` / `-p`; dropped undocumented `--python`);
@@ -21,7 +21,7 @@
 * Updated **shell-scripts/run_all_unit_tests/README.md** (Python 2 flags; `unittest discover -s`; interpreter discovery order);
 
 
-## 0.3.0 - 12th August 2026
+## 0.3.0 - 15th August 2026
 
 * **shell-scripts/run_all_unit_tests/ruby/run_all_unit_tests.sh**:
   * `--rbenv-versions` selects each interpreter via `RBENV_VERSION` (no longer writes `rbenv local` / `.ruby-version`);
