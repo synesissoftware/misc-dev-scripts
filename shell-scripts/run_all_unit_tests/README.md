@@ -61,7 +61,7 @@ Use `--help` on the installed script for the authoritative flag list.
 ## Layout contracts
 
 * **Python**: the script’s directory is treated as the project root; tests live under **tests/** and are discovered with `python -m unittest discover` (subdirectories participate when they contain `__init__.py`);
-* **Ruby**: default suite is **test/unit/ts_all.rb**; with `--separate`, every **tc_*.rb** under the project tree is executed individually; `--pwd` uses the present working directory as the project root instead of the script directory; `--rbenv-versions` requires **.ruby-version** and an available **rbenv**;
+* **Ruby**: default suite is **test/unit/ts_all.rb**; with `--separate`, every **tc_*.rb** under the project tree is executed individually; `--pwd` uses the present working directory as the project root instead of the script directory; `--rbenv-versions` requires an available **rbenv** (**.ruby-version** is optional; **.ruby-version-exclusions** remains optional);
 
 
 ## Environment variables
@@ -72,7 +72,7 @@ Use `--help` on the installed script for the authoritative flag list.
 2. **`PYTHON_CMD_PATH`** — same, if the previous is unset or not executable;
 3. otherwise probe `python3`, `python`, then `python2` on `PATH`;
 
-**Ruby**: version selection for the matrix is via **rbenv** and **.ruby-version** / **.ruby-version-exclusions** (no dedicated interpreter-path environment variable today).
+**Ruby**: `--rbenv-versions` drives each child with **`RBENV_VERSION`** across `rbenv versions --bare`; optional **.ruby-version-exclusions** skips listed versions; optional **.ruby-version** is reported as “current” in the status line only (not required);
 
 
 ## Layout

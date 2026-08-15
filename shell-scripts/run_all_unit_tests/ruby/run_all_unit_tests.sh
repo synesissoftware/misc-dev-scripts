@@ -8,9 +8,9 @@
 #           executing each rbenv version
 #
 # Created:  9th June 2011
-# Updated:  29th August 2025
+# Updated:  12th August 2026
 #
-# Copyright (c) Matthew Wilson, 2011-2025
+# Copyright (c) Matthew Wilson, 2011-2026
 # All rights reserved
 #
 # Redistribution and use in source and binary forms, with or without
@@ -53,51 +53,30 @@ while [ -h "$Source" ]; do
   [[ $Source != /* ]] && Source="$ScriptDir/$Source"
 done
 ScriptDir="$(cd -P "$( dirname "$Source" )" && pwd)"
-Basename="$(basename $Source)"
+Basename="$(basename "$Source")"
 
 
 # colours
 
 if command -v tput > /dev/null; then
 
-  RbEnvClr_Blue=${FG_BLUE:-$(tput setaf 4)}
-  RbEnvClr_Red=${FG_BLUE:-$(tput setaf 1)}
-  RbEnvClr_Bold=${FD_BOLD:-$(tput bold)}
-  RbEnvClr_None=${FD_NONE:-$(tput sgr0)}
+  SisClr_Blue=${FG_BLUE:-$(tput setaf 4)}
+  SisClr_Red=${FG_RED:-$(tput setaf 1)}
+  SisClr_Bold=${FD_BOLD:-$(tput bold)}
+  SisClr_None=${FD_NONE:-$(tput sgr0)}
 else
 
-  RbEnvClr_Blue=
-  RbEnvClr_Red=
-  RbEnvClr_Bold=
-  RbEnvClr_None=
+  SisClr_Blue=
+  SisClr_Red=
+  SisClr_Bold=
+  SisClr_None=
 fi
 
 
-# special command-line handling ('--pwd')
+# special command-line handling ('--pwd', '--rbenv-versions')
 
 ProjectDir="$ScriptDir"
-
-for arg in "$@"
-do
-
-  case "$arg" in
-
-  --pwd)
-
-    ProjectDir=$(pwd)
-    ;;
-  *)
-
-    Arguments="$Arguments $arg"
-    ;;
-  esac
-done
-
-
-# special command-line handling ('--rbenv-versions')
-# rbenv handling
-
-Arguments=
+ForwardArgs=()
 FoundHelp=
 RunRbEnvAllVersions=
 
@@ -109,7 +88,12 @@ do
   --help)
 
     FoundHelp=1
-    Arguments="$Arguments $arg"
+    ForwardArgs+=("$arg")
+    ;;
+  --pwd)
+
+    ProjectDir=$(pwd)
+    ForwardArgs+=("$arg")
     ;;
   --rbenv-versions)
 
@@ -117,7 +101,7 @@ do
     ;;
   *)
 
-    Arguments="$Arguments $arg"
+    ForwardArgs+=("$arg")
     ;;
   esac
 done
@@ -131,14 +115,7 @@ if [ ! -z "$RunRbEnvAllVersions" ]; then
 
   if ! command -v rbenv > /dev/null; then
 
-  >&2 echo "$0: ${RbEnvClr_Red}${RbEnvClr_Bold}rbenv${RbEnvClr_None} not detected"
-
-  exit 1
-  fi
-
-  if [ ! -e "$ProjectDir/.ruby-version" ];then
-
-  >&2 echo "$0: ${RbEnvClr_Red}${RbEnvClr_Bold}.ruby-version${RbEnvClr_None} file not detected"
+  >&2 echo "$0: ${SisClr_Red}${SisClr_Bold}rbenv${SisClr_None} not detected"
 
   exit 1
   fi
@@ -149,13 +126,17 @@ if [ ! -z "$RunRbEnvAllVersions" ]; then
   exclusion_lines=`cat "$ProjectDir/.ruby-version-exclusions"`
   for line in $exclusion_lines; do
 
-    exclusions+=($line)
+    exclusions+=("$line")
   done
   fi
 
-  echo "executing command line '${RbEnvClr_Blue}${RbEnvClr_Bold}$0 $Arguments${RbEnvClr_None}' with all Ruby versions ..."
+  echo "executing command line '${SisClr_Blue}${SisClr_Bold}$0 ${ForwardArgs[*]}${SisClr_None}' with all Ruby versions ..."
 
-  current=$(rbenv local)
+  current=
+  if [ -f "$ProjectDir/.ruby-version" ]; then
+
+    current=$(tr -d '[:space:]' < "$ProjectDir/.ruby-version")
+  fi
 
   versions=()
   while IFS= read -r line; do
@@ -163,11 +144,11 @@ if [ ! -z "$RunRbEnvAllVersions" ]; then
   versions+=("$line")
   done < <(rbenv versions --bare)
 
-  echo "versions: ${RbEnvClr_Blue}${RbEnvClr_Bold}${versions[*]}${RbEnvClr_None}; skipped versions: ${RbEnvClr_Blue}${RbEnvClr_Bold}${exclusions[*]}${RbEnvClr_None}; current version: ${RbEnvClr_Blue}${RbEnvClr_Bold}${current}${RbEnvClr_None}"
+  echo "versions: ${SisClr_Blue}${SisClr_Bold}${versions[*]}${SisClr_None}; skipped versions: ${SisClr_Blue}${SisClr_Bold}${exclusions[*]}${SisClr_None}; current version: ${SisClr_Blue}${SisClr_Bold}${current:-(none)}${SisClr_None}"
 
   result=0
 
-  for version in ${versions[@]}
+  for version in "${versions[@]}"
   do
 
   echo
@@ -184,22 +165,19 @@ if [ ! -z "$RunRbEnvAllVersions" ]; then
 
   if [ "$skip" != "" ]; then
 
-    echo "skipping Ruby version ${RbEnvClr_Blue}${RbEnvClr_Bold}$version${RbEnvClr_None}:"
+    echo "skipping Ruby version ${SisClr_Blue}${SisClr_Bold}$version${SisClr_None}:"
   else
 
-    echo "processing Ruby version ${RbEnvClr_Blue}${RbEnvClr_Bold}$version${RbEnvClr_None}:"
+    echo "processing Ruby version ${SisClr_Blue}${SisClr_Bold}$version${SisClr_None}:"
 
-    echo -e "\texecuting command line '$0 $Arguments' with Ruby version $version ..."
-    rbenv local $version
+    echo -e "\texecuting command line 'RBENV_VERSION=$version $0 ${ForwardArgs[*]}' with Ruby version $version ..."
 
-    if ! $0 $Arguments; then
+    if ! RBENV_VERSION="$version" "$0" "${ForwardArgs[@]}"; then
 
     result=1
     fi
   fi
   done
-
-  rbenv local $current
 
   exit $result
 fi
@@ -260,6 +238,10 @@ EOF
 
       # already-processed as special case above
       ;;
+    --rbenv-versions)
+
+      # already-processed as special case above
+      ;;
     --separate)
 
       Separate=true
@@ -291,7 +273,17 @@ if [ -z "$Separate" ]; then
   ruby $DebugFlag $WarningsFlag "$ProjectDir/test/unit/ts_all.rb"
 else
 
-  find "$ProjectDir" -name 'tc_*.rb' -exec ruby $DebugFlag $WarningsFlag {} \;
+  result=0
+
+  while IFS= read -r -d '' testfile; do
+
+    if ! ruby $DebugFlag $WarningsFlag "$testfile"; then
+
+      result=1
+    fi
+  done < <(find "$ProjectDir" -name 'tc_*.rb' -print0)
+
+  exit $result
 fi
 
 
