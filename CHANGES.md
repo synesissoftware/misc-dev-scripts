@@ -3,10 +3,19 @@
 
 ## Table of Contents <!-- omit in toc -->
 
-- [0.4.0 - 13th August 2026](#040---13th-august-2026)
-- [0.3.0 - 12th August 2026](#030---12th-august-2026)
+- [0.4.1 - 17th August 2026](#041---17th-august-2026)
+- [0.4.0 - 16th August 2026](#040---16th-august-2026)
+- [0.3.0 - 15th August 2026](#030---15th-august-2026)
 - [0.2.0 - 12th August 2026](#020---12th-august-2026)
 - [0.1.1 - 11th August 2026](#011---11th-august-2026)
+
+
+## 0.4.1 - 17th August 2026
+
+* **shell-scripts/run_all_unit_tests/ruby/run_all_unit_tests.sh**:
+  * improved `--rbenv-versions` discovery by reporting `rbenv` failures and avoiding an empty version entry when no versions are returned;
+  * corrected indentation in the version-discovery loop;
+  * propagate failures from test-file discovery in `--separate` mode;
 
 
 ## 0.4.0 - 16th August 2026

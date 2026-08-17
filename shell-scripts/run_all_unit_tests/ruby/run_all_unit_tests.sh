@@ -8,7 +8,7 @@
 #           executing each rbenv version
 #
 # Created:  9th June 2011
-# Updated:  12th August 2026
+# Updated:  17th August 2026
 #
 # Copyright (c) Matthew Wilson, 2011-2026
 # All rights reserved
@@ -115,19 +115,19 @@ if [ ! -z "$RunRbEnvAllVersions" ]; then
 
   if ! command -v rbenv > /dev/null; then
 
-  >&2 echo "$0: ${SisClr_Red}${SisClr_Bold}rbenv${SisClr_None} not detected"
+    >&2 echo "$0: ${SisClr_Red}${SisClr_Bold}rbenv${SisClr_None} not detected"
 
-  exit 1
+    exit 1
   fi
 
   exclusions=()
   if [ -e "$ProjectDir/.ruby-version-exclusions" ]; then
 
-  exclusion_lines=`cat "$ProjectDir/.ruby-version-exclusions"`
-  for line in $exclusion_lines; do
+    exclusion_lines=`cat "$ProjectDir/.ruby-version-exclusions"`
+    for line in $exclusion_lines; do
 
-    exclusions+=("$line")
-  done
+      exclusions+=("$line")
+    done
   fi
 
   echo "executing command line '${SisClr_Blue}${SisClr_Bold}$0 ${ForwardArgs[*]}${SisClr_None}' with all Ruby versions ..."
@@ -138,11 +138,20 @@ if [ ! -z "$RunRbEnvAllVersions" ]; then
     current=$(tr -d '[:space:]' < "$ProjectDir/.ruby-version")
   fi
 
-  versions=()
-  while IFS= read -r line; do
+  if ! version_output=$(rbenv versions --bare); then
 
-  versions+=("$line")
-  done < <(rbenv versions --bare)
+    >&2 echo "$0: ${SisClr_Red}${SisClr_Bold}failed to enumerate Ruby versions via rbenv${SisClr_None}"
+    exit 1
+  fi
+
+  versions=()
+  if [ -n "$version_output" ]; then
+
+    while IFS= read -r line; do
+
+      versions+=("$line")
+    done <<< "$version_output"
+  fi
 
   echo "versions: ${SisClr_Blue}${SisClr_Bold}${versions[*]}${SisClr_None}; skipped versions: ${SisClr_Blue}${SisClr_Bold}${exclusions[*]}${SisClr_None}; current version: ${SisClr_Blue}${SisClr_Bold}${current:-(none)}${SisClr_None}"
 
@@ -151,32 +160,32 @@ if [ ! -z "$RunRbEnvAllVersions" ]; then
   for version in "${versions[@]}"
   do
 
-  echo
+    echo
 
-  skip=
+    skip=
 
-  for exclusion in "${exclusions[@]}"; do
+    for exclusion in "${exclusions[@]}"; do
 
-    if [[ "$exclusion" == "$version" ]]; then
+      if [[ "$exclusion" == "$version" ]]; then
 
-    skip=1
+        skip=1
+      fi
+    done
+
+    if [ "$skip" != "" ]; then
+
+      echo "skipping Ruby version ${SisClr_Blue}${SisClr_Bold}$version${SisClr_None}:"
+    else
+
+      echo "processing Ruby version ${SisClr_Blue}${SisClr_Bold}$version${SisClr_None}:"
+
+      echo -e "\texecuting command line 'RBENV_VERSION=$version $0 ${ForwardArgs[*]}' with Ruby version $version ..."
+
+      if ! RBENV_VERSION="$version" "$0" "${ForwardArgs[@]}"; then
+
+        result=1
+      fi
     fi
-  done
-
-  if [ "$skip" != "" ]; then
-
-    echo "skipping Ruby version ${SisClr_Blue}${SisClr_Bold}$version${SisClr_None}:"
-  else
-
-    echo "processing Ruby version ${SisClr_Blue}${SisClr_Bold}$version${SisClr_None}:"
-
-    echo -e "\texecuting command line 'RBENV_VERSION=$version $0 ${ForwardArgs[*]}' with Ruby version $version ..."
-
-    if ! RBENV_VERSION="$version" "$0" "${ForwardArgs[@]}"; then
-
-    result=1
-    fi
-  fi
   done
 
   exit $result
@@ -275,13 +284,24 @@ else
 
   result=0
 
+  test_files=$(mktemp "${TMPDIR:-/tmp}/run_all_unit_tests.XXXXXX") || {
+    >&2 echo "$0: ${SisClr_Red}${SisClr_Bold}failed to create temporary file for test discovery${SisClr_None}"
+    exit 1
+  }
+  trap 'rm -f "$test_files"' EXIT
+
+  if ! find "$ProjectDir" -name 'tc_*.rb' -print0 > "$test_files"; then
+    >&2 echo "$0: ${SisClr_Red}${SisClr_Bold}failed to discover test files${SisClr_None}"
+    exit 1
+  fi
+
   while IFS= read -r -d '' testfile; do
 
     if ! ruby $DebugFlag $WarningsFlag "$testfile"; then
 
       result=1
     fi
-  done < <(find "$ProjectDir" -name 'tc_*.rb' -print0)
+  done < "$test_files"
 
   exit $result
 fi

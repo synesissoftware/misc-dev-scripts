@@ -3,6 +3,7 @@
 
 | Date             | News Item      |
 | ---------------- | -------------- |
+| 17th August 2026 | [0.4.1 released](https://github.com/synesissoftware/misc-dev-scripts/releases/tag/0.4.1) |
 | 16th August 2026 | [0.4.0 released](https://github.com/synesissoftware/misc-dev-scripts/releases/tag/0.4.0) |
 | 15th August 2026 | [0.3.0 released](https://github.com/synesissoftware/misc-dev-scripts/releases/tag/0.3.0) |
 | 12th August 2026 | [0.2.0 released](https://github.com/synesissoftware/misc-dev-scripts/releases/tag/0.2.0) |
