@@ -43,6 +43,8 @@ Use `--help` on either variant for the authoritative flag list.
 
 ## Related projects
 
+A peer-project that provides configuration resources is [**misc-config-scripts**](https://github.com/synesissoftware/misc-config-scripts).
+
 Resources from this project are used in the following projects (case-insensitive lexicographic order):
 
 * [**asynkio**](https://github.com/synesissoftware/asynkio) (**Python**);
