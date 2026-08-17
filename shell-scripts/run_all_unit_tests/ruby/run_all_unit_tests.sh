@@ -138,11 +138,20 @@ if [ ! -z "$RunRbEnvAllVersions" ]; then
     current=$(tr -d '[:space:]' < "$ProjectDir/.ruby-version")
   fi
 
-  versions=()
-  while IFS= read -r line; do
+  if ! version_output=$(rbenv versions --bare); then
 
-    versions+=("$line")
-  done < <(rbenv versions --bare)
+    >&2 echo "$0: ${SisClr_Red}${SisClr_Bold}failed to enumerate Ruby versions via rbenv${SisClr_None}"
+    exit 1
+  fi
+
+  versions=()
+  if [ -n "$version_output" ]; then
+
+    while IFS= read -r line; do
+
+      versions+=("$line")
+    done <<< "$version_output"
+  fi
 
   echo "versions: ${SisClr_Blue}${SisClr_Bold}${versions[*]}${SisClr_None}; skipped versions: ${SisClr_Blue}${SisClr_Bold}${exclusions[*]}${SisClr_None}; current version: ${SisClr_Blue}${SisClr_Bold}${current:-(none)}${SisClr_None}"
 
