@@ -284,13 +284,24 @@ else
 
   result=0
 
+  test_files=$(mktemp "${TMPDIR:-/tmp}/run_all_unit_tests.XXXXXX") || {
+    >&2 echo "$0: ${SisClr_Red}${SisClr_Bold}failed to create temporary file for test discovery${SisClr_None}"
+    exit 1
+  }
+  trap 'rm -f "$test_files"' EXIT
+
+  if ! find "$ProjectDir" -name 'tc_*.rb' -print0 > "$test_files"; then
+    >&2 echo "$0: ${SisClr_Red}${SisClr_Bold}failed to discover test files${SisClr_None}"
+    exit 1
+  fi
+
   while IFS= read -r -d '' testfile; do
 
     if ! ruby $DebugFlag $WarningsFlag "$testfile"; then
 
       result=1
     fi
-  done < <(find "$ProjectDir" -name 'tc_*.rb' -print0)
+  done < "$test_files"
 
   exit $result
 fi

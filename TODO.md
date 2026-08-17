@@ -33,8 +33,8 @@
 * [x] rebuild argv with an array under `--rbenv-versions` (string concatenation breaks spaced arguments);
 * [x] avoid mutating `rbenv local` for the version matrix (use `RBENV_VERSION=…` for each child invocation);
 * [x] `--separate` must aggregate non-zero exits from per-file runs;
-* [ ] propagate failures from `rbenv versions --bare` instead of treating an empty version list as success;
-* [ ] propagate `find` failures in `--separate` mode instead of succeeding when test discovery fails;
+* [x] propagate failures from `rbenv versions --bare` instead of treating an empty version list as success;
+* [x] propagate `find` failures in `--separate` mode instead of succeeding when test discovery fails;
 * [ ] support ranges and wildcards in `.ruby-version-exclusions`;
 
 

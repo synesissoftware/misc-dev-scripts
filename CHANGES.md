@@ -15,6 +15,7 @@
 * **shell-scripts/run_all_unit_tests/ruby/run_all_unit_tests.sh**:
   * improved `--rbenv-versions` discovery by reporting `rbenv` failures and avoiding an empty version entry when no versions are returned;
   * corrected indentation in the version-discovery loop;
+  * propagate failures from test-file discovery in `--separate` mode;
 
 
 ## 0.4.0 - 16th August 2026
