@@ -8,7 +8,7 @@
 #           executing each rbenv version
 #
 # Created:  9th June 2011
-# Updated:  12th August 2026
+# Updated:  17th August 2026
 #
 # Copyright (c) Matthew Wilson, 2011-2026
 # All rights reserved
@@ -115,19 +115,19 @@ if [ ! -z "$RunRbEnvAllVersions" ]; then
 
   if ! command -v rbenv > /dev/null; then
 
-  >&2 echo "$0: ${SisClr_Red}${SisClr_Bold}rbenv${SisClr_None} not detected"
+    >&2 echo "$0: ${SisClr_Red}${SisClr_Bold}rbenv${SisClr_None} not detected"
 
-  exit 1
+    exit 1
   fi
 
   exclusions=()
   if [ -e "$ProjectDir/.ruby-version-exclusions" ]; then
 
-  exclusion_lines=`cat "$ProjectDir/.ruby-version-exclusions"`
-  for line in $exclusion_lines; do
+    exclusion_lines=`cat "$ProjectDir/.ruby-version-exclusions"`
+    for line in $exclusion_lines; do
 
-    exclusions+=("$line")
-  done
+      exclusions+=("$line")
+    done
   fi
 
   echo "executing command line '${SisClr_Blue}${SisClr_Bold}$0 ${ForwardArgs[*]}${SisClr_None}' with all Ruby versions ..."
@@ -141,7 +141,7 @@ if [ ! -z "$RunRbEnvAllVersions" ]; then
   versions=()
   while IFS= read -r line; do
 
-  versions+=("$line")
+    versions+=("$line")
   done < <(rbenv versions --bare)
 
   echo "versions: ${SisClr_Blue}${SisClr_Bold}${versions[*]}${SisClr_None}; skipped versions: ${SisClr_Blue}${SisClr_Bold}${exclusions[*]}${SisClr_None}; current version: ${SisClr_Blue}${SisClr_Bold}${current:-(none)}${SisClr_None}"
@@ -151,32 +151,32 @@ if [ ! -z "$RunRbEnvAllVersions" ]; then
   for version in "${versions[@]}"
   do
 
-  echo
+    echo
 
-  skip=
+    skip=
 
-  for exclusion in "${exclusions[@]}"; do
+    for exclusion in "${exclusions[@]}"; do
 
-    if [[ "$exclusion" == "$version" ]]; then
+      if [[ "$exclusion" == "$version" ]]; then
 
-    skip=1
+        skip=1
+      fi
+    done
+
+    if [ "$skip" != "" ]; then
+
+      echo "skipping Ruby version ${SisClr_Blue}${SisClr_Bold}$version${SisClr_None}:"
+    else
+
+      echo "processing Ruby version ${SisClr_Blue}${SisClr_Bold}$version${SisClr_None}:"
+
+      echo -e "\texecuting command line 'RBENV_VERSION=$version $0 ${ForwardArgs[*]}' with Ruby version $version ..."
+
+      if ! RBENV_VERSION="$version" "$0" "${ForwardArgs[@]}"; then
+
+        result=1
+      fi
     fi
-  done
-
-  if [ "$skip" != "" ]; then
-
-    echo "skipping Ruby version ${SisClr_Blue}${SisClr_Bold}$version${SisClr_None}:"
-  else
-
-    echo "processing Ruby version ${SisClr_Blue}${SisClr_Bold}$version${SisClr_None}:"
-
-    echo -e "\texecuting command line 'RBENV_VERSION=$version $0 ${ForwardArgs[*]}' with Ruby version $version ..."
-
-    if ! RBENV_VERSION="$version" "$0" "${ForwardArgs[@]}"; then
-
-    result=1
-    fi
-  fi
   done
 
   exit $result
