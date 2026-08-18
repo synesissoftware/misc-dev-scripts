@@ -8,7 +8,7 @@
 #           executing each rbenv version
 #
 # Created:  9th June 2011
-# Updated:  17th August 2026
+# Updated:  19th August 2026
 #
 # Copyright (c) Matthew Wilson, 2011-2026
 # All rights reserved
@@ -58,18 +58,20 @@ Basename="$(basename "$Source")"
 
 # colours
 
-if command -v tput > /dev/null; then
+SisClr_Blue=${FG_BLUE:-}
+SisClr_Red=${FG_RED:-}
+SisClr_Bold=${FD_BOLD:-}
+SisClr_None=${FD_NONE:-}
 
-  SisClr_Blue=${FG_BLUE:-$(tput setaf 4)}
-  SisClr_Red=${FG_RED:-$(tput setaf 1)}
-  SisClr_Bold=${FD_BOLD:-$(tput bold)}
-  SisClr_None=${FD_NONE:-$(tput sgr0)}
-else
+if [ -n "${TERM:-}" ] && [ -t 1 ] && command -v tput >/dev/null 2>&1; then
 
-  SisClr_Blue=
-  SisClr_Red=
-  SisClr_Bold=
-  SisClr_None=
+  if tput sgr0 >/dev/null 2>&1; then
+
+    SisClr_Blue=${FG_BLUE:-$(tput setaf 4)}
+    SisClr_Red=${FG_RED:-$(tput setaf 1)}
+    SisClr_Bold=${FD_BOLD:-$(tput bold)}
+    SisClr_None=${FD_NONE:-$(tput sgr0)}
+  fi
 fi
 
 
