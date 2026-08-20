@@ -1,6 +1,6 @@
 #
 # Created: 11th August 2026
-# Updated: 11th August 2026
+# Updated: 19th August 2026
 #
 
 name: CI
@@ -49,4 +49,13 @@ jobs:
       run: shell-scripts/run_all_unit_tests/python/run_all_unit_tests.sh --help
 
     - name: Help smoke (Ruby)
-      run: shell-scripts/run_all_unit_tests/ruby/run_all_unit_tests.sh --help
+      run: |
+        set -euo pipefail
+        err=$(mktemp)
+        trap 'rm -f "$err"' EXIT
+        env -u TERM shell-scripts/run_all_unit_tests/ruby/run_all_unit_tests.sh --help 2>"$err"
+        if grep -q tput "$err"; then
+          echo "tput invoked without TERM:" >&2
+          cat "$err" >&2
+          exit 1
+        fi

@@ -35,6 +35,7 @@
 * [x] `--separate` must aggregate non-zero exits from per-file runs;
 * [x] propagate failures from `rbenv versions --bare` instead of treating an empty version list as success;
 * [x] propagate `find` failures in `--separate` mode instead of succeeding when test discovery fails;
+* [x] skip `tput` when `$TERM` is unset or stdout is not a TTY;
 * [ ] support ranges and wildcards in `.ruby-version-exclusions`;
 
 

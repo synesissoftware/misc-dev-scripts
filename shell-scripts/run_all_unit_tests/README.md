@@ -75,7 +75,7 @@ Use `--help` on the installed script for the authoritative flag list.
 4. otherwise probe `python3`, then `python` on `PATH`; with **`--include-python2-in-search`**, also probe `python2`;
 5. if neither Python 2 flag is set and only `python2` is present on `PATH`, the script exits with an error suggesting **`--include-python2-in-search`** or **`--assume-python2`**;
 
-**Ruby**: `--rbenv-versions` drives each child with **`RBENV_VERSION`** across `rbenv versions --bare`; optional **.ruby-version-exclusions** skips listed versions; optional **.ruby-version** is reported as “current” in the status line only (not required);
+**Ruby**: `--rbenv-versions` drives each child with **`RBENV_VERSION`** across `rbenv versions --bare`; optional **.ruby-version-exclusions** skips listed versions; optional **.ruby-version** is reported as “current” in the status line only (not required); colours use `tput` only when **`$TERM`** is set and stdout is a TTY (override with **`FG_BLUE`**, **`FG_RED`**, **`FD_BOLD`**, **`FD_NONE`**);
 
 
 ## Layout

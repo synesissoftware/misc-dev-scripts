@@ -3,11 +3,20 @@
 
 ## Table of Contents <!-- omit in toc -->
 
+- [0.4.2 - 19th August 2026](#042---19th-august-2026)
 - [0.4.1 - 17th August 2026](#041---17th-august-2026)
 - [0.4.0 - 16th August 2026](#040---16th-august-2026)
 - [0.3.0 - 15th August 2026](#030---15th-august-2026)
 - [0.2.0 - 12th August 2026](#020---12th-august-2026)
 - [0.1.1 - 11th August 2026](#011---11th-august-2026)
+
+
+## 0.4.2 - 19th August 2026
+
+* **shell-scripts/run_all_unit_tests/ruby/run_all_unit_tests.sh**:
+  * skip `tput` when `$TERM` is unset or stdout is not a TTY (CI: `tput: No value for $TERM and no -T specified`);
+  * still honour **`FG_BLUE`**, **`FG_RED`**, **`FD_BOLD`**, **`FD_NONE`** when set;
+* **.github/workflows/ci.yml**: Ruby `--help` smoke runs with `TERM` unset and fails if `tput` writes to stderr;
 
 
 ## 0.4.1 - 17th August 2026
