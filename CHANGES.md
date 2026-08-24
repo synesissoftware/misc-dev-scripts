@@ -1,4 +1,4 @@
-# misc-dev-scripts - CHANGES <!-- omit in toc -->
+# misc-dev-scripts - Changes <!-- omit in toc -->
 
 
 ## Table of Contents <!-- omit in toc -->

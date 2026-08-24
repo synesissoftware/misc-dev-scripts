@@ -1,4 +1,4 @@
-# misc-dev-scripts - NEWS <!-- omit in toc -->
+# misc-dev-scripts - News <!-- omit in toc -->
 
 
 | Date             | News Item      |
