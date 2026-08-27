@@ -48,7 +48,7 @@
 * [ ] **Python**: `--separate` (one process per test module);
 * [ ] **Python**: multi-version matrix (`--pyenv-versions` + exclusions file, or document **tox** / **nox** as preferred and wrap thinly);
 * [ ] **Ruby**: optional `--suite` / `--pattern` overrides (keep `test/unit/ts_all.rb` and `tc_*.rb` defaults);
-* [ ] **Ruby**: optional `bundle exec`;
+* [ ] **Ruby**: consider a `--bundle` flag (run via `bundle exec`) so `--rbenv-versions` can resolve **Gemfile** runtime deps on each interpreter (library gems such as **xqsr3-xml** need **nokogiri** / **xqsr3**; bare `ruby` does not load the bundle);
 * [x] Document environment variables (`PYTHON_CMD_PATH`, `PYTHON_COMMAND_PATH`, …) in the nested script README;
 
 ### Modern Python / Ruby runners
