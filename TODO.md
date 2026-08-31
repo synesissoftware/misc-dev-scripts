@@ -48,7 +48,7 @@
 * [ ] **Python**: `--separate` (one process per test module);
 * [ ] **Python**: multi-version matrix (`--pyenv-versions` + exclusions file, or document **tox** / **nox** as preferred and wrap thinly);
 * [ ] **Ruby**: optional `--suite` / `--pattern` overrides (keep `test/unit/ts_all.rb` and `tc_*.rb` defaults);
-* [ ] **Ruby**: optional `bundle exec`;
+* [ ] **Ruby**: consider a `--bundle` flag (run via `bundle exec`) so `--rbenv-versions` can resolve **Gemfile** runtime deps on each interpreter (library gems such as **xqsr3-xml** need **nokogiri** / **xqsr3**; bare `ruby` does not load the bundle);
 * [x] Document environment variables (`PYTHON_CMD_PATH`, `PYTHON_COMMAND_PATH`, …) in the nested script README;
 
 ### Modern Python / Ruby runners
@@ -61,7 +61,7 @@
 ### Language expansion
 
 * [ ] Add **Go** **run_all_unit_tests.sh** (lift freelibs Go pattern: `.sis/project_name.txt`, `go list` packages with tests, `--list-only`, verbosity);
-* [ ] Add **JavaScript** **run_all_unit_tests.sh** (thin `npm test` / detect `pnpm` / `yarn`, plus `--help` / `--pwd`);
+* [x] Add / complete **JavaScript** **run_all_unit_tests.sh** (thin `npm test` / detect `pnpm` / `yarn`; `--help` / `--pwd`; skip `tput` when `$TERM` is unset or stdout is not a TTY); adopt into **CLASP.js** via the freelibs packaging TODO;
 * [ ] Add **Rust** **run_all_unit_tests.sh** (`cargo test`, optional `--workspace` / `--all-features`);
 * [ ] Add **Zig** **run_all_unit_tests.sh** (`zig build test`);
 * [ ] Extract shared Bash preamble only once a third language lands;

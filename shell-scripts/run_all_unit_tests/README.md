@@ -29,6 +29,10 @@ cp shell-scripts/run_all_unit_tests/python/run_all_unit_tests.sh /path/to/repo/r
 cp shell-scripts/run_all_unit_tests/ruby/run_all_unit_tests.sh /path/to/repo/run_all_unit_tests.sh
 ```
 
+```sh
+cp shell-scripts/run_all_unit_tests/javascript/run_all_unit_tests.sh /path/to/repo/run_all_unit_tests.sh
+```
+
 When updating a consumer, cite this repository’s **VERSION** in that project’s **CHANGES.md**.
 
 Use `--help` on the installed script for the authoritative flag list.
@@ -38,6 +42,7 @@ Use `--help` on the installed script for the authoritative flag list.
 
 | Language | Path | Status |
 | --- | --- | --- |
+| **JavaScript** | [**javascript/run_all_unit_tests.sh**](./javascript/run_all_unit_tests.sh) | ✅ shipped |
 | **Python** | [**python/run_all_unit_tests.sh**](./python/run_all_unit_tests.sh) | ✅ shipped |
 | **Ruby** | [**ruby/run_all_unit_tests.sh**](./ruby/run_all_unit_tests.sh) | ✅ shipped |
 | **C / C++** | **c_cxx/** | ⚠️ directory reserved |
@@ -47,20 +52,23 @@ Use `--help` on the installed script for the authoritative flag list.
 
 ## Flags
 
-| Flag / behaviour | Python | Ruby |
-| --- | --- | --- |
-| `--help` | ✅ | ✅ |
-| Explicit interpreter | `--python-cmd-path` / `-p` | uses `ruby` / **rbenv** |
-| Python 2 discovery | `--assume-python2`; `--include-python2-in-search` (otherwise only-`python2` is an error) | — |
-| `--pwd` (run relative to CWD) | ❌ | ✅ |
-| `--debug` | ❌ | ✅ |
-| `--warnings` / `--warn` | ❌ | ✅ |
-| `--separate` (one process per test file/module) | ❌ | ✅ |
-| Multi-version matrix | ❌ | `--rbenv-versions` (+ optional **.ruby-version-exclusions**) |
+| Flag / behaviour | JavaScript | Python | Ruby |
+| --- | --- | --- | --- |
+| `--help` | ✅ | ✅ | ✅ |
+| Package manager | auto-detect **npm** / **pnpm** / **yarn** (lockfile); `--npm` / `--pnpm` / `--yarn` | — | — |
+| Explicit interpreter | — | `--python-cmd-path` / `-p` | uses `ruby` / **rbenv** |
+| Python 2 discovery | — | `--assume-python2`; `--include-python2-in-search` (otherwise only-`python2` is an error) | — |
+| `--no-install` | ✅ | — | — |
+| `--pwd` (run relative to CWD) | ✅ | ❌ | ✅ |
+| `--debug` | — | ❌ | ✅ |
+| `--warnings` / `--warn` | — | ❌ | ✅ |
+| `--separate` (one process per test file/module) | — | ❌ | ✅ |
+| Multi-version matrix | — | ❌ | `--rbenv-versions` (+ optional **.ruby-version-exclusions**) |
 
 
 ## Layout contracts
 
+* **JavaScript**: the script’s directory is treated as the project root (or the present working directory with `--pwd`); when **node_modules** is absent, dependencies are installed first (**npm ci** / **npm install**, or **pnpm** / **yarn** lockfile equivalents) unless **`--no-install`** is given; unit-tests are then executed via **`npm test`**, **`pnpm test`**, or **`yarn test`** (auto-detected from **pnpm-lock.yaml** / **yarn.lock**, or forced with `--npm` / `--pnpm` / `--yarn`); **package.json** must define the **`test`** script;
 * **Python**: the script’s directory is treated as the project root; tests live under **tests/** and are discovered with `python -m unittest discover -s <tests-dir>` (subdirectories participate when they contain `__init__.py`);
 * **Ruby**: default suite is **test/unit/ts_all.rb**; with `--separate`, every **tc_*.rb** under the project tree is executed individually; `--pwd` uses the present working directory as the project root instead of the script directory; `--rbenv-versions` requires an available **rbenv** (**.ruby-version** is optional; **.ruby-version-exclusions** remains optional);
 
@@ -75,7 +83,9 @@ Use `--help` on the installed script for the authoritative flag list.
 4. otherwise probe `python3`, then `python` on `PATH`; with **`--include-python2-in-search`**, also probe `python2`;
 5. if neither Python 2 flag is set and only `python2` is present on `PATH`, the script exits with an error suggesting **`--include-python2-in-search`** or **`--assume-python2`**;
 
-**Ruby**: `--rbenv-versions` drives each child with **`RBENV_VERSION`** across `rbenv versions --bare`; optional **.ruby-version-exclusions** skips listed versions; optional **.ruby-version** is reported as “current” in the status line only (not required); colours use `tput` only when **`$TERM`** is set and stdout is a TTY (override with **`FG_BLUE`**, **`FG_RED`**, **`FD_BOLD`**, **`FD_NONE`**);
+**JavaScript** and **Ruby**: colours use `tput` only when **`$TERM`** is set and stdout is a TTY (override with **`FG_BLUE`**, **`FG_RED`**, **`FD_BOLD`**, **`FD_NONE`**).
+
+**Ruby**: `--rbenv-versions` drives each child with **`RBENV_VERSION`** across `rbenv versions --bare`; optional **.ruby-version-exclusions** skips listed versions; optional **.ruby-version** is reported as “current” in the status line only (not required); colours use `tput` only when **`$TERM`** is set and stdout is a TTY (override with **`FG_BLUE`**, **`FG_RED`**, **`FD_BOLD`**, **`FD_NONE`**).
 
 
 ## Layout
@@ -84,6 +94,7 @@ Use `--help` on the installed script for the authoritative flag list.
 | --- | --- |
 | **c_cxx/** | Reserved for a future C/C++ helper |
 | **go/** | Reserved for a future Go helper |
+| **javascript/run_all_unit_tests.sh** | JavaScript unit-test runner |
 | **python/run_all_unit_tests.sh** | Python unit-test runner |
 | **ruby/run_all_unit_tests.sh** | Ruby unit-test runner |
 | **zig/** | Reserved for a future Zig helper |
@@ -92,7 +103,7 @@ Use `--help` on the installed script for the authoritative flag list.
 ## What is intentionally omitted
 
 * Windows **.cmd** counterparts (tracked in top-level **TODO.md**);
-* JavaScript / Rust runners (not yet present under this tree);
+* Rust runners (not yet present under this tree);
 * Package-manager install paths (copy remains the adoption model);
 
 

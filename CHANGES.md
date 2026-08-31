@@ -1,9 +1,10 @@
-# misc-dev-scripts - CHANGES <!-- omit in toc -->
+# misc-dev-scripts - Changes <!-- omit in toc -->
 
 
 ## Table of Contents <!-- omit in toc -->
 
-- [0.4.2 - 19th August 2026](#042---19th-august-2026)
+- [0.5.0 - 26th August 2026](#050---1st-september-2026)
+- [0.4.2 - 25th August 2026](#042---25th-august-2026)
 - [0.4.1 - 17th August 2026](#041---17th-august-2026)
 - [0.4.0 - 16th August 2026](#040---16th-august-2026)
 - [0.3.0 - 15th August 2026](#030---15th-august-2026)
@@ -11,7 +12,14 @@
 - [0.1.1 - 11th August 2026](#011---11th-august-2026)
 
 
-## 0.4.2 - 19th August 2026
+## 0.5.0 - 1st September 2026
+
+* **shell-scripts/run_all_unit_tests/javascript/run_all_unit_tests.sh**:
+  * new JavaScript runner (`npm test` / `pnpm test` / `yarn test`; lockfile auto-detect; `--npm` / `--pnpm` / `--yarn`; `--help` / `--pwd` / `--no-install`; auto-install when **node_modules** is absent; skip `tput` when `$TERM` is unset or stdout is not a TTY);
+* **.github/workflows/ci.yml**: JavaScript `--help` smoke runs with `TERM` unset and fails if `tput` writes to stderr;
+
+
+## 0.4.2 - 25th August 2026
 
 * **shell-scripts/run_all_unit_tests/ruby/run_all_unit_tests.sh**:
   * skip `tput` when `$TERM` is unset or stdout is not a TTY (CI: `tput: No value for $TERM and no -T specified`);
