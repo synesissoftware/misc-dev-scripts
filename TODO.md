@@ -61,7 +61,7 @@
 ### Language expansion
 
 * [ ] Add **Go** **run_all_unit_tests.sh** (lift freelibs Go pattern: `.sis/project_name.txt`, `go list` packages with tests, `--list-only`, verbosity);
-* [ ] Add **JavaScript** **run_all_unit_tests.sh** (thin `npm test` / detect `pnpm` / `yarn`, plus `--help` / `--pwd`);
+* [x] Add / complete **JavaScript** **run_all_unit_tests.sh** (thin `npm test` / detect `pnpm` / `yarn`; `--help` / `--pwd`; skip `tput` when `$TERM` is unset or stdout is not a TTY); adopt into **CLASP.js** via the freelibs packaging TODO;
 * [ ] Add **Rust** **run_all_unit_tests.sh** (`cargo test`, optional `--workspace` / `--all-features`);
 * [ ] Add **Zig** **run_all_unit_tests.sh** (`zig build test`);
 * [ ] Extract shared Bash preamble only once a third language lands;
