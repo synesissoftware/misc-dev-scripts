@@ -3,7 +3,7 @@
 
 Drop-in root **`.vimrc`** files, organised by primary language.
 
-**Status:** Phase 0 — layout only (**`.gitkeep`** placeholders). Content lands in a later phase (lifted from freelibs exemplars). Do **not** treat this repository’s root **`.vimrc`** as the consumer template — that file is **self** boilerplate for **misc-dev-scripts**.
+**Status:** Phase 0 layout plus early Phase 1 seed — **`c_cxx/.vimrc`** holds the preserved Synesis C/C++ gold (moved out of this repository’s root self **`.vimrc`**). Other language directories remain **`.gitkeep`** placeholders until Phase 2. Do **not** treat this repository’s root **`.vimrc`** as a consumer template — that file is **self** boilerplate for **misc-dev-scripts**.
 
 
 ## Table of Contents <!-- omit in toc -->
@@ -18,7 +18,7 @@ Drop-in root **`.vimrc`** files, organised by primary language.
 cp templates/vimrc/<language>/.vimrc /path/to/repo/.vimrc
 ```
 
-Prefer the language-specific template that matches the project’s primary language; use **generic** only for multi-language trees.
+Prefer the language-specific template that matches the project’s primary language; use **generic** only for multi-language trees. Until Phase 2 completes other languages, **`c_cxx`** is the only seeded consumer template here.
 
 
 ## Layout
@@ -27,7 +27,7 @@ Prefer the language-specific template that matches the project’s primary langu
 | --- | --- |
 | **c/** | C-primary |
 | **c#/** | C# / .NET |
-| **c_cxx/** | Mixed C / C++ |
+| **c_cxx/** | Mixed C / C++ (**seeded** — Synesis C/C++ gold) |
 | **cxx/** | C++-primary |
 | **generic/** | Union / mixed |
 | **go/** | Go |

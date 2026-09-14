@@ -3,6 +3,7 @@
 
 ## Table of Contents <!-- omit in toc -->
 
+- [0.5.3 - 15th September 2026](#053---15th-september-2026)
 - [0.5.2 - 15th September 2026](#052---15th-september-2026)
 - [0.5.1 - 14th September 2026](#051---14th-september-2026)
 - [0.5.0 - 1st September 2026](#050---1st-september-2026)
@@ -12,6 +13,16 @@
 - [0.3.0 - 15th August 2026](#030---15th-august-2026)
 - [0.2.0 - 12th August 2026](#020---12th-august-2026)
 - [0.1.1 - 11th August 2026](#011---11th-august-2026)
+
+
+## 0.5.3 - 15th September 2026
+
+* Phase 1 self boilerplate:
+  * added **`.editorconfig`** (shell / docs catalog: UTF-8, LF, shell 2-space, markdown/json/yaml);
+  * replaced root **`.vimrc`** C/C++ consumer gold with shell / docs **self** **`.vimrc`** (aligned with **`.vscode/settings.json`**);
+  * preserved former C/C++ gold as **templates/vimrc/c_cxx/.vimrc** for Phase 2;
+  * confirmed **`.gitattributes`**, **`.gitignore`**, and **`.vscode/settings.json`** remain present as self files;
+* Updated **templates/README.md** and **templates/vimrc/README.md** (c_cxx seed note);
 
 
 ## 0.5.2 - 15th September 2026

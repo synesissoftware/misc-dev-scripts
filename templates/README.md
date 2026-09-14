@@ -19,7 +19,7 @@ This tree is the **canonical catalogue layout** for project-local config files t
 
 ## Status
 
-**Phase 0 (layout declared):** directory tree and documentation only. Do **not** treat empty language folders as ready to copy. Population and cutover from **misc-config-scripts** are later phases.
+**Phase 0–1:** directory tree and documentation declared; **`templates/vimrc/c_cxx/.vimrc`** seeded (C/C++ gold preserved from former root self files). Other language folders remain empty (**`.gitkeep`**) until Phase 2. Do **not** treat unseeded folders as ready to copy. Cutover from **misc-config-scripts** remains a later phase.
 
 
 ## Self boilerplate vs templates
