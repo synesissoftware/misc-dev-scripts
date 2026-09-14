@@ -69,7 +69,7 @@ Use `--help` on the installed script for the authoritative flag list.
 ## Layout contracts
 
 * **JavaScript**: the script’s directory is treated as the project root (or the present working directory with `--pwd`); when **node_modules** is absent, dependencies are installed first (**npm ci** / **npm install**, or **pnpm** / **yarn** lockfile equivalents) unless **`--no-install`** is given; unit-tests are then executed via **`npm test`**, **`pnpm test`**, or **`yarn test`** (auto-detected from **pnpm-lock.yaml** / **yarn.lock**, or forced with `--npm` / `--pnpm` / `--yarn`); **package.json** must define the **`test`** script;
-* **Python**: the script’s directory is treated as the project root; tests live under **tests/** and are discovered with `python -m unittest discover -s <tests-dir>` (subdirectories participate when they contain `__init__.py`);
+* **Python**: the script’s directory is treated as the project root; tests live under **tests/** and are discovered with `python -m unittest discover -s <tests-dir>` (subdirectories participate when they contain `__init__.py`); optional **`.sis/project_name.txt`** (fallback: directory basename) and **`.sis/script_info_lines.txt`** feed `--help`;
 * **Ruby**: default suite is **test/unit/ts_all.rb**; with `--separate`, every **tc_*.rb** under the project tree is executed individually; `--pwd` uses the present working directory as the project root instead of the script directory; `--rbenv-versions` requires an available **rbenv** (**.ruby-version** is optional; **.ruby-version-exclusions** remains optional);
 
 
@@ -78,10 +78,11 @@ Use `--help` on the installed script for the authoritative flag list.
 **Python** (used when `--python-cmd-path` / `-p` is not given), in order:
 
 1. **`--assume-python2`** — if set, use `python2` (must be on `PATH` / executable);
-2. **`PYTHON_COMMAND_PATH`** — if set and executable, used as the interpreter;
-3. **`PYTHON_CMD_PATH`** — same, if the previous is unset or not executable;
-4. otherwise probe `python3`, then `python` on `PATH`; with **`--include-python2-in-search`**, also probe `python2`;
-5. if neither Python 2 flag is set and only `python2` is present on `PATH`, the script exits with an error suggesting **`--include-python2-in-search`** or **`--assume-python2`**;
+2. project-local **`.venv/bin/python`** — if executable, used as the interpreter (avoids Apple/Xcode `python3` on `PATH`);
+3. **`PYTHON_COMMAND_PATH`** — if set and executable, used as the interpreter;
+4. **`PYTHON_CMD_PATH`** — same, if the previous is unset or not executable;
+5. otherwise probe `python3`, then `python` on `PATH`; with **`--include-python2-in-search`**, also probe `python2`;
+6. if neither Python 2 flag is set and only `python2` is present on `PATH`, the script exits with an error suggesting **`--include-python2-in-search`** or **`--assume-python2`**;
 
 **JavaScript** and **Ruby**: colours use `tput` only when **`$TERM`** is set and stdout is a TTY (override with **`FG_BLUE`**, **`FG_RED`**, **`FD_BOLD`**, **`FD_NONE`**).
 

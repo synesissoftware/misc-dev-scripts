@@ -7,7 +7,7 @@
 #           calling directory
 #
 # Created:  13th February 2019
-# Updated:  11th August 2026
+# Updated:  14th September 2026
 #
 # Copyright (c) Matthew Wilson, 2019-2026
 # All rights reserved
@@ -54,6 +54,13 @@ done
 Dir="$(cd -P "$( dirname "$Source" )" && pwd)"
 Basename="$(basename "$Source")"
 
+ProjectNameFile="$Dir/.sis/project_name.txt"
+if [ -f "$ProjectNameFile" ]; then
+  ProjectName=$(tr -d '[:space:]' < "$ProjectNameFile")
+else
+  ProjectName=$(basename "$Dir")
+fi
+
 
 AssumePython2=
 IncludePython2InSearch=
@@ -84,8 +91,12 @@ do
       ;;
     --help)
 
+      [ -f "$Dir/.sis/script_info_lines.txt" ] && cat "$Dir/.sis/script_info_lines.txt"
+      echo
       cat << EOF
 USAGE: $Basename { | --help | [ --assume-python2 ] [ --include-python2-in-search ] [ --python-cmd-path <python-cmd-path> | -p <python-cmd-path> ] }
+
+${ProjectName} unit tests
 
 flags/options:
 
@@ -137,6 +148,18 @@ if [ "x_$PythonCommandPath" != "x_" ]; then
 else
 
   # try and find a suitable command
+
+  # Prefer a project-local venv when present (avoids Apple/Xcode python3 on
+  # PATH, which must not be used for local install/test).
+  if [ "x_$PythonCommandPath" = "x_" ]; then
+
+    if [ -x "$Dir/.venv/bin/python" ]; then
+
+      PythonCommandPath="$Dir/.venv/bin/python"
+
+      echo "found project venv python '$PythonCommandPath'"
+    fi
+  fi
 
   if [ "x_$PythonCommandPath" = "x_" ]; then
 
