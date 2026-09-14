@@ -19,7 +19,7 @@ Miscellaneous Development Scripts
 
 ## Introduction
 
-**misc-dev-scripts** is a small catalog of shell helpers intended to be **copied** into Synesis (and related) language libraries — principally **run_all_unit_tests.sh** variants for **Python** and **Ruby** today, with further languages planned.
+**misc-dev-scripts** is a small catalog of shell helpers intended to be **copied** into Synesis (and related) language libraries — principally **run_all_unit_tests.sh** variants for **JavaScript**, **Python**, and **Ruby** today, with further languages planned.
 
 Canonical copies live under **shell-scripts/**; consuming projects keep a root-level **run_all_unit_tests.sh**. When updating a consumer, cite this repository’s **VERSION** in that project’s **CHANGES.md**.
 
@@ -35,10 +35,11 @@ See [**shell-scripts/run_all_unit_tests/README.md**](./shell-scripts/run_all_uni
 
 Language variants:
 
-* [**Python**](./shell-scripts/run_all_unit_tests/python/run_all_unit_tests.sh) — `unittest` discovery under **tests/**;
+* [**JavaScript**](./shell-scripts/run_all_unit_tests/javascript/run_all_unit_tests.sh) — `npm` / `pnpm` / `yarn` **`test`**;
+* [**Python**](./shell-scripts/run_all_unit_tests/python/run_all_unit_tests.sh) — `unittest` discovery under **tests/** (prefers **`.venv`** when present);
 * [**Ruby**](./shell-scripts/run_all_unit_tests/ruby/run_all_unit_tests.sh) — Test::Unit suite **test/unit/ts_all.rb** (or per-file `tc_*.rb` with `--separate`);
 
-Use `--help` on either variant for the authoritative flag list.
+Use `--help` on any variant for the authoritative flag list.
 
 
 ## Related projects

@@ -3,13 +3,24 @@
 
 ## Table of Contents <!-- omit in toc -->
 
-- [0.5.0 - 26th August 2026](#050---1st-september-2026)
+- [0.5.1 - 14th September 2026](#051---14th-september-2026)
+- [0.5.0 - 1st September 2026](#050---1st-september-2026)
 - [0.4.2 - 25th August 2026](#042---25th-august-2026)
 - [0.4.1 - 17th August 2026](#041---17th-august-2026)
 - [0.4.0 - 16th August 2026](#040---16th-august-2026)
 - [0.3.0 - 15th August 2026](#030---15th-august-2026)
 - [0.2.0 - 12th August 2026](#020---12th-august-2026)
 - [0.1.1 - 11th August 2026](#011---11th-august-2026)
+
+
+## 0.5.1 - 14th September 2026
+
+* **shell-scripts/run_all_unit_tests/python/run_all_unit_tests.sh**:
+  * prefer project-local **`.venv/bin/python`** when present (before **`PYTHON_COMMAND_PATH`** / PATH discovery; avoids Apple/Xcode `python3`);
+  * load **`.sis/project_name.txt`** (fallback: directory basename) and optional **`.sis/script_info_lines.txt`** into `--help`;
+* Updated **shell-scripts/run_all_unit_tests/README.md** (venv preference; `.sis` help contract);
+* Updated **README.md** (JavaScript among shipped variants; Python prefers **`.venv`** when present);
+* Updated **NEWS.md** to the three-column chronology (**Date** | **News Item** | **Details**);
 
 
 ## 0.5.0 - 1st September 2026

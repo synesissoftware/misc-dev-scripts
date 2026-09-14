@@ -25,6 +25,7 @@
 * [x] invoke discovery as `python -m unittest discover -s <tests-dir> …`;
 * [x] Prefer `command -v` over `which`; quote `basename` expansions (Ruby already done; Python now aligned);
 * [x] Drop `python2` from default discovery; require `--include-python2-in-search` or `--assume-python2` when only `python2` is available;
+* [x] Prefer project-local **`.venv/bin/python`** when present; wire **`.sis/project_name.txt`** / **`.sis/script_info_lines.txt`** into `--help`;
 
 
 ### **Ruby** **run_all_unit_tests.sh**:
