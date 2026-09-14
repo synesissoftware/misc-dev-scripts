@@ -59,3 +59,15 @@ jobs:
           cat "$err" >&2
           exit 1
         fi
+
+    - name: Help smoke (JavaScript)
+      run: |
+        set -euo pipefail
+        err=$(mktemp)
+        trap 'rm -f "$err"' EXIT
+        env -u TERM shell-scripts/run_all_unit_tests/javascript/run_all_unit_tests.sh --help 2>"$err"
+        if grep -q tput "$err"; then
+          echo "tput invoked without TERM:" >&2
+          cat "$err" >&2
+          exit 1
+        fi
