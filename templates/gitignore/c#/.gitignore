@@ -1,0 +1,40 @@
+# Synesis Information Systems .gitignore for .NET / C# libraries
+
+
+# directories (by name)
+
+/.idea/
+/.vs/
+/TestResults/
+/artifacts/
+/bin/
+/obj/
+/scratch/
+[Bb]in/
+[Oo]bj/
+
+
+# directories (by pattern)
+
+**/[Pp]ackages/*
+
+
+# files (by name)
+
+.DS_Store
+
+
+# files (by pattern)
+
+*~
+*.coverage
+*.coveragexml
+*.nupkg
+*.snupkg
+*.suo
+*.sw[pon]
+*.tmp
+*.trx
+*.user
+*.zip
+project.lock.json

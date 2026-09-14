@@ -1,0 +1,33 @@
+# Synesis Information Systems .gitignore for Go libraries
+
+
+# directories (by name)
+
+/scratch/
+
+
+# directories (by pattern)
+
+
+# files (by name)
+
+.DS_Store
+
+
+# files (by pattern)
+
+*~
+*.[568vq]
+*.a
+*.dll
+*.dylib
+*.exe
+*.lib
+*.o
+*.out
+*.prof
+*.so
+*.sw[pon]
+*.test
+*.tmp
+*.zip

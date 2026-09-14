@@ -1,0 +1,35 @@
+# Synesis Information Systems .gitignore for Ruby gems
+
+
+# directories (by name)
+
+/.bundle/
+/.yardoc/
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/rdoc/
+/scratch/
+/tmp/
+/vendor/bundle/
+
+
+# directories (by pattern)
+
+
+# files (by name)
+
+.DS_Store
+.ruby-version
+Gemfile.lock
+
+
+# files (by pattern)
+
+*~
+*.gem
+*.rbc
+*.sw[pon]
+*.tmp
+*.zip

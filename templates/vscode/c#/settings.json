@@ -1,0 +1,44 @@
+{
+	"[csharp]": {
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": "explicit",
+		},
+		"editor.defaultFormatter": "ms-dotnettools.csharp",
+		"editor.formatOnSave": true,
+		"editor.insertSpaces": true,
+		"editor.rulers": [ 60, 76 ],
+		"editor.tabSize": 4,
+	},
+	"[json]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2,
+	},
+	"[markdown]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2,
+	},
+	"[shellscript]": {
+		"editor.insertSpaces": true,
+		"editor.rulers": [ 60, 76 ],
+		"editor.tabSize": 2,
+	},
+	"[toml]": {
+		"editor.insertSpaces": false,
+		"editor.tabSize": 2,
+	},
+	"cmake.configureOnOpen": false,
+	"csharp.debug.console": "internalConsole",
+	"csharp.debug.enableStepFiltering": true,
+	"csharp.debug.justMyCode": true,
+	"dotnet.backgroundAnalysis.analyzerDiagnosticsScope": "openFiles",
+	"dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
+	"dotnet.formatting.organizeImportsOnFormat": true,
+	"editor.detectIndentation": false,
+	"editor.insertSpaces": false,
+	"editor.renderWhitespace": "all",
+	"editor.rulers": [ 76 ],
+	"editor.tabSize": 2,
+	"files.insertFinalNewline": true,
+	"files.trimTrailingWhitespace": true,
+	"git.mergeEditor": false,
+}

@@ -1,0 +1,44 @@
+root = true
+
+# Language indent/EOL/charset overlap with .vscode/settings.json.
+# Rulers, renderWhitespace, detectIndentation, mergeEditor, and
+# language-server settings cannot be expressed here — they stay in
+# settings.json.
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = tab
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# [json]
+[*.json]
+indent_size = 2
+indent_style = space
+
+# [markdown]
+[*.md]
+indent_size = 2
+indent_style = space
+
+# [python]
+[*.py]
+indent_size = 4
+indent_style = space
+
+# [shellscript]
+[*.{bash,sh,zsh}]
+indent_size = 2
+indent_style = space
+
+# [toml]
+[*.toml]
+indent_size = 2
+indent_style = tab
+
+# [yaml]
+[*.{yaml,yml}]
+indent_size = 2
+indent_style = space

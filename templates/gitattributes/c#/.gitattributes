@@ -1,0 +1,77 @@
+# .gitattributes — C# / .NET (GitHub-hosted)
+#
+# Sources: GitHub Docs (line endings), git-scm gitattributes (diff=csharp),
+# gitattributes/gitattributes CSharp.gitattributes + Common.gitattributes,
+# github-linguist overrides.
+
+# Default: detect text, normalize to LF in the repository
+* text=auto
+
+# --- Source ---
+*.cs text diff=csharp
+*.csx text diff=csharp
+*.cshtml text diff=html
+*.razor text diff=html
+
+# --- Project / solution (Visual Studio expects CRLF) ---
+*.csproj text eol=crlf
+*.fsproj text eol=crlf
+*.props text eol=crlf
+*.sln text eol=crlf
+*.slnx text eol=crlf
+*.targets text eol=crlf
+*.vbproj text eol=crlf
+
+# --- Scripts ---
+*.bash text eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+*.sh text eol=lf
+*.zsh text eol=lf
+
+# --- Docs / meta ---
+*.adoc text
+*.markdown text diff=markdown
+*.md text diff=markdown
+*.txt text
+AUTHORS text
+CHANGELOG text
+CHANGES text
+CONTRIBUTING text
+COPYING text
+LICENSE text
+NEWS text
+README text
+TODO text
+.gitattributes text
+.gitignore text
+
+# --- Serialisation ---
+*.json text
+*.toml text
+*.xml text
+*.yaml text
+*.yml text
+
+# --- Binary / NuGet ---
+*.dll binary
+*.exe binary
+*.nupkg binary
+*.pdb binary
+*.snk binary
+
+# --- Archives / images (common) ---
+*.gif binary
+*.gz binary
+*.ico binary
+*.jpeg binary
+*.jpg binary
+*.png binary
+*.tar binary
+*.zip binary
+
+# --- GitHub Linguist ---
+**/bin/** linguist-generated
+**/obj/** linguist-generated
+**/packages/** linguist-vendored

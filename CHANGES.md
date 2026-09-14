@@ -3,6 +3,7 @@
 
 ## Table of Contents <!-- omit in toc -->
 
+- [0.6.0 - 15th September 2026](#060---15th-september-2026)
 - [0.5.3 - 15th September 2026](#053---15th-september-2026)
 - [0.5.2 - 15th September 2026](#052---15th-september-2026)
 - [0.5.1 - 14th September 2026](#051---14th-september-2026)
@@ -13,6 +14,19 @@
 - [0.3.0 - 15th August 2026](#030---15th-august-2026)
 - [0.2.0 - 12th August 2026](#020---12th-august-2026)
 - [0.1.1 - 11th August 2026](#011---11th-august-2026)
+
+
+## 0.6.0 - 15th September 2026
+
+* Phase 2: populate **templates/** as the canonical project drop-in catalogue:
+  * **templates/vscode/** — migrated from **misc-config-scripts** `settings.json/` (plus **c_cxx** alias of **cxx**);
+  * **templates/gitattributes/** — migrated from **misc-config-scripts** `gitattributes/`;
+  * **templates/vimrc/** — freelibs language gold plus synthesized **javascript** / **generic**;
+  * **templates/editorconfig/** — freelibs **python** / **ruby** plus synthesized house rules for other languages;
+  * **templates/gitignore/** — lean Synesis-header consensus per language;
+* **templates/vimrc/**: lexicographically ordered language sections and combined `[label]` / `FileType` lists (revisibility);
+* Updated **templates/** READMEs (status, copy commands, layout);
+* Updated **README.md** (Phase 2 canonical; prefer **templates/** over legacy m-c-s catalogs);
 
 
 ## 0.5.3 - 15th September 2026

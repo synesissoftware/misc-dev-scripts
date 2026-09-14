@@ -1,0 +1,28 @@
+# Synesis Information Systems .gitignore for JavaScript libraries
+
+
+# directories (by name)
+
+/coverage/
+/node_modules/
+/scratch/
+
+
+# directories (by pattern)
+
+
+# files (by name)
+
+.DS_Store
+
+
+# files (by pattern)
+
+*~
+*.sw[pon]
+*.tgz
+*.tmp
+*.zip
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

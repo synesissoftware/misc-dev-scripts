@@ -1,0 +1,89 @@
+# .gitattributes — JavaScript / TypeScript (GitHub-hosted)
+#
+# Sources: GitHub Docs (line endings), gitattributes/gitattributes Web.gitattributes,
+# github-linguist overrides (generated / vendored / JSON-with-Comments).
+
+# Default: detect text, normalize to LF in the repository
+* text=auto
+
+# --- Source ---
+*.cjs text eol=lf
+*.css text diff=css
+*.cts text eol=lf
+*.htm text diff=html
+*.html text diff=html
+*.js text eol=lf
+*.jsx text eol=lf
+*.mjs text eol=lf
+*.mts text eol=lf
+*.scss text diff=css
+*.ts text eol=lf
+*.tsx text eol=lf
+*.vue text eol=lf
+
+# --- Lockfiles / maps (text but hide noisy diffs) ---
+*.map text -diff
+package-lock.json text eol=lf -diff
+pnpm-lock.yaml text eol=lf -diff
+yarn.lock text -diff
+
+# --- Config ---
+*.json text
+*.toml text
+*.yaml text
+*.yml text
+.*rc text
+.*ignore text
+package.json text eol=lf
+tsconfig.json text linguist-language=JSON-with-Comments
+jsconfig.json text linguist-language=JSON-with-Comments
+
+# --- Scripts ---
+*.bash text eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+*.sh text eol=lf
+*.zsh text eol=lf
+.husky/* text eol=lf
+
+# --- Docs / meta ---
+*.adoc text
+*.markdown text diff=markdown
+*.md text diff=markdown
+*.txt text
+AUTHORS text
+CHANGELOG text
+CHANGES text
+CONTRIBUTING text
+COPYING text
+LICENSE text
+NEWS text
+README text
+TODO text
+.gitattributes text
+.gitignore text
+
+# --- Binary / fonts / media ---
+*.eot binary
+*.gif binary
+*.gz binary
+*.ico binary
+*.jpeg binary
+*.jpg binary
+*.otf binary
+*.png binary
+*.tar binary
+*.ttf binary
+*.woff binary
+*.woff2 binary
+*.zip binary
+
+# --- GitHub Linguist ---
+**/*.min.css linguist-generated
+**/*.min.js linguist-generated
+**/dist/** linguist-generated
+**/build/** linguist-generated
+**/node_modules/** linguist-vendored
+**/.yarn/releases/** binary
+**/.yarn/plugins/** binary

@@ -1,4 +1,5 @@
-" Synesis C/C++ project .vimrc — aligned with .sis/.vscode/c_cxx/settings.json
+" Synesis generic / mixed-language project .vimrc — aligned with
+" .vscode/settings.json (generic union defaults)
 
 set nocompatible
 filetype indent plugin on
@@ -17,12 +18,12 @@ set fixeol
 set list
 set listchars=tab:->,trail:-,extends:>,precedes:<,nbsp:+
 
-" editor.detectIndentation: false — global defaults (editor.tabSize: 4, insertSpaces: true)
+" editor.detectIndentation: false — global defaults (editor.tabSize: 2, insertSpaces: false)
 set colorcolumn=76
-set expandtab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+set noexpandtab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 
 " colorcolumn draws a full-column tint in Vim (not a VS Code-style 1px line).
 " Keep it subtle via the ColorColumn highlight group; reapply after colorscheme changes.
@@ -40,7 +41,7 @@ autocmd ColorScheme * call s:ConfigureColorColumn()
 " files.trimTrailingWhitespace
 autocmd BufWritePre * %s/\s\+$//e
 
-augroup sis_c_cxx
+augroup sis_generic
   autocmd!
   " [bat]
   autocmd FileType bat,dosbatch setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 colorcolumn=60,76
@@ -51,14 +52,23 @@ augroup sis_c_cxx
   " [cmake]
   autocmd FileType cmake setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 
+  " [csharp]
+  autocmd FileType cs,csx setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 colorcolumn=76
+
+  " [go]
+  autocmd FileType go setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2 colorcolumn=60,76,100
+
+  " [javascript] / [typescript]
+  autocmd FileType javascript,javascriptreact,typescript,typescriptreact setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 colorcolumn=76
+
   " [json] / [markdown] / [ruby] / [yaml]
   autocmd FileType json,markdown,ruby,yaml setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
   " [python]
-  autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 colorcolumn=60,76
+  autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 colorcolumn=50,60,76,120
 
   " [rust]
-  autocmd FileType rs setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 colorcolumn=76
+  autocmd FileType rust setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 colorcolumn=76
 
   " [shellscript]
   autocmd FileType bash,sh,zsh setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 colorcolumn=60,76
@@ -66,5 +76,7 @@ augroup sis_c_cxx
   " [toml]
   autocmd FileType toml setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
 
-augroup END
+  " [zig]
+  autocmd FileType zig setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 colorcolumn=76
 
+augroup END

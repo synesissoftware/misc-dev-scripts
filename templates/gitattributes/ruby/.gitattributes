@@ -1,0 +1,75 @@
+# .gitattributes — Ruby (GitHub-hosted)
+#
+# Sources: GitHub Docs (line endings), git-scm gitattributes (diff=ruby),
+# gitattributes/gitattributes Common.gitattributes + Web (*.rb),
+# github-linguist overrides.
+
+# Default: detect text, normalize to LF in the repository
+* text=auto
+
+# --- Source ---
+*.gemspec text eol=lf diff=ruby
+*.rake text eol=lf diff=ruby
+*.rb text eol=lf diff=ruby
+*.ru text eol=lf diff=ruby
+Gemfile text eol=lf diff=ruby
+Rakefile text eol=lf diff=ruby
+Capfile text eol=lf diff=ruby
+Guardfile text eol=lf diff=ruby
+*.erb text
+*.haml text
+*.slim text
+
+# --- Lock / config ---
+Gemfile.lock text -diff
+*.gemspec.lock text -diff
+*.yml text
+*.yaml text
+*.toml text
+*.json text
+
+# --- Scripts ---
+*.bash text eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+*.sh text eol=lf
+*.zsh text eol=lf
+
+# --- Docs / meta ---
+*.adoc text
+*.markdown text diff=markdown
+*.md text diff=markdown
+*.txt text
+AUTHORS text
+CHANGELOG text
+CHANGES text
+CONTRIBUTING text
+COPYING text
+LICENSE text
+NEWS text
+README text
+TODO text
+.gitattributes text
+.gitignore text
+
+# --- Binary ---
+*.gem binary
+*.so binary
+
+# --- Archives / images (common) ---
+*.gif binary
+*.gz binary
+*.ico binary
+*.jpeg binary
+*.jpg binary
+*.png binary
+*.tar binary
+*.zip binary
+
+# --- GitHub Linguist ---
+**/vendor/bundle/** linguist-vendored
+**/vendor/cache/** linguist-vendored
+**/coverage/** linguist-generated
+**/doc/** linguist-documentation
+**/pkg/** linguist-generated
