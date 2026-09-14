@@ -1,7 +1,7 @@
 # `.gitattributes` templates <!-- omit in toc -->
 
 
-**Status:** Phase 2 — canonical copies live here (migrated from **misc-config-scripts** `gitattributes/`).
+**Status:** Canonical copies live here (migrated from former **misc-config-scripts** `gitattributes/` catalogs; that tree was removed in **misc-config-scripts** **0.9.0**).
 
 
 Drop-in root **`.gitattributes`** files for GitHub-hosted repositories, organised by primary language.
