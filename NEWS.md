@@ -3,7 +3,7 @@
 
 | Date                 | News Item | Details |
 | -------------------- | --------- | ------- |
-| 15th September 2026  | [**misc-dev-scripts** 0.6.0](https://github.com/synesissoftware/misc-dev-scripts/releases/tag/0.6.0) released | Phase 2: populate `templates/` catalogue        |
+| 15th September 2026  | [**misc-dev-scripts** 0.6.0](https://github.com/synesissoftware/misc-dev-scripts/releases/tag/0.6.0) released | Phase 2–4: templates catalogue + self align |
 | 15th September 2026  | [**misc-dev-scripts** 0.5.3](https://github.com/synesissoftware/misc-dev-scripts/releases/tag/0.5.3) released | Phase 1 self boilerplate; c_cxx vimrc seed  |
 | 15th September 2026  | [**misc-dev-scripts** 0.5.2](https://github.com/synesissoftware/misc-dev-scripts/releases/tag/0.5.2) released | Phase 0 ownership; `templates/` scaffold    |
 | 14th September 2026  | [**misc-dev-scripts** 0.5.1](https://github.com/synesissoftware/misc-dev-scripts/releases/tag/0.5.1) released | Python `.sis` help + prefer project `.venv` |

@@ -25,8 +25,13 @@
   * **templates/editorconfig/** — freelibs **python** / **ruby** plus synthesized house rules for other languages;
   * **templates/gitignore/** — lean Synesis-header consensus per language;
 * **templates/vimrc/**: lexicographically ordered language sections and combined `[label]` / `FileType` lists (revisibility);
+* Phase 4: align self boilerplate with **templates/** gold:
+  * confirmed **`.vscode/settings.json`** byte-identical to **templates/vscode/generic/settings.json**;
+  * refreshed **`.gitignore`** from **templates/gitignore/generic/**;
+  * normalised self **`.gitattributes`** to shell / docs catalog form (templates remain under **templates/gitattributes/**);
+  * retained shell / docs **`.editorconfig`** and **`.vimrc`** (not replaced by language-generic consumer templates);
 * Updated **templates/** READMEs (status, copy commands, layout);
-* Updated **README.md** (Phase 2 canonical; prefer **templates/** over legacy m-c-s catalogs);
+* Updated **README.md** (Phase 2–3 canonical; prefer **templates/** over legacy m-c-s catalogs);
 
 
 ## 0.5.3 - 15th September 2026

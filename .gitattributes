@@ -1,8 +1,7 @@
-# .gitattributes — misc-dev-scripts (Bash helper catalog)
+# .gitattributes — misc-dev-scripts (shell / docs catalog self)
 #
-# Aligned with misc-config-scripts shell / shared baseline patterns.
-# Prefer a language-specific template from that sibling when copying into
-# a primary-language library.
+# Self boilerplate for this repository. Project drop-in templates live under
+# templates/gitattributes/.
 
 # Default: detect text, normalize to LF in the repository
 * text=auto
@@ -29,10 +28,9 @@ TODO text
 VERSION text
 
 # --- Config ---
-**/.gitattributes -linguist-vendored linguist-language=Git-Attributes linguist-detectable
-**/settings.json linguist-language=JSON-with-Comments linguist-detectable
 *.json text
 *.yaml text
 *.yml text
 .gitattributes -linguist-vendored linguist-language=Git-Attributes linguist-detectable
 settings.json linguist-language=JSON-with-Comments linguist-detectable
+**/settings.json linguist-language=JSON-with-Comments linguist-detectable
