@@ -38,7 +38,7 @@ Do not confuse root self files with the catalogue under **`templates/`**.
 | --- | --- | --- |
 | **editorconfig** | **misc-dev-scripts** `templates/editorconfig/` | Seeded from freelibs exemplars + house indent rules |
 | **gitattributes** | **misc-dev-scripts** `templates/gitattributes/` | Migrated from **misc-config-scripts** `gitattributes/` |
-| **gitignore** | **misc-dev-scripts** `templates/gitignore/` | Lean Synesis-header consensus per language |
+| **gitignore** | **misc-dev-scripts** `templates/gitignore/` | C/C++ keys: historical Synesis union; other langs: lean consensus |
 | **vimrc** | **misc-dev-scripts** `templates/vimrc/` | Freelibs language gold (+ synthesized JS / generic) |
 | **vscode** (`settings.json`) | **misc-dev-scripts** `templates/vscode/` | Migrated from **misc-config-scripts** `settings.json/` |
 | **run_all_unit_tests.sh** | **misc-dev-scripts** `shell-scripts/run_all_unit_tests/` | Already canonical |

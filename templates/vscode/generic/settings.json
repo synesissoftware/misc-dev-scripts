@@ -246,6 +246,8 @@
 		"random": "cpp",
 		"ranges": "cpp",
 		"ratio": "cpp",
+		"rc.h": "c",
+		"result_codes_.h": "c",
 		"semaphore": "cpp",
 		"set": "cpp",
 		"setenv.h": "c",

@@ -3,6 +3,7 @@
 
 ## Table of Contents <!-- omit in toc -->
 
+- [Unreleased](#unreleased)
 - [0.6.0 - 15th September 2026](#060---15th-september-2026)
 - [0.5.3 - 15th September 2026](#053---15th-september-2026)
 - [0.5.2 - 15th September 2026](#052---15th-september-2026)
@@ -14,6 +15,11 @@
 - [0.3.0 - 15th August 2026](#030---15th-august-2026)
 - [0.2.0 - 12th August 2026](#020---12th-august-2026)
 - [0.1.1 - 11th August 2026](#011---11th-august-2026)
+
+
+## Unreleased
+
+* Expanded **templates/gitignore/{c,cxx,c_cxx}/** from the lean 0.6.0 consensus to the historical Synesis C/C++ ignore union (gold section layout; MSVC, logs, IDE, artefact dirs; omits `.vscode/` and owning-library `/include/` `/src/` trees);
 
 
 ## 0.6.0 - 15th September 2026
