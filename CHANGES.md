@@ -3,10 +3,7 @@
 
 ## Table of Contents <!-- omit in toc -->
 
-- [Unreleased](#unreleased)
-- [0.6.0 - 15th September 2026](#060---15th-september-2026)
-- [0.5.3 - 15th September 2026](#053---15th-september-2026)
-- [0.5.2 - 15th September 2026](#052---15th-september-2026)
+- [0.6.0 - 18th September 2026](#060---18th-september-2026)
 - [0.5.1 - 14th September 2026](#051---14th-september-2026)
 - [0.5.0 - 1st September 2026](#050---1st-september-2026)
 - [0.4.2 - 25th August 2026](#042---25th-august-2026)
@@ -17,13 +14,16 @@
 - [0.1.1 - 11th August 2026](#011---11th-august-2026)
 
 
-## Unreleased
+## 0.6.0 - 18th September 2026
 
-* Expanded **templates/gitignore/{c,cxx,c_cxx}/** from the lean 0.6.0 consensus to the historical Synesis C/C++ ignore union (gold section layout; MSVC, logs, IDE, artefact dirs; omits `.vscode/` and owning-library `/include/` `/src/` trees);
-
-
-## 0.6.0 - 15th September 2026
-
+* Expanded **templates/gitignore/{c,cxx,c_cxx}/** from the lean consensus to the historical Synesis C/C++ ignore union (gold section layout; MSVC, logs, IDE, artefact dirs; omits `.vscode/` and owning-library `/include/` `/src/` trees);
+* Phase 4: align self boilerplate with **templates/** gold:
+  * confirmed **`.vscode/settings.json`** byte-identical to **templates/vscode/generic/settings.json**;
+  * refreshed **`.gitignore`** from **templates/gitignore/generic/**;
+  * normalised self **`.gitattributes`** to shell / docs catalog form (templates remain under **templates/gitattributes/**);
+  * retained shell / docs **`.editorconfig`** and **`.vimrc`** (not replaced by language-generic consumer templates);
+* Phase 3 companion: **misc-config-scripts** **0.8.2** removed legacy catalogs; this repo remains sole project-drop-in home;
+* Updated **README.md** / **templates/** READMEs for post-cutover ownership (m-c-s **`.commonrc`** / **`.gitconfig`** only);
 * Phase 2: populate **templates/** as the canonical project drop-in catalogue:
   * **templates/vscode/** — migrated from **misc-config-scripts** `settings.json/` (plus **c_cxx** alias of **cxx**);
   * **templates/gitattributes/** — migrated from **misc-config-scripts** `gitattributes/`;
@@ -31,27 +31,14 @@
   * **templates/editorconfig/** — freelibs **python** / **ruby** plus synthesized house rules for other languages;
   * **templates/gitignore/** — lean Synesis-header consensus per language;
 * **templates/vimrc/**: lexicographically ordered language sections and combined `[label]` / `FileType` lists (revisibility);
-* Phase 4: align self boilerplate with **templates/** gold:
-  * confirmed **`.vscode/settings.json`** byte-identical to **templates/vscode/generic/settings.json**;
-  * refreshed **`.gitignore`** from **templates/gitignore/generic/**;
-  * normalised self **`.gitattributes`** to shell / docs catalog form (templates remain under **templates/gitattributes/**);
-  * retained shell / docs **`.editorconfig`** and **`.vimrc`** (not replaced by language-generic consumer templates);
 * Updated **templates/** READMEs (status, copy commands, layout);
-* Updated **README.md** (Phase 2–3 canonical; prefer **templates/** over legacy m-c-s catalogs);
-
-
-## 0.5.3 - 15th September 2026
-
+* Updated **README.md** (Phase 2–4 canonical; prefer **templates/** over legacy m-c-s catalogs);
 * Phase 1 self boilerplate:
   * added **`.editorconfig`** (shell / docs catalog: UTF-8, LF, shell 2-space, markdown/json/yaml);
   * replaced root **`.vimrc`** C/C++ consumer gold with shell / docs **self** **`.vimrc`** (aligned with **`.vscode/settings.json`**);
   * preserved former C/C++ gold as **templates/vimrc/c_cxx/.vimrc** for Phase 2;
   * confirmed **`.gitattributes`**, **`.gitignore`**, and **`.vscode/settings.json`** remain present as self files;
 * Updated **templates/README.md** and **templates/vimrc/README.md** (c_cxx seed note);
-
-
-## 0.5.2 - 15th September 2026
-
 * Declared Phase 0 ownership with **misc-config-scripts**: this repo owns language-specific project drop-ins and **`run_all_unit_tests`**; sibling keeps **`.commonrc`** / **`.gitconfig`** only after cutover;
 * Scaffolded **templates/** catalogue layout (`editorconfig`, `gitattributes`, `gitignore`, `vimrc`, `vscode` × language keys; **`.gitkeep`** placeholders);
 * Added **templates/README.md** and per-family READMEs (status, copy destinations, migration notes);

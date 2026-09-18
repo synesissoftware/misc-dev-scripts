@@ -19,7 +19,7 @@ This tree is the **canonical catalogue** for project-local config files that con
 
 ## Status
 
-**Phase 3 complete:** all five families × eleven language keys hold copyable templates. This tree is the sole canonical home (legacy **misc-config-scripts** `settings.json/` and `gitattributes/` catalogs removed in that repo’s **0.9.0**).
+**Phase 3 complete:** all five families × eleven language keys hold copyable templates. This tree is the sole canonical home (legacy **misc-config-scripts** `settings.json/` and `gitattributes/` catalogs removed in that repo’s **0.8.2**).
 
 
 ## Self boilerplate vs templates
@@ -91,7 +91,7 @@ When updating a consumer, cite this repository’s **VERSION** in that project�
 ## Related
 
 * [**shell-scripts/run_all_unit_tests/README.md**](../shell-scripts/run_all_unit_tests/README.md) — test-runner helpers;
-* Sibling [**misc-config-scripts**](https://github.com/synesissoftware/misc-config-scripts) — **`.gitconfig`** and **`.commonrc`** only (**0.9.0+**);
+* Sibling [**misc-config-scripts**](https://github.com/synesissoftware/misc-config-scripts) — **`.gitconfig`** and **`.commonrc`** only (**0.8.2+**);
 
 
 <!-- ########################### end of file ########################### -->

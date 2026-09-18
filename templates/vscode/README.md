@@ -1,7 +1,7 @@
 # VS Code `settings.json` templates <!-- omit in toc -->
 
 
-**Status:** Canonical copies live here (migrated from former **misc-config-scripts** `settings.json/` catalogs; that tree was removed in **misc-config-scripts** **0.9.0**).
+**Status:** Canonical copies live here (migrated from former **misc-config-scripts** `settings.json/` catalogs; that tree was removed in **misc-config-scripts** **0.8.2**).
 
 
 Drop-in workspace settings for Synesis / related projects, organised by primary language.
