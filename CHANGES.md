@@ -3,8 +3,7 @@
 
 ## Table of Contents <!-- omit in toc -->
 
-- [0.5.3 - 15th September 2026](#053---15th-september-2026)
-- [0.5.2 - 15th September 2026](#052---15th-september-2026)
+- [0.6.0 - 18th September 2026](#060---18th-september-2026)
 - [0.5.1 - 14th September 2026](#051---14th-september-2026)
 - [0.5.0 - 1st September 2026](#050---1st-september-2026)
 - [0.4.2 - 25th August 2026](#042---25th-august-2026)
@@ -15,7 +14,7 @@
 - [0.1.1 - 11th August 2026](#011---11th-august-2026)
 
 
-## 0.5.3 - 15th September 2026
+## 0.6.0 - 18th September 2026
 
 * Phase 1 self boilerplate:
   * added **`.editorconfig`** (shell / docs catalog: UTF-8, LF, shell 2-space, markdown/json/yaml);
@@ -23,10 +22,6 @@
   * preserved former C/C++ gold as **templates/vimrc/c_cxx/.vimrc** for Phase 2;
   * confirmed **`.gitattributes`**, **`.gitignore`**, and **`.vscode/settings.json`** remain present as self files;
 * Updated **templates/README.md** and **templates/vimrc/README.md** (c_cxx seed note);
-
-
-## 0.5.2 - 15th September 2026
-
 * Declared Phase 0 ownership with **misc-config-scripts**: this repo owns language-specific project drop-ins and **`run_all_unit_tests`**; sibling keeps **`.commonrc`** / **`.gitconfig`** only after cutover;
 * Scaffolded **templates/** catalogue layout (`editorconfig`, `gitattributes`, `gitignore`, `vimrc`, `vscode` × language keys; **`.gitkeep`** placeholders);
 * Added **templates/README.md** and per-family READMEs (status, copy destinations, migration notes);
