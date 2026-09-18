@@ -19,14 +19,14 @@ This tree is the **canonical catalogue** for project-local config files that con
 
 ## Status
 
-**Phase 2 (populated):** all five families × eleven language keys hold copyable templates. Prefer these paths over the legacy catalogs still present (frozen) in **misc-config-scripts** `settings.json/` and `gitattributes/` until that repo’s Phase 3 removal.
+**Phase 3 complete:** all five families × eleven language keys hold copyable templates. This tree is the sole canonical home (legacy **misc-config-scripts** `settings.json/` and `gitattributes/` catalogs removed in that repo’s **0.8.2**).
 
 
 ## Self boilerplate vs templates
 
 | Kind | Where | Purpose |
 | --- | --- | --- |
-| **Self** | Repository root (e.g. this project’s own **`.vimrc`**, **`.gitignore`**) | Configures *this* repository |
+| **Self** | Repository root (e.g. this project's own **`.vimrc`**, **`.gitignore`**) | Configures *this* repository |
 | **Template** | Under **`templates/<family>/<lang>/`** | Copied into *other* projects |
 
 Do not confuse root self files with the catalogue under **`templates/`**.
@@ -91,7 +91,7 @@ When updating a consumer, cite this repository’s **VERSION** in that project�
 ## Related
 
 * [**shell-scripts/run_all_unit_tests/README.md**](../shell-scripts/run_all_unit_tests/README.md) — test-runner helpers;
-* Sibling [**misc-config-scripts**](https://github.com/synesissoftware/misc-config-scripts) — **`.gitconfig`** and **`.commonrc`**; legacy project catalogs frozen until Phase 3.
+* Sibling [**misc-config-scripts**](https://github.com/synesissoftware/misc-config-scripts) — **`.gitconfig`** and **`.commonrc`** only (**0.8.2+**);
 
 
 <!-- ########################### end of file ########################### -->

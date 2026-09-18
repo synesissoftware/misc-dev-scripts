@@ -13,7 +13,7 @@ Miscellaneous Development Scripts
 ## Table of Contents <!-- omit in toc -->
 
 - [Introduction](#introduction)
-- [Ownership and migration (Phase 0)](#ownership-and-migration-phase-0)
+- [Ownership and migration](#ownership-and-migration)
 - [Catalogue layout](#catalogue-layout)
 - [Shell Scripts](#shell-scripts)
   - [run\_all\_unit\_tests.sh](#run_all_unit_testssh)
@@ -28,12 +28,12 @@ Miscellaneous Development Scripts
 
 Today the shipped helpers are principally **run_all_unit_tests.sh** variants for **JavaScript**, **Python**, and **Ruby**, with further languages and template families planned. When updating a consumer, cite this repository’s **VERSION** in that project’s **CHANGES.md**.
 
-Sibling project: [**misc-config-scripts**](https://github.com/synesissoftware/misc-config-scripts) (**`.commonrc`** and **`.gitconfig`** only after cutover).
+Sibling project: [**misc-config-scripts**](https://github.com/synesissoftware/misc-config-scripts) (**`.commonrc`** and **`.gitconfig`** only).
 
 
-## Ownership and migration (Phase 0)
+## Ownership and migration
 
-**Status: Phase 2 complete — `templates/` is populated and is the canonical home for project drop-ins.** Legacy copies may still exist in **misc-config-scripts** until that repo’s Phase 3.
+**Status: Phase 3 complete — this repository’s `templates/` is the sole canonical home for project drop-ins.** **misc-config-scripts** **0.8.2+** ships **`.commonrc`** / **`.gitconfig`** only.
 
 Distinguish **self** boilerplate (this repository’s own root editor/Git files) from **templates** (copied into other projects).
 
@@ -41,9 +41,7 @@ Distinguish **self** boilerplate (this repository’s own root editor/Git files)
 | --- | --- | --- |
 | **Self** **`.editorconfig`**, **`.gitattributes`**, **`.gitignore`**, **`.vimrc`**, **`.vscode/settings.json`** | ✅ | ✅ |
 | **Templates:** **`.gitconfig`**, **`.commonrc`** | ✅ only | ❌ |
-| **Templates:** language-specific **`run_all_unit_tests.sh`**, **`.editorconfig`**, **`.gitattributes`**, **`.gitignore`**, **`.vimrc`**, **`.vscode/settings.json`** | ❌ (legacy frozen) | ✅ only |
-
-Until **misc-config-scripts** Phase 3 removes its legacy trees, prefer **this** repository’s **`templates/`** for new copies of VS Code settings and **`.gitattributes`**. Do **not** add new language templates under **misc-config-scripts**.
+| **Templates:** language-specific **`run_all_unit_tests.sh`**, **`.editorconfig`**, **`.gitattributes`**, **`.gitignore`**, **`.vimrc`**, **`.vscode/settings.json`** | ❌ | ✅ only |
 
 
 ## Catalogue layout
@@ -87,18 +85,18 @@ Use `--help` on any variant for the authoritative flag list.
 
 See [**templates/README.md**](./templates/README.md). Families:
 
-* [**editorconfig**](./templates/editorconfig/README.md);
-* [**gitattributes**](./templates/gitattributes/README.md);
-* [**gitignore**](./templates/gitignore/README.md);
-* [**vimrc**](./templates/vimrc/README.md);
-* [**vscode**](./templates/vscode/README.md);
+* [**.editorconfig**](./templates/editorconfig/README.md);
+* [**.gitattributes**](./templates/gitattributes/README.md);
+* [**.gitignore**](./templates/gitignore/README.md);
+* [**.vimrc**](./templates/vimrc/README.md);
+* [**.vscode/**](./templates/vscode/README.md);
 
-**Phase 2:** all families populated for every language key — ready to copy.
+**Phase 2:** all families populated for every language key — ready to copy. **misc-config-scripts** **0.8.2+** no longer ships legacy catalogs.
 
 
 ## Related projects
 
-A peer project that provides **`.commonrc`** and **`.gitconfig`** (and, until cutover, legacy project settings / gitattributes catalogs) is [**misc-config-scripts**](https://github.com/synesissoftware/misc-config-scripts).
+A peer project that provides **`.commonrc`** and **`.gitconfig`** is [**misc-config-scripts**](https://github.com/synesissoftware/misc-config-scripts) (**0.8.2+**).
 
 Resources from this project are used in the following projects (case-insensitive lexicographic order):
 

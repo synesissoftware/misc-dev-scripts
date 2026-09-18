@@ -16,6 +16,8 @@
 
 ## 0.6.0 - 18th September 2026
 
+* Phase 3 companion: **misc-config-scripts** **0.8.2** removed legacy catalogs; this repo remains sole project-drop-in home;
+* Updated **README.md** / **templates/** READMEs for post-cutover ownership (m-c-s **`.commonrc`** / **`.gitconfig`** only);
 * Phase 2: populate **templates/** as the canonical project drop-in catalogue:
   * **templates/vscode/** — migrated from **misc-config-scripts** `settings.json/` (plus **c_cxx** alias of **cxx**);
   * **templates/gitattributes/** — migrated from **misc-config-scripts** `gitattributes/`;
