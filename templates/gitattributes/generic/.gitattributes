@@ -1,0 +1,217 @@
+# .gitattributes — generic (union of language templates)
+#
+# Sources: union of c, cxx, c#, go, javascript, python, ruby, rust, zig
+# templates derived from GitHub Docs, git-scm, gitattributes/gitattributes,
+# and github-linguist. Prefer a language-specific template when possible.
+
+# Default: detect text, normalize to LF in the repository
+* text=auto
+
+# --- Source ---
+*.c text diff=cpp
+*.c++ text diff=cpp
+*.cc text diff=cpp
+*.cjs text eol=lf
+*.cpp text diff=cpp
+*.cs text diff=csharp
+*.cshtml text diff=html
+*.css text diff=css
+*.csx text diff=csharp
+*.cts text eol=lf
+*.cxx text diff=cpp
+*.erb text
+*.gemspec text eol=lf diff=ruby
+*.gemspec.lock text -diff
+*.go text eol=lf diff=golang
+*.h text diff=cpp
+*.h++ text diff=cpp
+*.haml text
+*.hh text diff=cpp
+*.hpp text diff=cpp
+*.htm text diff=html
+*.html text diff=html
+*.hxx text diff=cpp
+*.inc text
+*.inl text
+*.ipp text
+*.ipynb text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.map text -diff
+*.mjs text eol=lf
+*.mts text eol=lf
+*.pxd text diff=python
+*.py text eol=lf diff=python
+*.py3 text eol=lf diff=python
+*.pyi text eol=lf diff=python
+*.pyw text eol=lf diff=python
+*.pyx text diff=python
+*.pyz text diff=python
+*.rake text eol=lf diff=ruby
+*.razor text diff=html
+*.rb text eol=lf diff=ruby
+*.rs text eol=lf diff=rust
+*.ru text eol=lf diff=ruby
+*.s text eol=lf
+*.scss text diff=css
+*.slim text
+*.tcc text
+*.tpp text
+*.ts text eol=lf
+*.tsx text eol=lf
+*.vue text eol=lf
+*.zig text eol=lf
+*.zon text eol=lf
+Capfile text eol=lf diff=ruby
+Gemfile text eol=lf diff=ruby
+Guardfile text eol=lf diff=ruby
+Rakefile text eol=lf diff=ruby
+
+# --- Build / config / lock ---
+*.am text
+*.cfg text
+*.cmake text
+*.csproj text eol=crlf
+*.fsproj text eol=crlf
+*.ini text
+*.json text
+*.m4 text
+*.mak text
+*.mk text
+*.props text eol=crlf
+*.sln text eol=crlf
+*.slnx text eol=crlf
+*.targets text eol=crlf
+*.toml text
+*.vbproj text eol=crlf
+*.xml text
+*.yaml text
+*.yml text
+*akefile text
+.*ignore text
+.*rc text
+Cargo.lock text
+Cargo.toml text
+Gemfile.lock text -diff
+Pipfile text
+Pipfile.lock text -diff
+build.zig text eol=lf
+build.zig.zon text eol=lf
+configure text eol=lf
+configure.ac text
+go.mod text eol=lf
+go.sum text eol=lf
+go.work text eol=lf
+go.work.sum text eol=lf
+package-lock.json text eol=lf -diff
+package.json text eol=lf
+pnpm-lock.yaml text eol=lf -diff
+poetry.lock text -diff
+pyproject.toml text
+rust-toolchain text
+rust-toolchain.toml text
+setup.cfg text
+setup.py text eol=lf diff=python
+yarn.lock text -diff
+
+# --- Scripts ---
+*.bash text eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+*.sh text eol=lf
+*.zsh text eol=lf
+.husky/* text eol=lf
+
+# --- Docs / meta ---
+*.adoc text
+*.markdown text diff=markdown
+*.md text diff=markdown
+*.txt text
+.gitattributes text
+.gitignore text
+AUTHORS text
+CHANGELOG text
+CHANGES text
+CMakeLists.txt text
+CONTRIBUTING text
+COPYING text
+LICENSE text
+NEWS text
+README text
+TODO text
+requirements*.txt text
+
+# --- Binary / archives / media ---
+**/.yarn/plugins/** binary
+**/.yarn/releases/** binary
+*.a binary
+*.db binary
+*.dll binary
+*.dylib binary
+*.eot binary
+*.exe binary
+*.gch binary
+*.gem binary
+*.gif binary
+*.gz binary
+*.ico binary
+*.jpeg binary
+*.jpg binary
+*.la binary
+*.lai binary
+*.lib binary
+*.lo binary
+*.nupkg binary
+*.o binary
+*.obj binary
+*.otf binary
+*.out binary
+*.p binary
+*.pch binary
+*.pdb binary
+*.pickle binary
+*.pkl binary
+*.png binary
+*.pyc binary export-ignore
+*.pyd binary
+*.pyo binary export-ignore
+*.rlib binary
+*.slo binary
+*.snk binary
+*.so binary
+*.tar binary
+*.test binary
+*.ttf binary
+*.whl binary
+*.woff binary
+*.woff2 binary
+*.zip binary
+
+# --- GitHub Linguist ---
+**/*.egg-info/** linguist-generated
+**/*.min.css linguist-generated
+**/*.min.js linguist-generated
+**/.mypy_cache/** linguist-generated
+**/.pytest_cache/** linguist-generated
+**/.ruff_cache/** linguist-generated
+**/.zig-cache/** linguist-generated
+**/__pycache__/** linguist-generated
+**/bin/** linguist-generated
+**/build/** linguist-generated
+**/cmake-build-*/** linguist-generated
+**/coverage/** linguist-generated
+**/dist/** linguist-generated
+**/doc/** linguist-documentation
+**/node_modules/** linguist-vendored
+**/obj/** linguist-generated
+**/packages/** linguist-vendored
+**/pkg/** linguist-generated
+**/target/** linguist-generated
+**/vendor/** linguist-vendored
+**/vendor/bundle/** linguist-vendored
+**/vendor/cache/** linguist-vendored
+**/zig-cache/** linguist-generated
+**/zig-out/** linguist-generated
+jsconfig.json text linguist-language=JSON-with-Comments
+tsconfig.json text linguist-language=JSON-with-Comments

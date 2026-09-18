@@ -1,0 +1,38 @@
+# Synesis Information Systems .gitignore for mixed-language / generic trees
+
+
+# directories (by name)
+
+/.idea/
+/.venv/
+/.vs/
+/build/
+/coverage/
+/dist/
+/node_modules/
+/scratch/
+/target/
+/tmp/
+
+
+# directories (by pattern)
+
+**/__pycache__/
+
+
+# files (by name)
+
+.DS_Store
+
+
+# files (by pattern)
+
+*~
+*.dll
+*.dylib
+*.exe
+*.o
+*.so
+*.sw[ponm]
+*.tmp
+*.zip

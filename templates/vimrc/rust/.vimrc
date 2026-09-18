@@ -1,4 +1,4 @@
-" Synesis C/C++ project .vimrc — aligned with .sis/.vscode/c_cxx/settings.json
+" Synesis Rust project .vimrc — aligned with .vscode/settings.json (Rust)
 
 set nocompatible
 filetype indent plugin on
@@ -40,7 +40,7 @@ autocmd ColorScheme * call s:ConfigureColorColumn()
 " files.trimTrailingWhitespace
 autocmd BufWritePre * %s/\s\+$//e
 
-augroup sis_c_cxx
+augroup sis_rust
   autocmd!
   " [bat]
   autocmd FileType bat,dosbatch setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 colorcolumn=60,76
@@ -58,7 +58,7 @@ augroup sis_c_cxx
   autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 colorcolumn=60,76
 
   " [rust]
-  autocmd FileType rs setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 colorcolumn=76
+  autocmd FileType rust setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 colorcolumn=76
 
   " [shellscript]
   autocmd FileType bash,sh,zsh setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 colorcolumn=60,76

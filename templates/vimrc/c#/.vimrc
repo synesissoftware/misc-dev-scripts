@@ -1,4 +1,4 @@
-" Synesis C/C++ project .vimrc — aligned with .sis/.vscode/c_cxx/settings.json
+" Synesis .NET project .vimrc — aligned with .vscode/settings.json (C#)
 
 set nocompatible
 filetype indent plugin on
@@ -17,7 +17,7 @@ set fixeol
 set list
 set listchars=tab:->,trail:-,extends:>,precedes:<,nbsp:+
 
-" editor.detectIndentation: false — global defaults (editor.tabSize: 4, insertSpaces: true)
+" editor.detectIndentation: false — global defaults match [csharp] (editor.tabSize: 4, insertSpaces: true, rulers: [76])
 set colorcolumn=76
 set expandtab
 set shiftwidth=4
@@ -40,25 +40,19 @@ autocmd ColorScheme * call s:ConfigureColorColumn()
 " files.trimTrailingWhitespace
 autocmd BufWritePre * %s/\s\+$//e
 
-augroup sis_c_cxx
+augroup sis_dotnet
   autocmd!
-  " [bat]
+  " [bat] / [dosbatch]
   autocmd FileType bat,dosbatch setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 colorcolumn=60,76
 
-  " [c] / [cpp]
-  autocmd FileType c,cpp setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 colorcolumn=60,64,68,72,76
+  " [csharp] — match .vscode [csharp] tabSize 4 / insertSpaces true / rulers 76
+  autocmd FileType cs,csx setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 colorcolumn=76
 
-  " [cmake]
-  autocmd FileType cmake setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
-
-  " [json] / [markdown] / [ruby] / [yaml]
-  autocmd FileType json,markdown,ruby,yaml setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+  " [json] / [markdown] / [yaml]
+  autocmd FileType json,markdown,yaml setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
   " [python]
   autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 colorcolumn=60,76
-
-  " [rust]
-  autocmd FileType rs setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 colorcolumn=76
 
   " [shellscript]
   autocmd FileType bash,sh,zsh setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 colorcolumn=60,76
@@ -66,5 +60,7 @@ augroup sis_c_cxx
   " [toml]
   autocmd FileType toml setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
 
-augroup END
+  " [xml] — SDK-style .csproj / .props / .targets use 2-space indent
+  autocmd FileType xml setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
+augroup END

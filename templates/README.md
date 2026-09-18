@@ -3,7 +3,7 @@
 
 Language-specific **project** drop-in templates for Synesis (and related) libraries.
 
-This tree is the **canonical catalogue layout** for project-local config files that consumers copy into a repository root (or **`.vscode/`**). Content is staged here in phases; until a language directory holds a real template file, a **`.gitkeep`** marks the reserved path.
+This tree is the **canonical catalogue** for project-local config files that consumers copy into a repository root (or **`.vscode/`**).
 
 
 ## Table of Contents <!-- omit in toc -->
@@ -13,20 +13,20 @@ This tree is the **canonical catalogue layout** for project-local config files t
 - [Ownership](#ownership)
 - [Layout](#layout)
 - [Language keys](#language-keys)
-- [How to use (once populated)](#how-to-use-once-populated)
+- [How to use](#how-to-use)
 - [Related](#related)
 
 
 ## Status
 
-**Phase 0–1:** directory tree and documentation declared; **`templates/vimrc/c_cxx/.vimrc`** seeded (C/C++ gold preserved from former root self files). Other language folders remain empty (**`.gitkeep`**) until Phase 2. Do **not** treat unseeded folders as ready to copy. Cutover from **misc-config-scripts** remains a later phase.
+**Phase 2 (populated):** all five families × eleven language keys hold copyable templates. Prefer these paths over the legacy catalogs still present (frozen) in **misc-config-scripts** `settings.json/` and `gitattributes/` until that repo’s Phase 3 removal.
 
 
 ## Self boilerplate vs templates
 
 | Kind | Where | Purpose |
 | --- | --- | --- |
-| **Self** | Repository root (e.g. this project's own **`.vimrc`**, **`.gitignore`**) | Configures *this* repository |
+| **Self** | Repository root (e.g. this project’s own **`.vimrc`**, **`.gitignore`**) | Configures *this* repository |
 | **Template** | Under **`templates/<family>/<lang>/`** | Copied into *other* projects |
 
 Do not confuse root self files with the catalogue under **`templates/`**.
@@ -36,11 +36,11 @@ Do not confuse root self files with the catalogue under **`templates/`**.
 
 | Template family | Canonical home | Notes |
 | --- | --- | --- |
-| **.editorconfig** | **misc-dev-scripts** `templates/editorconfig/` | Intent; content TBD |
-| **.gitattributes** | **misc-dev-scripts** `templates/gitattributes/` | Today still shipped from **misc-config-scripts** `gitattributes/` (deprecated for new work) |
-| **.gitignore** | **misc-dev-scripts** `templates/gitignore/` | Intent; content TBD |
-| **.vimrc** | **misc-dev-scripts** `templates/vimrc/` | Intent; content TBD |
-| **.vscode** (`settings.json`) | **misc-dev-scripts** `templates/vscode/` | Today still shipped from **misc-config-scripts** `settings.json/` (deprecated for new work) |
+| **editorconfig** | **misc-dev-scripts** `templates/editorconfig/` | Seeded from freelibs exemplars + house indent rules |
+| **gitattributes** | **misc-dev-scripts** `templates/gitattributes/` | Migrated from **misc-config-scripts** `gitattributes/` |
+| **gitignore** | **misc-dev-scripts** `templates/gitignore/` | Lean Synesis-header consensus per language |
+| **vimrc** | **misc-dev-scripts** `templates/vimrc/` | Freelibs language gold (+ synthesized JS / generic) |
+| **vscode** (`settings.json`) | **misc-dev-scripts** `templates/vscode/` | Migrated from **misc-config-scripts** `settings.json/` |
 | **run_all_unit_tests.sh** | **misc-dev-scripts** `shell-scripts/run_all_unit_tests/` | Already canonical |
 | **.gitconfig** / **.commonrc** | **misc-config-scripts** only | Machine / shell environment — not project drop-ins |
 
@@ -75,7 +75,7 @@ Lexicographic language directory names (same set for every family):
 * **zig**.
 
 
-## How to use (once populated)
+## How to use
 
 ```sh
 cp templates/vscode/python/settings.json /path/to/repo/.vscode/settings.json
@@ -91,7 +91,7 @@ When updating a consumer, cite this repository’s **VERSION** in that project�
 ## Related
 
 * [**shell-scripts/run_all_unit_tests/README.md**](../shell-scripts/run_all_unit_tests/README.md) — test-runner helpers;
-* Sibling [**misc-config-scripts**](https://github.com/synesissoftware/misc-config-scripts) — **`.gitconfig`** and **`.commonrc`** only (after cutover); project dotfile catalogs there are frozen pending migration.
+* Sibling [**misc-config-scripts**](https://github.com/synesissoftware/misc-config-scripts) — **`.gitconfig`** and **`.commonrc`**; legacy project catalogs frozen until Phase 3.
 
 
 <!-- ########################### end of file ########################### -->

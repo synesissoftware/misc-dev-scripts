@@ -1,0 +1,68 @@
+# .gitattributes — Rust (GitHub-hosted)
+#
+# Sources: GitHub Docs (line endings), git-scm gitattributes (diff=rust),
+# gitattributes/gitattributes Rust.gitattributes + Common.gitattributes,
+# github-linguist overrides.
+
+# Default: detect text, normalize to LF in the repository
+* text=auto
+
+# --- Source ---
+*.rs text eol=lf diff=rust
+*.toml text
+Cargo.lock text
+Cargo.toml text
+rust-toolchain text
+rust-toolchain.toml text
+
+# --- Scripts ---
+*.bash text eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+*.sh text eol=lf
+*.zsh text eol=lf
+
+# --- Docs / meta ---
+*.adoc text
+*.markdown text diff=markdown
+*.md text diff=markdown
+*.txt text
+AUTHORS text
+CHANGELOG text
+CHANGES text
+CONTRIBUTING text
+COPYING text
+LICENSE text
+NEWS text
+README text
+TODO text
+.gitattributes text
+.gitignore text
+
+# --- Serialisation ---
+*.json text
+*.xml text
+*.yaml text
+*.yml text
+
+# --- Binary ---
+*.a binary
+*.dll binary
+*.dylib binary
+*.exe binary
+*.rlib binary
+*.so binary
+
+# --- Archives / images (common) ---
+*.gif binary
+*.gz binary
+*.ico binary
+*.jpeg binary
+*.jpg binary
+*.png binary
+*.tar binary
+*.zip binary
+
+# --- GitHub Linguist ---
+**/target/** linguist-generated

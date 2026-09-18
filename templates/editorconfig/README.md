@@ -3,16 +3,16 @@
 
 Drop-in root **`.editorconfig`** files, organised by primary language.
 
-**Status:** Phase 0 — layout only (**`.gitkeep`** placeholders). Content lands in a later phase.
+**Status:** Phase 2 — populated (freelibs exemplars for **python** / **ruby**; synthesized house indent rules for other languages).
 
 
 ## Table of Contents <!-- omit in toc -->
 
-- [How to use (once populated)](#how-to-use-once-populated)
+- [How to use](#how-to-use)
 - [Layout](#layout)
 
 
-## How to use (once populated)
+## How to use
 
 ```sh
 cp templates/editorconfig/<language>/.editorconfig /path/to/repo/.editorconfig

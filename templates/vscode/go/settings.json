@@ -1,0 +1,70 @@
+{
+	"[go]": {
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": "explicit",
+		},
+		"editor.defaultFormatter": "golang.go",
+		"editor.formatOnSave": true,
+		"editor.insertSpaces": false,
+		"editor.tabSize": 2,
+	},
+	"[json]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2,
+	},
+	"[markdown]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2,
+	},
+	"[ruby]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2,
+	},
+	"[shellscript]": {
+		"editor.insertSpaces": true,
+		"editor.rulers": [ 60, 76 ],
+		"editor.tabSize": 2,
+	},
+	"[toml]": {
+		"editor.insertSpaces": false,
+		"editor.tabSize": 2,
+	},
+	"cmake.configureOnOpen": false,
+	"editor.detectIndentation": false,
+	"editor.insertSpaces": false,
+	"editor.renderWhitespace": "all",
+	"editor.rulers": [ 76 ],
+	"editor.tabSize": 2,
+	"files.insertFinalNewline": true,
+	"files.trimTrailingWhitespace": true,
+	"git.mergeEditor": false,
+	"go.delveConfig": {
+		"apiVersion": 2,
+		"dlvLoadConfig": {
+			"followPointers": true,
+			"maxArrayValues": 64,
+			"maxStringLen": 64,
+			"maxStructFields": -1,
+			"maxVariableRecurse": 1,
+		},
+		"showGlobalVariables": false,
+	},
+	"go.diagnostic.vulncheck": "Imports",
+	"go.formatTool": "default",
+	"go.inlayHints.constantValues": true,
+	"go.inlayHints.functionTypeParameters": true,
+	"go.inlayHints.parameterNames": true,
+	"go.inlayHints.rangeVariableTypes": true,
+	"go.lintFlags": [
+		"--fast",
+	],
+	"go.lintOnSave": "workspace",
+	"go.lintTool": "golangci-lint",
+	"go.toolsManagement.autoUpdate": true,
+	"go.useLanguageServer": true,
+	"gopls": {
+		"formatting.gofumpt": true,
+		"ui.completion.usePlaceholders": true,
+		"ui.semanticTokens": true,
+	},
+}

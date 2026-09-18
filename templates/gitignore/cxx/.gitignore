@@ -1,0 +1,46 @@
+# Synesis Information Systems .gitignore for C++ libraries
+
+
+# directories (by name)
+
+/.idea/
+/.vs/
+/_analyses/
+/_build/
+/_build-ci/
+/bin/
+/ipch/
+/lib/
+/scratch/
+/target/
+bin/
+ipch/
+lib/
+
+
+# directories (by pattern)
+
+
+# files (by name)
+
+.DS_Store
+
+
+# files (by pattern)
+
+*~
+*.a
+*.dll
+*.dylib
+*.exe
+*.gch
+*.lib
+*.o
+*.obj
+*.out
+*.pch
+*.pdb
+*.so
+*.sw[ponm]
+*.tmp
+*.zip

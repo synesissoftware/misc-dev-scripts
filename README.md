@@ -33,7 +33,7 @@ Sibling project: [**misc-config-scripts**](https://github.com/synesissoftware/mi
 
 ## Ownership and migration (Phase 0)
 
-**Status: Phase 0–1 done for self boilerplate — template content cutover not complete.**
+**Status: Phase 2 complete — `templates/` is populated and is the canonical home for project drop-ins.** Legacy copies may still exist in **misc-config-scripts** until that repo’s Phase 3.
 
 Distinguish **self** boilerplate (this repository’s own root editor/Git files) from **templates** (copied into other projects).
 
@@ -43,7 +43,7 @@ Distinguish **self** boilerplate (this repository’s own root editor/Git files)
 | **Templates:** **`.gitconfig`**, **`.commonrc`** | ✅ only | ❌ |
 | **Templates:** language-specific **`run_all_unit_tests.sh`**, **`.editorconfig`**, **`.gitattributes`**, **`.gitignore`**, **`.vimrc`**, **`.vscode/settings.json`** | ❌ (legacy frozen) | ✅ only |
 
-Until later phases populate **`templates/`**, continue copying VS Code settings and **`.gitattributes`** from **misc-config-scripts** (legacy catalogs). Do **not** add new language templates there.
+Until **misc-config-scripts** Phase 3 removes its legacy trees, prefer **this** repository’s **`templates/`** for new copies of VS Code settings and **`.gitattributes`**. Do **not** add new language templates under **misc-config-scripts**.
 
 
 ## Catalogue layout
@@ -93,7 +93,7 @@ See [**templates/README.md**](./templates/README.md). Families:
 * [**vimrc**](./templates/vimrc/README.md);
 * [**vscode**](./templates/vscode/README.md);
 
-**Phase 0–1:** directories reserved; **`templates/vimrc/c_cxx/.vimrc`** seeded. Other families not ready to copy.
+**Phase 2:** all families populated for every language key — ready to copy.
 
 
 ## Related projects
