@@ -33,7 +33,7 @@ Sibling project: [**misc-config-scripts**](https://github.com/synesissoftware/mi
 
 ## Ownership and migration
 
-**Status: Phase 3 complete — this repository’s `templates/` is the sole canonical home for project drop-ins.** **misc-config-scripts** **0.8.2+** ships **`.commonrc`** / **`.gitconfig`** only.
+**Status: Phase 4 complete — self boilerplate aligned with `templates/` gold where applicable.** **misc-config-scripts** **0.8.2+** ships **`.commonrc`** / **`.gitconfig`** only.
 
 Distinguish **self** boilerplate (this repository’s own root editor/Git files) from **templates** (copied into other projects).
 

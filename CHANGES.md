@@ -16,6 +16,12 @@
 
 ## 0.6.0 - 18th September 2026
 
+* Expanded **templates/gitignore/{c,cxx,c_cxx}/** from the lean consensus to the historical Synesis C/C++ ignore union (gold section layout; MSVC, logs, IDE, artefact dirs; omits `.vscode/` and owning-library `/include/` `/src/` trees);
+* Phase 4: align self boilerplate with **templates/** gold:
+  * confirmed **`.vscode/settings.json`** byte-identical to **templates/vscode/generic/settings.json**;
+  * refreshed **`.gitignore`** from **templates/gitignore/generic/**;
+  * normalised self **`.gitattributes`** to shell / docs catalog form (templates remain under **templates/gitattributes/**);
+  * retained shell / docs **`.editorconfig`** and **`.vimrc`** (not replaced by language-generic consumer templates);
 * Phase 3 companion: **misc-config-scripts** **0.8.2** removed legacy catalogs; this repo remains sole project-drop-in home;
 * Updated **README.md** / **templates/** READMEs for post-cutover ownership (m-c-s **`.commonrc`** / **`.gitconfig`** only);
 * Phase 2: populate **templates/** as the canonical project drop-in catalogue:
@@ -26,7 +32,7 @@
   * **templates/gitignore/** — lean Synesis-header consensus per language;
 * **templates/vimrc/**: lexicographically ordered language sections and combined `[label]` / `FileType` lists (revisibility);
 * Updated **templates/** READMEs (status, copy commands, layout);
-* Updated **README.md** (Phase 2 canonical; prefer **templates/** over legacy m-c-s catalogs);
+* Updated **README.md** (Phase 2–4 canonical; prefer **templates/** over legacy m-c-s catalogs);
 * Phase 1 self boilerplate:
   * added **`.editorconfig`** (shell / docs catalog: UTF-8, LF, shell 2-space, markdown/json/yaml);
   * replaced root **`.vimrc`** C/C++ consumer gold with shell / docs **self** **`.vimrc`** (aligned with **`.vscode/settings.json`**);
