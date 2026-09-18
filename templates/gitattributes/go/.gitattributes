@@ -1,0 +1,67 @@
+# .gitattributes — Go (GitHub-hosted)
+#
+# Sources: GitHub Docs (line endings), git-scm gitattributes (diff=golang),
+# modern Go GitHub practice (*.go text eol=lf; contrast: golang/go uses -text),
+# github-linguist overrides.
+
+# Default: detect text, normalize to LF in the repository
+* text=auto
+
+# --- Source (LF required; avoids gofmt churn on Windows) ---
+*.go text eol=lf diff=golang
+*.s text eol=lf
+go.mod text eol=lf
+go.sum text eol=lf
+go.work text eol=lf
+go.work.sum text eol=lf
+
+# --- Scripts ---
+*.bash text eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+*.sh text eol=lf
+*.zsh text eol=lf
+
+# --- Docs / meta ---
+*.adoc text
+*.markdown text diff=markdown
+*.md text diff=markdown
+*.txt text
+AUTHORS text
+CHANGELOG text
+CHANGES text
+CONTRIBUTING text
+COPYING text
+LICENSE text
+NEWS text
+README text
+TODO text
+.gitattributes text
+.gitignore text
+
+# --- Serialisation ---
+*.json text
+*.toml text
+*.xml text
+*.yaml text
+*.yml text
+
+# --- Binary ---
+*.a binary
+*.exe binary
+*.so binary
+*.test binary
+
+# --- Archives / images (common) ---
+*.gif binary
+*.gz binary
+*.ico binary
+*.jpeg binary
+*.jpg binary
+*.png binary
+*.tar binary
+*.zip binary
+
+# --- GitHub Linguist ---
+**/vendor/** linguist-vendored

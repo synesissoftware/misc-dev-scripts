@@ -1,0 +1,24 @@
+# Synesis Information Systems .gitignore for Zig projects
+
+
+# directories (by name)
+
+/.zig-cache/
+/scratch/
+/zig-out/
+
+
+# directories (by pattern)
+
+
+# files (by name)
+
+.DS_Store
+
+
+# files (by pattern)
+
+*~
+*.sw[pon]
+*.tmp
+*.zip

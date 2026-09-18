@@ -1,0 +1,27 @@
+# Synesis Information Systems .gitignore for Rust crates
+
+
+# directories (by name)
+
+/.idea/
+/scratch/
+/target/
+
+
+# directories (by pattern)
+
+**/__pycache__/
+
+
+# files (by name)
+
+.DS_Store
+
+
+# files (by pattern)
+
+**/*.rs.bk
+*~
+*.sw[ponm]
+*.tmp
+*.zip

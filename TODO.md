@@ -88,6 +88,12 @@
 * [x] Replace **.vscode/settings.json** with **misc-config-scripts** `settings.json/generic/settings.json` (multi-language union; not a hand-slimmed subset);
 * [x] Align **LICENSE** year range with current year;
 * [x] Add nested **shell-scripts/run_all_unit_tests/README.md** (copy command, per-lang paths, layout contracts, flag table);
+* [x] ~~~Phase 0: declare ownership; scaffold **templates/** catalogue layout + READMEs~~~ - ✅;
+* [x] ~~~Phase 1: complete **self** boilerplate (**`.editorconfig`**; retarget root **`.vimrc`** as self for this Bash catalog, not C/C++ consumer gold; seed **templates/vimrc/c_cxx/.vimrc**)~~~ - ✅;
+* [x] ~~~Phase 2: populate **templates/** from freelibs exemplars and migrate **misc-config-scripts** `settings.json/` + `gitattributes/` content~~~ - ✅;
+* [x] ~~~Phase 3 companion: **misc-config-scripts** **0.8.2** removed legacy catalogs; this repo remains sole project-drop-in home~~~ - ✅;
+* [x] ~~~Phase 4: align self **`.vscode/settings.json`**, **`.gitignore`**, and **`.gitattributes`** with **templates/** gold (keep shell/docs **`.editorconfig`** / **`.vimrc`**)~~~ - ✅;
+* [ ] Later: hoist **build_dist.sh** / **build_dist_uv.sh** (Python), **build_gem.sh** (Ruby), **rustfmt.toml** / **scripts/fmt** (Rust), Go **build.sh** / runners, and further common helpers under **shell-scripts/** or **templates/** as appropriate;
 * [ ] Optional: sample bootstrap notes for copy-vs-sync adoption;
 * [ ] Distribution / drift control: `SCRIPT_VERSION` header matching **VERSION**; document consumer CHANGES citation convention; optional sync helper; optional `testdata/` CI fixtures;
 

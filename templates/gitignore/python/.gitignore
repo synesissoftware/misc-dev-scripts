@@ -1,0 +1,33 @@
+# Synesis Information Systems .gitignore for Python libraries
+
+
+# directories (by name)
+
+/.pytest_cache/
+/.ruff_cache/
+/.venv/
+/build/
+/dist/
+/scratch/
+
+*.egg-info/
+
+
+# directories (by pattern)
+
+**/__pycache__/
+
+
+# files (by name)
+
+.DS_Store
+
+
+# files (by pattern)
+
+*~
+*.pyc
+*.pyo
+*.sw[pon]
+*.tmp
+*.zip

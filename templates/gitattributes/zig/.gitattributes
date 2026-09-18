@@ -1,0 +1,68 @@
+# .gitattributes — Zig (GitHub-hosted)
+#
+# Sources: GitHub Docs (line endings), git-scm gitattributes (no built-in
+# zig diff driver), ziglang conventions for artefacts, github-linguist overrides.
+
+# Default: detect text, normalize to LF in the repository
+* text=auto
+
+# --- Source ---
+*.zig text eol=lf
+*.zon text eol=lf
+build.zig text eol=lf
+build.zig.zon text eol=lf
+
+# --- Scripts ---
+*.bash text eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+*.sh text eol=lf
+*.zsh text eol=lf
+
+# --- Docs / meta ---
+*.adoc text
+*.markdown text diff=markdown
+*.md text diff=markdown
+*.txt text
+AUTHORS text
+CHANGELOG text
+CHANGES text
+CONTRIBUTING text
+COPYING text
+LICENSE text
+NEWS text
+README text
+TODO text
+.gitattributes text
+.gitignore text
+
+# --- Serialisation ---
+*.json text
+*.toml text
+*.xml text
+*.yaml text
+*.yml text
+
+# --- Binary ---
+*.a binary
+*.exe binary
+*.o binary
+*.obj binary
+*.so binary
+
+# --- Archives / images (common) ---
+*.gif binary
+*.gz binary
+*.ico binary
+*.jpeg binary
+*.jpg binary
+*.png binary
+*.tar binary
+*.zip binary
+
+# --- GitHub Linguist ---
+# Prefer .gitignore for these; mark if ever committed
+**/.zig-cache/** linguist-generated
+**/zig-cache/** linguist-generated
+**/zig-out/** linguist-generated
