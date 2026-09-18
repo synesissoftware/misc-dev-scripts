@@ -33,7 +33,7 @@ Sibling project: [**misc-config-scripts**](https://github.com/synesissoftware/mi
 
 ## Ownership and migration
 
-**Status: Phase 3 complete — this repository’s `templates/` is the sole canonical home for project drop-ins.** **misc-config-scripts** **0.9.0+** ships **`.commonrc`** / **`.gitconfig`** only.
+**Status: Phase 3 complete — this repository’s `templates/` is the sole canonical home for project drop-ins.** **misc-config-scripts** **0.8.2+** ships **`.commonrc`** / **`.gitconfig`** only.
 
 Distinguish **self** boilerplate (this repository’s own root editor/Git files) from **templates** (copied into other projects).
 
@@ -91,12 +91,12 @@ See [**templates/README.md**](./templates/README.md). Families:
 * [**.vimrc**](./templates/vimrc/README.md);
 * [**.vscode/**](./templates/vscode/README.md);
 
-**Phase 2:** all families populated for every language key — ready to copy. **misc-config-scripts** **0.9.0+** no longer ships legacy catalogs.
+**Phase 2:** all families populated for every language key — ready to copy. **misc-config-scripts** **0.8.2+** no longer ships legacy catalogs.
 
 
 ## Related projects
 
-A peer project that provides **`.commonrc`** and **`.gitconfig`** is [**misc-config-scripts**](https://github.com/synesissoftware/misc-config-scripts) (**0.9.0+**).
+A peer project that provides **`.commonrc`** and **`.gitconfig`** is [**misc-config-scripts**](https://github.com/synesissoftware/misc-config-scripts) (**0.8.2+**).
 
 Resources from this project are used in the following projects (case-insensitive lexicographic order):
 
