@@ -5,7 +5,7 @@ Miscellaneous Development Scripts
 
 ![Language](https://img.shields.io/badge/language-Bash-blue.svg)
 [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-[![Version](https://img.shields.io/badge/version-0.5.2-blue.svg)](https://github.com/synesissoftware/misc-dev-scripts/blob/master/CHANGES.md)
+[![Version](https://img.shields.io/badge/version-0.6.0-blue.svg)](https://github.com/synesissoftware/misc-dev-scripts/blob/master/CHANGES.md)
 [![Last Commit](https://img.shields.io/github/last-commit/synesissoftware/misc-dev-scripts)](https://github.com/synesissoftware/misc-dev-scripts/commits/master)
 [![CI](https://github.com/synesissoftware/misc-dev-scripts/actions/workflows/ci.yml/badge.svg)](https://github.com/synesissoftware/misc-dev-scripts/actions/workflows/ci.yml)
 
@@ -33,7 +33,7 @@ Sibling project: [**misc-config-scripts**](https://github.com/synesissoftware/mi
 
 ## Ownership and migration (Phase 0)
 
-**Status: intent declared — layout scaffolded; content cutover not complete.**
+**Status: Phase 0–1 done for self boilerplate — template content cutover not complete.**
 
 Distinguish **self** boilerplate (this repository’s own root editor/Git files) from **templates** (copied into other projects).
 
@@ -93,7 +93,7 @@ See [**templates/README.md**](./templates/README.md). Families:
 * [**vimrc**](./templates/vimrc/README.md);
 * [**vscode**](./templates/vscode/README.md);
 
-**Phase 0:** directories reserved (**`.gitkeep`**); not ready to copy.
+**Phase 0–1:** directories reserved; **`templates/vimrc/c_cxx/.vimrc`** seeded. Other families not ready to copy.
 
 
 ## Related projects

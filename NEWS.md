@@ -3,7 +3,7 @@
 
 | Date                 | News Item | Details |
 | -------------------- | --------- | ------- |
-| 15th September 2026  | [**misc-dev-scripts** 0.5.2](https://github.com/synesissoftware/misc-dev-scripts/releases/tag/0.5.2) released | Phase 0 ownership; `templates/` scaffold    |
+| 18th September 2026  | [**misc-dev-scripts** 0.6.0](https://github.com/synesissoftware/misc-dev-scripts/releases/tag/0.6.0) released | Phase 0–1 ownership; self boilerplate; c_cxx vimrc seed |
 | 14th September 2026  | [**misc-dev-scripts** 0.5.1](https://github.com/synesissoftware/misc-dev-scripts/releases/tag/0.5.1) released | Python `.sis` help + prefer project `.venv` |
 | 1st September 2026   | [**misc-dev-scripts** 0.5.0](https://github.com/synesissoftware/misc-dev-scripts/releases/tag/0.5.0) released | JavaScript `run_all_unit_tests` runner      |
 | 25th August 2026     | [**misc-dev-scripts** 0.4.2](https://github.com/synesissoftware/misc-dev-scripts/releases/tag/0.4.2) released | Ruby `tput` TERM/TTY guard                  |
