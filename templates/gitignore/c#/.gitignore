@@ -3,38 +3,69 @@
 
 # directories (by name)
 
-/.idea/
-/.vs/
-/TestResults/
-/artifacts/
-/bin/
-/obj/
+.idea/
+.vs/
 /scratch/
-[Bb]in/
-[Oo]bj/
+BenchmarkDotNet.Artifacts/
+TestResults/
+artifacts/
+bld/
+x64/
+x86/
 
 
 # directories (by pattern)
 
 **/[Pp]ackages/*
+!**/[Pp]ackages/build/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+[Bb]in/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Ll]og/
+[Ll]ogs/
+[Oo]bj/
+[Rr]elease/
+[Rr]eleases/
+[Tt]est[Rr]esult*/
+[Ww][Ii][Nn]32/
 
 
 # files (by name)
 
 .DS_Store
+.env
+Thumbs.db
+project.fragment.lock.json
+project.lock.json
 
 
 # files (by pattern)
 
-*~
+*.cache
 *.coverage
 *.coveragexml
+*.log
+*.nuget.props
+*.nuget.targets
 *.nupkg
+*.rsuser
+*.sln.docstates
+*.sln.iml
 *.snupkg
 *.suo
 *.sw[pon]
+*.temp
 *.tmp
 *.trx
 *.user
+*.userosscache
+*.userprefs
 *.zip
-project.lock.json
+*~
+.env.*
+[Bb]uild[Ll]og.*
+coverage*.info
+coverage*.json
+coverage*.xml

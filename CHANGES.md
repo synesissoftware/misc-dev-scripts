@@ -3,6 +3,7 @@
 
 ## Table of Contents <!-- omit in toc -->
 
+- [0.6.1 - 21st September 2026](#061---21st-september-2026)
 - [0.6.0 - 18th September 2026](#060---18th-september-2026)
 - [0.5.1 - 14th September 2026](#051---14th-september-2026)
 - [0.5.0 - 1st September 2026](#050---1st-september-2026)
@@ -12,6 +13,14 @@
 - [0.3.0 - 15th August 2026](#030---15th-august-2026)
 - [0.2.0 - 12th August 2026](#020---12th-august-2026)
 - [0.1.1 - 11th August 2026](#011---11th-august-2026)
+
+
+## 0.6.1 - 21st September 2026
+
+* Promoted the Synesis Linguist language-bar into **templates/gitattributes/{c,cxx,c_cxx}/** (public C API headers as C; `*.cmake` as CMake; helpers / IDE / **CMakeLists.txt** / `makefile` `-linguist-detectable`);
+* Updated **templates/gitattributes/README.md** (language-bar is house policy, not an omitted remap);
+* Expanded **templates/gitignore/c#/** from the lean consensus to the SDK-era Visual Studio / NuGet / Coverlet / BenchmarkDotNet ignore union (gold section layout; unrooted IDE and artefact dirs; omits **`.vscode/`** so tracked settings survive);
+* Updated **templates/gitignore/README.md** (C# gold is the SDK-era union);
 
 
 ## 0.6.0 - 18th September 2026
