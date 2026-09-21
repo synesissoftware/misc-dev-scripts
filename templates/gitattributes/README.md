@@ -6,7 +6,7 @@
 
 Drop-in root **`.gitattributes`** files for GitHub-hosted repositories, organised by primary language.
 
-These templates were written from first principles using public documentation and community templates — **not** from local Synesis / related repositories.
+These templates were written from first principles using public documentation and community templates. The **c** / **cxx** / **c_cxx** Linguist language-bar (header classification and `-linguist-detectable` helpers) is the Synesis C/C++ house policy, lifted from **xTests** / **CLASP**.
 
 
 ## Table of Contents <!-- omit in toc -->
@@ -74,7 +74,7 @@ Folders: **`c/`**, **`cxx/`**.
 * **Source**: C/C++ extensions as `text diff=cpp` (Git’s `cpp` driver covers both languages).
 * **Build**: Makefiles, Autotools, CMake as text; `configure` forced `eol=lf`.
 * **Binary**: objects, static/shared libraries, executables, precompiled headers.
-* **Linguist**: `build/` / `cmake-build-*/` as `linguist-generated` if ever committed (prefer `.gitignore`).
+* **Linguist**: `build/` / `cmake-build-*/` as `linguist-generated` if ever committed (prefer `.gitignore`); Synesis language-bar — `*.h` / `*.c` as C, `*.hpp` / `*.hxx` / `*.cpp` / `*.cxx` as C++, `*.cmake` as CMake; helpers / IDE / **CMakeLists.txt** / `makefile` are `-linguist-detectable` (leave `*.cmake` on the bar).
 
 ### csharp
 
@@ -155,7 +155,7 @@ Every template includes:
 
 ## What is intentionally omitted
 
-* Project-specific `linguist-language=` remaps (e.g. forcing headers to C vs C++);
+* Project-specific `linguist-language=` remaps outside the Synesis C/C++ language-bar on **c** / **cxx** / **c_cxx**;
 * Absolute paths or machine-local patterns;
 * Treating SVG as binary (left as text, matching Common/Web templates);
 * Relying on Linguist alone for build dirs that should be **gitignored** instead;

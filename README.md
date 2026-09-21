@@ -5,7 +5,7 @@ Miscellaneous Development Scripts
 
 ![Language](https://img.shields.io/badge/language-Bash-blue.svg)
 [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-[![Version](https://img.shields.io/badge/version-0.6.0-blue.svg)](https://github.com/synesissoftware/misc-dev-scripts/blob/master/CHANGES.md)
+[![Version](https://img.shields.io/badge/version-0.6.1-blue.svg)](https://github.com/synesissoftware/misc-dev-scripts/blob/master/CHANGES.md)
 [![Last Commit](https://img.shields.io/github/last-commit/synesissoftware/misc-dev-scripts)](https://github.com/synesissoftware/misc-dev-scripts/commits/master)
 [![CI](https://github.com/synesissoftware/misc-dev-scripts/actions/workflows/ci.yml/badge.svg)](https://github.com/synesissoftware/misc-dev-scripts/actions/workflows/ci.yml)
 
