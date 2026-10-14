@@ -3,6 +3,7 @@
 
 ## Table of Contents <!-- omit in toc -->
 
+- [0.6.2 - 24th September 2026](#062---24th-september-2026)
 - [0.6.1 - 21st September 2026](#061---21st-september-2026)
 - [0.6.0 - 18th September 2026](#060---18th-september-2026)
 - [0.5.1 - 14th September 2026](#051---14th-september-2026)
@@ -13,6 +14,14 @@
 - [0.3.0 - 15th August 2026](#030---15th-august-2026)
 - [0.2.0 - 12th August 2026](#020---12th-august-2026)
 - [0.1.1 - 11th August 2026](#011---11th-august-2026)
+
+
+## 0.6.2 - 24th September 2026
+
+* Added **shell-scripts/cmake-helpers/** gold corpus for Synesis C/C++ libraries, re-extracted from the **cstring** examining host on **`boilerplate`** (**SisClr** / **`sis_cmake_build`**; contract **CXX-BOILERPLATE-PHASE4.md**);
+* Full native **`cmd.exe`** **`run_all_*.cmd`** set (no Bash **`.cmd`** wrappers);
+* Scratch runners no longer discover performance programs; empty categories exit **0**;
+* Build/clean/test runners use **`cmake --build`** (no **`Makefile`** / **`MakeCmd`** requirement);
 
 
 ## 0.6.1 - 21st September 2026

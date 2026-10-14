@@ -3,6 +3,7 @@
 
 | Date                 | News Item | Details |
 | -------------------- | --------- | ------- |
+| 24th September 2026  | [**misc-dev-scripts** 0.6.2](https://github.com/synesissoftware/misc-dev-scripts/releases/tag/0.6.2) released | C/C++ **cmake-helpers** SisClr + native **`.cmd`** (**Phase 4b**) |
 | 21st September 2026  | [**misc-dev-scripts** 0.6.1](https://github.com/synesissoftware/misc-dev-scripts/releases/tag/0.6.1) released | C/C++ **.gitattributes** Linguist language-bar; C# **.gitignore** SDK-era union |
 | 18th September 2026  | [**misc-dev-scripts** 0.6.0](https://github.com/synesissoftware/misc-dev-scripts/releases/tag/0.6.0) released | Phase 0–4: templates catalogue + self align |
 | 14th September 2026  | [**misc-dev-scripts** 0.5.1](https://github.com/synesissoftware/misc-dev-scripts/releases/tag/0.5.1) released | Python `.sis` help + prefer project `.venv` |
