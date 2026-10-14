@@ -4,7 +4,7 @@ SETLOCAL
 
 SET SCRIPT_DIRECTORY=%~dp0
 SET SCRIPT_PATH_DOC=%~n0[%~x0]
-SET "ALLOWED_TO_FAIL_FILE=%SCRIPT_DIRECTORY%.github\ci_examples_allowed_to_fail.txt"
+SET "ALLOWED_TO_FAIL_FILE=%SCRIPT_DIRECTORY%.sis\ci_examples_allowed_to_fail.txt"
 SET "PROGRAM_STATUS=0"
 
 IF DEFINED SIS_CMAKE_BUILD_DIR (
@@ -53,7 +53,7 @@ Flags/options: ^
 
 ^
 
-        .github\ci_examples_allowed_to_fail.txt ^
+        .sis\ci_examples_allowed_to_fail.txt ^
 
             optional list of example programs ^(one name per line; ^
 
@@ -113,7 +113,7 @@ SET "FAILURE_STATUS=%ERRORLEVEL%"
 IF %FAILURE_STATUS% EQU 0 EXIT /B 0
 CALL :is_allowed_to_fail "%~1"
 IF NOT DEFINED ALLOWED_TO_FAIL GOTO run_program_failed
-ECHO anticipated failure: %~1 exited with status %FAILURE_STATUS%; it is listed in .github\ci_examples_allowed_to_fail.txt
+ECHO anticipated failure: %~1 exited with status %FAILURE_STATUS%; it is listed in .sis\ci_examples_allowed_to_fail.txt
 EXIT /B 0
 :run_program_failed
 SET "PROGRAM_STATUS=%FAILURE_STATUS%"

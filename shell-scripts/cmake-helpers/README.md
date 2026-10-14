@@ -1,10 +1,12 @@
 # CMake helper scripts (C/C++) <!-- omit in toc -->
 
-Updated: 9th October 2026
+Updated: 14th October 2026
 
 Gold Bash and native **`cmd.exe`** helpers for Synesis C/C++ libraries.
-Dialect SSOT: **cstring** examining host on **`boilerplate`** (Phase 4b;
-contract **freelibs** `.management/strategy/c-cpp/CXX-BOILERPLATE-PHASE4.md`).
+Dialect SSOT: **Pantheios** examining host on **`dev`** for discovery /
+scratch-interactive tip (prior Phase 4b body from **cstring** on
+**`boilerplate`**; contract **freelibs**
+`.management/strategy/c-cpp/CXX-BOILERPLATE-PHASE4.md`).
 
 Copy these files into each project root (byte-identical for common scripts).
 Do **not** `source` this directory. Project-only `prepare_cmake.sh` flags live
@@ -18,13 +20,21 @@ in a marked **`# PROJECT-SPECIFIC FLAGS`** block inside that script.
   **`SIS_CMAKE_MINGW`**);
 * Windows: native **`.cmd`** only — never `bash "%~dp0….sh"` wrappers;
 * Automated = unit then component; scratch never discovers performance;
+* Examples, unit, and scratch Bash discovery exclude **`CMakeFiles/`** and
+  compiler / library sidecars (**`*.a`**, **`*.d`**, **`*.lib`**) so
+  **`-perm -100`** does not treat dependency artefacts as programs;
 * Examples and scratch runners honour an optional allowed-to-fail list —
-  **`.github/ci_examples_allowed_to_fail.txt`** /
-  **`.github/ci_scratch_tests_allowed_to_fail.txt`** (one program name or
+  **`.sis/ci_examples_allowed_to_fail.txt`** /
+  **`.sis/ci_scratch_tests_allowed_to_fail.txt`** (one program name or
   stem per line; `#` comments): a listed program is still executed, but a
   non-zero exit is reported as anticipated and neither stops the run nor
   affects the exit status. Trees without the file are unaffected. Intended
   for unit-testing libraries whose demonstrations fail by design;
+* Scratch runners honour **`--skip-interactive`** with
+  **`.sis/ci_scratch_tests_skip_interactive.txt`** (GUI / speech /
+  desktop-interactive programs unsuitable for headless CI): listed
+  programs are skipped only when the flag is given; the flag requires the
+  skip-list file to exist;
 
 
 ## Corpus

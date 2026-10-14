@@ -27,7 +27,7 @@ CMakeDir=${SIS_CMAKE_BUILD_DIR:-$Dir/_build}
 ProjectNameFile="$Dir/.sis/project_name.txt"
 ProjectName=$(tr -d '[:space:]' < "$ProjectNameFile")
 ScriptPath=$0
-AllowedToFailFile="$Dir/.github/ci_examples_allowed_to_fail.txt"
+AllowedToFailFile="$Dir/.sis/ci_examples_allowed_to_fail.txt"
 
 AlwaysUseColours=${SIS_CMAKE_ALWAYS_USE_COLOURS:-${SIS_ALWAYS_USE_COLOURS:-0}}
 ListOnly=0
@@ -132,7 +132,7 @@ sis_program_stem() {
 }
 
 # Succeeds if the program is named (by name or stem, case-insensitively) in
-# the optional .github/ci_examples_allowed_to_fail.txt file; blank lines and
+# the optional .sis/ci_examples_allowed_to_fail.txt file; blank lines and
 # lines beginning with '#' are ignored.
 sis_is_allowed_to_fail() {
 
@@ -206,7 +206,7 @@ Flags/options:
 
     files:
 
-    .github/ci_examples_allowed_to_fail.txt
+    .sis/ci_examples_allowed_to_fail.txt
         optional list of example programs (one name per line; blank lines
         and lines beginning with '#' are ignored) that are allowed to fail;
         such a program is still executed, but a non-zero exit is reported as
@@ -323,7 +323,7 @@ if [ $status -eq 0 ]; then
 
       if sis_is_allowed_to_fail "$f"; then
 
-        echo "${SisClr_Yellow}${SisClr_Bold}anticipated failure${SisClr_None}: ${fClr} exited with status ${fStatus}; it is listed in .github/ci_examples_allowed_to_fail.txt"
+        echo "${SisClr_Yellow}${SisClr_Bold}anticipated failure${SisClr_None}: ${fClr} exited with status ${fStatus}; it is listed in .sis/ci_examples_allowed_to_fail.txt"
 
         continue
       fi
@@ -332,7 +332,12 @@ if [ $status -eq 0 ]; then
 
       break 1
     fi
-  done < <(find "$CMakeDir" -type f \( -name 'example*' ! -name '*.md' \) \( -perm -100 -o -name '*.exe' \) -print0 2>/dev/null | sort -z)
+  done < <(find "$CMakeDir" -type f \( -name 'example*' ! -name '*.md' \) \
+    ! -path '*/CMakeFiles/*' \
+    ! -name '*.a' \
+    ! -name '*.d' \
+    ! -name '*.lib' \
+    \( -perm -100 -o -name '*.exe' \) -print0 2>/dev/null | sort -z)
 
   if [ $NumPrograms -eq 0 ]; then
 
