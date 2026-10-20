@@ -5,7 +5,7 @@ Miscellaneous Development Scripts
 
 ![Language](https://img.shields.io/badge/language-Bash-blue.svg)
 [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-[![Version](https://img.shields.io/badge/version-0.6.1-blue.svg)](https://github.com/synesissoftware/misc-dev-scripts/blob/master/CHANGES.md)
+[![Version](https://img.shields.io/badge/version-0.6.2-blue.svg)](https://github.com/synesissoftware/misc-dev-scripts/blob/master/CHANGES.md)
 [![Last Commit](https://img.shields.io/github/last-commit/synesissoftware/misc-dev-scripts)](https://github.com/synesissoftware/misc-dev-scripts/commits/master)
 [![CI](https://github.com/synesissoftware/misc-dev-scripts/actions/workflows/ci.yml/badge.svg)](https://github.com/synesissoftware/misc-dev-scripts/actions/workflows/ci.yml)
 
@@ -16,6 +16,7 @@ Miscellaneous Development Scripts
 - [Ownership and migration](#ownership-and-migration)
 - [Catalogue layout](#catalogue-layout)
 - [Shell Scripts](#shell-scripts)
+  - [cmake-helpers](#cmake-helpers)
   - [run\_all\_unit\_tests.sh](#run_all_unit_testssh)
 - [Project drop-in templates](#project-drop-in-templates)
 - [Related projects](#related-projects)
@@ -26,7 +27,7 @@ Miscellaneous Development Scripts
 
 **misc-dev-scripts** is a catalog of resources intended to be **copied** into Synesis (and related) **project** trees: shell helpers (under **shell-scripts/**) and language-specific project drop-in templates (under **templates/**).
 
-Today the shipped helpers are principally **run_all_unit_tests.sh** variants for **JavaScript**, **Python**, and **Ruby**, with further languages and template families planned. When updating a consumer, cite this repository’s **VERSION** in that project’s **CHANGES.md**.
+Today the shipped helpers are the C/C++ **cmake-helpers** corpus and **run_all_unit_tests.sh** variants for **JavaScript**, **Python**, and **Ruby**, with further languages and template families planned. When updating a consumer, cite this repository’s **VERSION** in that project’s **CHANGES.md**.
 
 Sibling project: [**misc-config-scripts**](https://github.com/synesissoftware/misc-config-scripts) (**`.commonrc`** and **`.gitconfig`** only).
 
@@ -66,6 +67,11 @@ See [**templates/README.md**](./templates/README.md) for status, ownership detai
 
 
 ## Shell Scripts
+
+
+### cmake-helpers
+
+C/C++ CMake gold (**0.6.2**): Bash and native **`cmd.exe`** runners under [**shell-scripts/cmake-helpers/**](./shell-scripts/cmake-helpers/README.md). Copy into the project root; keep project-only **`prepare_cmake.sh`** flags in the marked block.
 
 
 ### run_all_unit_tests.sh
