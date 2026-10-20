@@ -1,6 +1,6 @@
 # CMake helper scripts (C/C++) <!-- omit in toc -->
 
-Updated: 14th October 2026
+Updated: 20th October 2026
 
 Gold Bash and native **`cmd.exe`** helpers for Synesis C/C++ libraries.
 Dialect SSOT: **Pantheios** examining host on **`dev`** for discovery /
